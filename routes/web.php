@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+// Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/home', function () {
         return view('home');
     });
@@ -32,6 +32,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/stagaires/{registration_number}/edit', [StagaireController::class, 'edit'])->name('stagaires.edit');
     Route::put('/stagaires/{registration_number}', [StagaireController::class, 'update'])->name('stagaires.update');
     Route::delete('/stagaires/{registration_number}',[StagaireController::class,'destroy'])->name('stagaires.destroy');
-});
+// });
 
 
