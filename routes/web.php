@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', function () {
     return view('dashbord.home');
 })->name('home');
-
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
  
 Route::get('/group',function(){
     return view('dashbord.list_groupe');
