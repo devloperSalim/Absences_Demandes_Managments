@@ -43,3 +43,10 @@ Route::get('/stagiaire/absence',function(){
 Route::get('/stagiaire/update',function(){
     return view('dashbord.update_absence');
 })->name('update_absence');
+
+
+
+
+Route::get('/demandes',function (){
+    return view('dashbord.inbox_demande');
+})->name('list_demande');
