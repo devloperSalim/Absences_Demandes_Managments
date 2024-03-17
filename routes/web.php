@@ -16,26 +16,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', function () {
+    return view('dashbord.home');
+})->name('home');
 
-// Route::prefix('admin')->middleware('auth')->group(function () {
-//     Route::get('/home', function () {
-//         return view('home');
-//     });
-
-//     Route::get('/stagaires', [StagaireController::class, 'index'])->name('stagaires.index');
-//     Route::get('/stagaires/create', [StagaireController::class, 'create'])->name('stagaires.create');
-//     Route::post('/stagaires', [StagaireController::class, 'store'])->name('stagaires.store');
-//     Route::get('/stagaires/{registration_number}', [StagaireController::class, 'show'])->name('stagaires.show');
-//     Route::get('/stagaires/{registration_number}/edit', [StagaireController::class, 'edit'])->name('stagaires.edit');
-//     Route::put('/stagaires/{registration_number}', [StagaireController::class, 'update'])->name('stagaires.update');
-//     Route::delete('/stagaires/{registration_number}',[StagaireController::class,'destroy'])->name('stagaires.destroy');
-// });
+ 
+Route::get('/group',function(){
+    return view('dashbord.list_groupe');
+})->name('list_groupe');
+Route::get('/group/create',function(){
+    return view('dashbord.Ajouter_group');
+})->name('add_group');
 
 
-Route::get('/hello',function(){
-    return 'hello';
-});
-
+Route::get('/stagiaire',function(){
+    return view('dashbord.list_stagiaire');
+})->name('list_stagiaire');
+Route::get('/stagiaire/create',function(){
+    return view('dashbord.ajouter_stagiaire');
+})->name('add_stagiaire');
+Route::get('/stagiaire/absence',function(){
+    return view('dashbord.stagiaire_absence');
+})->name('stagiaire_absence');
+Route::get('/stagiaire/update',function(){
+    return view('dashbord.update_absence');
+})->name('update_absence');
