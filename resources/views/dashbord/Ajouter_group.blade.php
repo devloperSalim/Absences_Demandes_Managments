@@ -172,6 +172,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -252,8 +253,25 @@
                 <!-- /.card-body -->
               </div>
         </div> 
+        <div class="row"> 
+          <div class="  col-12 ">
+            <div class="card-body">
+              <h5 class="card-title">Import Excel File</h5>
+              <form action="upload.php" method="post" enctype="multipart/form-data">
+                <div class="custom-file">
+                  <input type="file" class=" d-none" id="excelFile" name="excelFile">
+                  <label class="btn btn-primary" for="excelFile"> 
+                    <i class="fas fa-file-excel mr-2"></i> Import Excel
+                   </label>
+                </div> 
+              </form>
+            </div> 
         </div>
-      </div><!-- /.container-fluid -->
+      </div> 
+        </div>
+        
+      </div><!-- /.container-fluid --> 
+        
     </section>
     <!-- /.content -->
   </div>

@@ -9,7 +9,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "jeroennoten/laravel-adminlte": "^3.9",
         "laravel/fortify": "^1.19",
-        "laravel/framework": "^9.19",
+        "laravel/framework": "^10.9",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"
     },
