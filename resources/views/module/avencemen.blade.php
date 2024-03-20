@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>AdminLTE 3 | Dashboard</title>   
 @include('layouts.header_links')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -11,7 +11,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -57,7 +57,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="{{ asset('dist/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -73,7 +73,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="{{ asset('dist/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -89,7 +89,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="{{ asset('dist/img/user3-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -146,7 +146,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Admin</span>
     </a>
 
@@ -155,7 +155,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Maryem</a>
@@ -173,11 +173,8 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
+        <div class="row mb-2"> 
+          <div class="col-12">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Dashboard </li>
@@ -190,55 +187,105 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
+      <div class="container-fluid ">
         <!-- Small boxes (Stat box) -->
+         
+        </div>
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>50</h3>
-
-                <p>all groupe</p>
+           <div class="col-12">  
+            <div class="alert border-success info-box ">
+              <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+                <div class="info-box-content ">
+                  <span class="info-box-text">Nom & prenom fromateur</span>
+                  <span class="info-box-number">nom Group</span>
+                  <div class="d-flex align-items-center"  >
+                    <div class="progress" style="width: 90%">
+                      <div class="progress-bar bg-info " style="width: 70%"></div>
+                    </div>
+                    <span>70%</span>
+                  </div>
+                  <span class="description">
+                    message status davancement
+                  </span>
+                </div>
               </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
+        </div>
+        <div class="col-12">  
+            <div class="alert border-success info-box">
+                <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Nom & prenom fromateur</span>
+                  <span class="info-box-number">nom Group</span>
+                  <div class="d-flex align-items-center"  >
+                    <div class="progress" style="width: 90%">
+                      <div class="progress-bar bg-info " style="width: 20%"></div>
+                    </div>
+                    <span>20%</span>
+                  </div>
+                  <span class="description">
+                    message status davancement
+                  </span>
+                </div>
               </div>
-              <a href="{{ route('list_groupe') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+        </div>
+        <div class="col-12">  
+            <div class="alert border-success info-box">
+              <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Nom & prenom fromateur</span>
+                  <span class="info-box-number">nom Group</span>
+                  <div class="d-flex align-items-center"  >
+                    <div class="progress" style="width: 90%">
+                      <div class="progress-bar bg-info " style="width: 730%"></div>
+                    </div>
+                    <span>30%</span>
+                  </div>
+                  <span class="description">
+                    message status davancement
+                  </span>
+                </div>
+              </div>
+        </div>
+        <div class="col-12">  
+            <div class="info-box ">
+              <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Nom & prenom fromateur</span>
+                  <span class="info-box-number">nom Group</span>
+                  <div class="d-flex align-items-center"  >
+                    <div class="progress" style="width: 90%">
+                      <div class="progress-bar bg-info " style="width: 50%"></div>
+                    </div>
+                    <span>50%</span>
+                  </div>
+                  <span class="description">
+                    message status davancement
+                  </span>
+                </div>
+              </div>
+        </div>
+        <div class="col-12"> 
            
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>absence stagier</p>
+          <div class=" alert border-warning   info-box">
+            <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Nom & prenom fromateur</span>
+              <span class="info-box-number">nom Group</span>
+              <div class="d-flex align-items-center"  >
+                <div class="progress" style="width: 90%">
+                  <div class="progress-bar bg-info " style="width: 30%"></div>
+                </div>
+                <span>30%</span>
               </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <span class="description">
+                message status davancement
+              </span>
             </div>
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+         
+        </div> 
+        
+           </div>
         </div> 
       </div><!-- /.container-fluid -->
     </section>
@@ -260,5 +307,6 @@
 <!-- ./wrapper -->
 
 @extends('layouts.footerjs') 
+ 
 </body>
 </html>

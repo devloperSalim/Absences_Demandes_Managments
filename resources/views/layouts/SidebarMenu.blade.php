@@ -63,7 +63,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('list_module') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>list modules</p>
             </a>
@@ -76,9 +76,9 @@
           </li>
            
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('avancement') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>l’avancement des modules </p>
+              <p>alert l’avancement  </p>
             </a>
           </li> 
         </ul>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>AdminLTE 3 | Dashboard</title>   
 @include('layouts.header_links')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -173,11 +173,8 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
+        <div class="row mb-2"> 
+          <div class="col-12">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Dashboard </li>
@@ -193,52 +190,119 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>50</h3>
-
-                <p>all groupe</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="{{ route('list_groupe') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-           
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>absence stagier</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+           <div class="col-12">  
+                    
+                    <!--MDB Tables--> 
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <!-- Grid row -->
+                                <div class="row">
+                                    <!-- Grid column -->
+                                    <div class="col-md-12">
+                                        <h2 class="  pb-4   font-bold font-up deep-purple-text">List modules</h2>
+                                        <div class="input-group md-form form-sm form-2  ">
+                                            <input class="form-control my-0 py-1 pl-3 purple-border" id="searchinput" type="text" placeholder="Search something here..." aria-label="Search"> 
+                                        </div>
+                                    </div>
+                                    <!-- Grid column -->
+                                </div>
+                                <!-- Grid row -->
+                                <!--Table-->
+                                <table class="table table-striped" id="example">
+                                    <!--Table head-->
+                                    <thead>
+                                        <tr>
+                                            <th>Code Module</th>
+                                            <th>module</th>
+                                            <th>nombre horaire</th>
+                                            <th>Régional</th>
+                                            <th>MH Presentiel</th>
+                                            <th>MH distanciel</th>
+                                            <th>more</th>
+                                        </tr>
+                                    </thead>
+                                    <!--Table head-->
+                                    <!--Table body-->
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>Oui</td>
+                                            <td>12</td>
+                                            <td>12</td>
+                                            <td><a href="{{ route('info_module') }}" class="btn   bg-purple">
+                                                    <i class="fa-regular fa-eye"></i> 
+                                                </a></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>Oui</td>
+                                            <td>12</td>
+                                            <td>12</td>
+                                            <td><a href="{{ route('info_module') }}" class="btn   bg-purple">
+                                                    <i class="fa-regular fa-eye"></i> 
+                                                </a></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+                                            <td>Non</td>
+                                            <td>12</td>
+                                            <td>12</td>
+                                            <td><a href="{{ route('info_module') }}" class="btn   bg-purple">
+                                                    <i class="fa-regular fa-eye"></i> 
+                                                </a></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>Non</td>
+                                            <td>12</td>
+                                            <td>12</td>
+                                            <td><a href="{{ route('info_module') }}" class="btn   bg-purple">
+                                                    <i class="fa-regular fa-eye"></i> 
+                                                </a></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>Oui</td>
+                                            <td>12</td>
+                                            <td>12</td>
+                                            <td><a href="{{ route('info_module') }}" class="btn   bg-purple">
+                                                    <i class="fa-regular fa-eye"></i> 
+                                                </a></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                            <td>the Bird</td>
+                                            <td>Non</td>
+                                            <td>12</td>
+                                            <td>12</td>
+                                            <td><a href="{{ route('info_module') }}" class="btn   bg-purple">
+                                                    <i class="fa-regular fa-eye"></i> 
+                                                </a></td>
+                                        </tr>
+                                    </tbody>
+                                    <!--Table body-->
+                                </table>
+                                <!--Table-->
+                            </div>  
+                      
+                        <hr class="my-4">
+                       
+            
+                    </div>
+                    <!--MDB Tables-->
+                    
+           </div>
         </div> 
       </div><!-- /.container-fluid -->
     </section>
@@ -260,5 +324,38 @@
 <!-- ./wrapper -->
 
 @extends('layouts.footerjs') 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get references to the input element and the table
+      var searchInput = document.getElementById("searchinput");
+      var dataTable = document.getElementById("example");
+      var tableRows = dataTable.getElementsByTagName("tr");
+    
+      // Add event listener for keyup event on the search input
+      searchInput.addEventListener("keyup", function() {
+        var searchText = searchInput.value.toLowerCase();
+    
+        // Loop through all table rows and hide those that do not match the search query
+        for (var i = 1; i < tableRows.length; i++) { // Start from index 1 to skip header row
+          var rowData = tableRows[i].getElementsByTagName("td");
+          var rowMatch = false;
+          
+          for (var j = 0; j < rowData.length; j++) {
+            var cellData = rowData[j].textContent.toLowerCase();
+            if (cellData.indexOf(searchText) > -1) {
+              rowMatch = true;
+              break;
+            }
+          }
+    
+          if (rowMatch) {
+            tableRows[i].style.display = "";
+          } else {
+            tableRows[i].style.display = "none";
+          }
+        }
+      });
+    });
+ </script>
 </body>
 </html>

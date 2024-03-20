@@ -67,7 +67,10 @@ nav,
 section {
     display: block
 }
-d-none{
+.bg-indigo-100 {
+    background-color: #ebf4ff; /* Replace this with the appropriate hex color value from Tailwind CSS */
+}
+.d-none{
     display: none;
  }
 body {

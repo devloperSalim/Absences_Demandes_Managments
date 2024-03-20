@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>AdminLTE 3 | Dashboard</title>   
 @include('layouts.header_links')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -173,11 +173,8 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
+        <div class="row mb-2"> 
+          <div class="col-12">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Dashboard </li>
@@ -193,52 +190,87 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>50</h3>
-
-                <p>all groupe</p>
+           <div class="col-12">  
+            <div class="alert border-success info-box">
+              <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+                <div class="info-box-content ">
+                  <span class="info-box-text">Nom & prenom fromateur</span>
+                  <span class="info-box-number">nom Group</span>
+                  <div class="d-flex align-items-center"  >
+                    <div class="progress" style="width: 90%">
+                      <div class="progress-bar bg-info " style="width: 70%"></div>
+                    </div>
+                    <span>70%</span>
+                  </div>
+                  <span class="description">
+                    message status davancement
+                  </span>
+                </div>
               </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
+        </div>
+        <div class="col-12">  
+            <div class="alert border-success info-box">
+              <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Nom & prenom fromateur</span>
+                  <span class="info-box-number">nom Group</span>
+                  <div class="progress">
+                    <div class="progress-bar bg-info " style="width: 20%"></div>
+                    
+                  </div>
+                  <span class="description">
+                    message status davancement
+                  </span>
+                </div>
               </div>
-              <a href="{{ route('list_groupe') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+        </div>
+        <div class="col-12">  
+            <div class="alert border-success info-box">
+                <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Nom & prenom fromateur</span>
+                  <span class="info-box-number">nom Group</span>
+                  
+                  <span class="description">
+                    message status davancement
+                  </span>
+                </div>
+              </div>
+        </div>
+        <div class="col-12">  
+            <div class="info-box">
+              <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">Nom & prenom fromateur</span>
+                  <span class="info-box-number">nom Group</span>
+                  <div class="progress">
+                    <div class="progress-bar bg-info " style="width: 50%"></div>
+                  </div>
+                  <span class="description">
+                    message status davancement
+                  </span>
+                </div>
+              </div>
+        </div>
+        <div class="col-12"> 
            
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>absence stagier</p>
+          <div class=" alert border-warning   info-box">
+            <span class="info-box-icon bg-info"><i class="fa-light fa-book"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Nom & prenom fromateur</span>
+              <span class="info-box-number">nom Group</span>
+              <div class="progress">
+                <div class="progress-bar bg-info " style="width: 30%"></div>
               </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <span class="description">
+                message status davancement
+              </span>
             </div>
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+         
+        </div> 
+        
+           </div>
         </div> 
       </div><!-- /.container-fluid -->
     </section>
@@ -260,5 +292,6 @@
 <!-- ./wrapper -->
 
 @extends('layouts.footerjs') 
+ 
 </body>
 </html>
