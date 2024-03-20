@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/not_found',function (){
     return view('not_found');
 });
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 })->name('home');
 Route::get('/login', function () {
@@ -47,6 +47,19 @@ Route::get('/stagiaire/update',function(){
 Route::get('/modules',function (){
     return view('module.list_module');
 })->name('list_module');
+
+Route::get('/modules/id',function (){
+    return view('module.module');
+})->name('module');
+
+Route::get('/modules/ajoute',function (){
+    return view('module.ajouter_module');
+})->name('ajoute_module');
+
+Route::get('/modules/ajoute-avancement',function (){
+    return view('module.ajoute_avancemant');
+})->name('ajoute_avancement');
+
 Route::get('/modules/avancement',function (){
     return view('module.avencemen');
 })->name('info_module');
@@ -54,6 +67,8 @@ Route::get('/modules/avancement',function (){
 Route::get('/modules/alert_avancement',function (){
     return view('module.alert_avancement');
 })->name('avancement');
+
+
 
 Route::get('/demandes',function (){
     return view('demande.inbox_demande');

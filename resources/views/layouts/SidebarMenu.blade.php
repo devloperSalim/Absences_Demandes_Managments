@@ -69,7 +69,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('ajoute_module') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>ajouter module</p>
             </a>
@@ -79,6 +79,12 @@
             <a href="{{ route('avancement') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>alert l’avancement  </p>
+            </a>
+          </li> 
+          <li class="nav-item">
+            <a href="{{ route('ajoute_avancement') }}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>ajoute l’avancement de programme  </p>
             </a>
           </li> 
         </ul>

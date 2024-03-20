@@ -104,8 +104,8 @@
           <div class="col-sm-12">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item ">Dashboard </li>
-                <li class="breadcrumb-item"><a href="{{ route('list_stagiaire') }}">Stagiaires</a></li>
-              <li class="breadcrumb-item active"><a href="{{ route('add_stagiaire') }}">Ajouter Stagiaire</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('list_module') }}">modules</a></li>
+              <li class="breadcrumb-item active"><a href="{{ route('ajoute_module') }}">Ajouter module</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -123,7 +123,7 @@
                 <!-- /.card-header -->  
                 <div class="card card-default">
                     <div class="card-header">
-                      <h3 class="card-title">Ajouter Stagiaire</h3>
+                      <h3 class="card-title">Ajouter avancement module</h3>
            
                     </div>
                 </div>
@@ -133,15 +133,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Nom & prenom </label> 
+                                  <label>code Module</label> 
                                   <input class="form-control" type="text" name="" id="" style="width: 100%;">
                                 </div>  
                             </div>
                             <!-- /.form-group -->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Tele</label>  
-                                        <input type="tel"   class="form-control"> 
+                                    <label>Affectée Globale distanciel</label>  
+                                        <input type="number"   class="form-control"> 
                                   
                                 </div>  
                               </div>
@@ -151,24 +151,17 @@
                           <!-- /.col -->
                           <div class="col-md-6">
                             <div class="form-group">
-                                  <label>Nationalité</label> 
-                                  <input class="form-control" type="text" name="" id="" style="width: 100%;">
+                                  <label>Affectée Globale présentiel</label> 
+                                  <input class="form-control" type="number" name="" id="" style="width: 100%;">
                             </div>  
                           </div>
-                          <!-- /.col --> 
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Email etud </label> 
-                              <input class="form-control" type="email" name="" id="" style="width: 100%;">
-                            </div>  
-                          </div> 
                           
                           <!-- /.col -->
                           </div>
-                          <div class="row">
+                          <div class="row"> 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Groupe </label>  
+                                  <label>group</label>  
                                   <select class="form-control" style="width: 100%;">
                                     <option >GES102</option>
                                     <option>GES102</option> 
@@ -177,12 +170,6 @@
                                     <option>DEV102</option>
                                     <option>DEV202</option>
                                   </select>
-                                </div>  
-                              </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                  <label>Address</label> 
-                                  <input class="form-control" type="text" name="" id="" style="width: 100%;">
                                 </div>  
                               </div>
                           </div>

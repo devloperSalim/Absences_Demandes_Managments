@@ -11,7 +11,10 @@
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-
+<!-- InputMask -->
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+<!-- Tempusdominus Bootstrap 4 --> 
+<script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <!-- date-range-picker -->
 <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
 
