@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
- 
+
 Route::get('/group',function(){
     return view('group.list_groupe');
 })->name('list_groupe');
