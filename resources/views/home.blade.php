@@ -23,12 +23,12 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" class="nav-link">Home</a>
-      </li> 
+      </li>
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto"> 
- 
+    <ul class="navbar-nav ml-auto">
+
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -61,7 +61,7 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-       
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -84,7 +84,7 @@
         <div class="info">
           <a href="#" class="d-block">Maryem</a>
         </div>
-      </div> 
+      </div>
       <!-- Sidebar Menu -->
       @include('layouts.SidebarMenu')
       <!-- /.sidebar-menu -->
@@ -128,10 +128,10 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="{{ route('list_groupe') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('groups.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-           
+
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -163,7 +163,7 @@
             </div>
           </div>
           <!-- ./col -->
-        </div> 
+        </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -172,7 +172,7 @@
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
     All rights reserved.
-     
+
   </footer>
 
   <!-- Control Sidebar -->
@@ -183,6 +183,6 @@
 </div>
 <!-- ./wrapper -->
 
-@extends('layouts.footerjs') 
+@extends('layouts.footerjs')
 </body>
 </html>

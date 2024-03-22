@@ -108,8 +108,8 @@
           <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item ">Dashboard </li>
-                <li class="breadcrumb-item"><a href="{{ route('list_groupe') }}">Groupes</a></li>
-              <li class="breadcrumb-item active"><a href="{{ route('add_group') }}">Ajouter Groupe</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('groups.index') }}">Groupes</a></li>
+              <li class="breadcrumb-item active"><a href="{{ route('groups.create') }}">Ajouter Groupe</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -133,53 +133,46 @@
                 </div>
                     <!-- /.card-header -->
 
+            <div>
+                <form action="{{ route('groups.store') }}" method="post">
+                        @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Nom group</label>
-                                  <input class="form-control" type="text" name="" id="" style="width: 100%;">
+                                  <label>Code group</label>
+                                  <input class="form-control" type="text" name="code_group" id="" style="width: 100%;">
                                 </div>
                             </div>
-
-
-
-                            <!-- /.form-group -->
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                   <label>annee formation</label>
-                                  <input class="form-control" type="text" name="" id="" style="width: 100%;" placeholder="0000-0000">
+                                  <input class="form-control" type="date" name="anne_formation" id="" style="width: 100%;" placeholder="0000-0000">
                                 </div>
                               </div>
-                            <!-- /.form-group -->
                           </div>
                           <div class="row">
-                          <!-- /.col -->
                           <div class="col-md-6">
                             <div class="form-group">
                                   <label>fillier</label>
-                                  <input class="form-control" type="text" name="" id="" style="width: 100%;">
+                                  <input class="form-control" type="text" name="nom_ilière" id="" style="width: 100%;">
                             </div>
                           </div>
-                          <!-- /.col -->
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>nombre stagiaire</label>
-                              <input class="form-control" type="number" name="" id="" style="width: 100%;">
+                              <input class="form-control" type="number" name="nbr_stagiaires" id="" style="width: 100%;">
                             </div>
                           </div>
-                          <!-- /.col -->
                           </div>
                           <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-           
-                        <!-- /.row -->
                       </div>
-                    <!-- /.card-body -->
-
-                <!-- /.card-body -->
               </div>
+            </form>
+        </div>
+
+
         </div>
         <div class="row">
           <div class="  col-12 ">
