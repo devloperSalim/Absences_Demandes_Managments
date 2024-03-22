@@ -154,7 +154,7 @@
                                                             type="text" name="code_group" id=""
                                                             style="width: 100%;">
                                                         @error('code_group')
-                                                            <span  class="text-danger font-weight-bold small bg-light">{{ $errors->first('code_group') }}</span>
+                                                            <span   class="text-danger font-weight-bold small  ">{{ $errors->first('code_group') }}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -177,7 +177,7 @@
                                                                 type="text" name="nom_ilière" id=""
                                                                 style="width: 100%;">
                                                                 @error('nom_ilière')
-                                                            <span  class="text-danger font-weight-bold small bg-light">{{ $errors->first('nom_ilière') }}</span>
+                                                            <span  class="text-danger font-weight-bold small  ">{{ $errors->first('nom_ilière') }}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
@@ -189,7 +189,7 @@
                                                                 type="number" name="nbr_stagiaires" id=""
                                                                 style="width: 100%;">
                                                                 @error('nbr_stagiaires')
-                                                            <span  class="text-danger font-weight-bold small bg-light">{{ $errors->first('nbr_stagiaires') }}</span>
+                                                            <span  class="text-danger font-weight-bold small  ">{{ $errors->first('nbr_stagiaires') }}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
