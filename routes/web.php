@@ -23,9 +23,13 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
+Route::get('/group',function(){
+    return view('group.list_groupe');
+})->name('list_groupe');
+Route::get('/group/create',function(){
+    return view('group.Ajouter_group');
+})->name('add_group');
 
-
-Route::resource('groups',GroupController::class);
 
 Route::get('/stagiaire',function(){
     return view('stagiaire.list_stagiaire');
