@@ -11,6 +11,7 @@ class Group extends Model
     use HasFactory, SoftDeletes;
 
 
+
     protected $fillable =['code_group','anne_formation','nbr_stagiaires','nom_ilière'];
 
     /**
