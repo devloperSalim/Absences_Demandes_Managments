@@ -13,7 +13,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups = Group::paginate(8);
+
+        return view('group.list_groupe',compact('groups'));
     }
 
     /**
@@ -21,8 +23,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return
-         view('group.Ajouter_group');
+        return view('group.Ajouter_group');
     }
 
     /**
@@ -30,6 +31,7 @@ class GroupController extends Controller
      */
     public function store(GroupRequest $request)
     {
+
         $formFields = $request->validated();
         Group::create($formFields);
         return redirect()->route('groups.index');
