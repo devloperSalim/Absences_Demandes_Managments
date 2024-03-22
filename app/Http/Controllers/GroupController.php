@@ -30,9 +30,11 @@ class GroupController extends Controller
      */
     public function store(GroupRequest $request)
     {
-        $formField = $request->validated();
-        dd($formField);
+        $formFields = $request->validated();
+        Group::create($formFields);
+        return redirect()->route('groups.index');
     }
+
 
     /**
      * Display the specified resource.
