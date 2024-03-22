@@ -22,7 +22,7 @@ class GroupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code_group' => 'required|string|min:10|max:30|unique:table,code_group,group_id',
+            'code_group' => 'required|string|min:10|max:30|unique:groups,code_group,group_id',
             'anne_formation'=>'required|date',
             'nbr_stagiaires' => 'required|integer|min:1',
             'nom_ilière' => 'required|string|min:10|max:30',
