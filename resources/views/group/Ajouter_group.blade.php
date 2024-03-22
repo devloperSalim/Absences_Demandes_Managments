@@ -25,12 +25,12 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" class="nav-link">Home</a>
-      </li> 
+      </li>
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto"> 
- 
+    <ul class="navbar-nav ml-auto">
+
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -63,7 +63,7 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-       
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -86,7 +86,7 @@
         <div class="info">
           <a href="#" class="d-block">Maryem</a>
         </div>
-      </div> 
+      </div>
       <!-- Sidebar Menu -->
       @include('layouts.SidebarMenu')
       <!-- /.sidebar-menu -->
@@ -96,7 +96,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    
+
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -108,8 +108,8 @@
           <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item ">Dashboard </li>
-                <li class="breadcrumb-item"><a href="{{ route('list_groupe') }}">Groupes</a></li>
-              <li class="breadcrumb-item active"><a href="{{ route('add_group') }}">Ajouter Groupe</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('groups.index') }}">Groupes</a></li>
+              <li class="breadcrumb-item active"><a href="{{ route('groups.create') }}">Ajouter Groupe</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -121,81 +121,78 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row">  
+        <div class="row">
             <div class="col-12">
-            <div class="card"> 
-                <!-- /.card-header -->  
+            <div class="card">
+                <!-- /.card-header -->
                 <div class="card card-default">
                     <div class="card-header">
                       <h3 class="card-title">Ajouter Group</h3>
-           
+
                     </div>
                 </div>
                     <!-- /.card-header -->
-                   
+
+            <div>
+                <form action="{{ route('groups.store') }}" method="post">
+                        @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>Nom group</label> 
-                                  <input class="form-control" type="text" name="" id="" style="width: 100%;">
-                                </div>  
+                                  <label>Code group</label>
+                                  <input class="form-control" type="text" name="code_group" id="" style="width: 100%;">
+                                </div>
                             </div>
-                            <!-- /.form-group -->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                  <label>annee formation</label> 
-                                  <input class="form-control" type="text" name="" id="" style="width: 100%;" placeholder="0000-0000">
-                                </div>  
+                                  <label>annee formation</label>
+                                  <input class="form-control" type="date" name="anne_formation" id="" style="width: 100%;" placeholder="0000-0000">
+                                </div>
                               </div>
-                            <!-- /.form-group -->
                           </div>
                           <div class="row">
-                          <!-- /.col -->
                           <div class="col-md-6">
                             <div class="form-group">
-                                  <label>fillier</label> 
-                                  <input class="form-control" type="text" name="" id="" style="width: 100%;">
-                            </div>  
+                                  <label>fillier</label>
+                                  <input class="form-control" type="text" name="nom_ilière" id="" style="width: 100%;">
+                            </div>
                           </div>
-                          <!-- /.col --> 
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>nombre stagiaire</label> 
-                              <input class="form-control" type="number" name="" id="" style="width: 100%;">
-                            </div>  
-                          </div> 
-                          <!-- /.col -->
+                              <label>nombre stagiaire</label>
+                              <input class="form-control" type="number" name="nbr_stagiaires" id="" style="width: 100%;">
+                            </div>
+                          </div>
                           </div>
                           <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-                        
-                        <!-- /.row -->
                       </div>
-                    <!-- /.card-body -->
-                      
-                <!-- /.card-body -->
               </div>
-        </div> 
-        <div class="row"> 
+            </form>
+        </div>
+
+
+        </div>
+        <div class="row">
           <div class="  col-12 ">
             <div class="card-body">
               <h5 class="card-title">Import Excel File</h5>
               <form action="upload.php" method="post" enctype="multipart/form-data">
                 <div class="custom-file">
                   <input type="file" class=" d-none" id="excelFile" name="excelFile">
-                  <label class="btn btn-primary" for="excelFile"> 
+                  <label class="btn btn-primary" for="excelFile">
                     <i class="fas fa-file-excel mr-2"></i> Import Excel
                    </label>
-                </div> 
+                </div>
               </form>
-            </div> 
+            </div>
         </div>
-      </div> 
+      </div>
         </div>
-        
-      </div><!-- /.container-fluid --> 
-        
+
+      </div><!-- /.container-fluid -->
+
     </section>
     <!-- /.content -->
   </div>
@@ -203,7 +200,7 @@
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
     All rights reserved.
-     
+
   </footer>
 
   <!-- Control Sidebar -->

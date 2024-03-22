@@ -13,15 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('stagaires', function (Blueprint $table) {
+        Schema::create('stagiaires', function (Blueprint $table) {
             $table->id();
             $table->integer('registration_number');
-            $table->string('name',50);
-            $table->string('email',90);
-            $table->string('password',60);
-            $table->string('phone');
-            $table->date('hire_date');
+            $table->string('nom',50);
+            $table->string('prenom',50);
+            $table->string('email_etu',90);
+            $table->boolean('stagaire_en_formation');
+            $table->string('nationalite');
+            $table->string('date_pv');
+            $table->softDeletes();
             $table->timestamps();
+
+              $table->foreignId('group_id')->constrained()->onDelete('cascade');
         });
     }
 
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stagaires');
+        Schema::dropIfExists('stagiaires');
     }
 };
