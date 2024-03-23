@@ -43,10 +43,10 @@ class GroupRequest extends FormRequest
             'nbr_stagiaires.required' => 'Le champ nombre de stagiaires est requis.',
             'nbr_stagiaires.integer' => 'Le champ nombre de stagiaires doit être un entier.',
             'nbr_stagiaires.min' => 'Le champ nombre de stagiaires doit être d\'au moins :min.',
-            'nom_ilière.required' => 'Le champ nom de l\'ilière est requis.',
-            'nom_ilière.string' => 'Le champ nom de l\'ilière doit être une chaîne de caractères.',
-            'nom_ilière.min' => 'Le champ nom de l\'ilière doit contenir au moins :min caractères.',
-            'nom_ilière.max' => 'Le champ nom de l\'ilière ne peut pas dépasser :max caractères.',
+            'nom_ilière.required' => 'Le champ nom de l filière est requis.',
+            'nom_ilière.string' => 'Le champ nom de l filière doit être une chaîne de caractères.',
+            'nom_ilière.min' => 'Le champ nom de l filière doit contenir au moins :min caractères.',
+            'nom_ilière.max' => 'Le champ nom de l filière ne peut pas dépasser :max caractères.',
         ];
     }
 
