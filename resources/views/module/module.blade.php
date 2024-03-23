@@ -184,5 +184,40 @@
     }); 
         });
 </script>
+<script>
+  function willCompleteOnTime(startDate, endDate, weeklyStudyHours, totalHoursRequired) {
+    // Split the dates into day, month, and year components
+    const [startDay, startMonth, startYear] = startDate.split('/');
+    const [endDay, endMonth, endYear] = endDate.split('/');
+    
+    // Create Date objects for the start and end dates
+    const startDateObj = new Date(startYear, startMonth - 1, startDay); // Months are 0-indexed in JavaScript
+    const endDateObj = new Date(endYear, endMonth - 1, endDay);
+    
+    // Calculate the difference in milliseconds between the two dates
+    const timeDifference = Math.abs(endDateObj.getTime() - startDateObj.getTime());
+    
+    // Convert the difference to weeks
+    const weeksDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24 * 7));
+    
+    // Calculate the total hours available for studying
+    const totalStudyHours = weeksDifference * weeklyStudyHours;
+    
+    // Determine if the total study hours are sufficient to complete the program on time
+    const willCompleteOnTime = totalStudyHours >= totalHoursRequired;
+    
+    return   willCompleteOnTime;
+}
+
+// Example usage:
+const startDate = '20/03/2024';
+const endDate = '20/04/2024';
+const weeklyStudyHours = 10;
+const totalHoursRequired = 40;
+
+const completionStatus = willCompleteOnTime(startDate, endDate, weeklyStudyHours, totalHoursRequired);
+console.log(`Will complete on time: ${completionStatus}`);
+
+</script>
 </body>
 </html>
