@@ -154,92 +154,95 @@
                                                             type="text" name="code_group" id=""
                                                             style="width: 100%;">
                                                         @error('code_group')
-                                                            <span   class="text-danger font-weight-bold small  ">{{ $errors->first('code_group') }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>annee formation</label>
-                                                            <input
-                                                                class="form-control @error('anne_formation') is-invalid @enderror"
-                                                                type="date" name="anne_formation" id=""
-                                                                style="width: 100%;" placeholder="0000-0000">
-                                                        </div>
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('code_group') }}</span>
+                                                        @enderror
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>fillier</label>
-                                                            <input
-                                                                class="form-control @error('nom_ilière') is-invalid @enderror"
-                                                                type="text" name="nom_ilière" id=""
-                                                                style="width: 100%;">
-                                                                @error('nom_ilière')
-                                                            <span  class="text-danger font-weight-bold small  ">{{ $errors->first('nom_ilière') }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>nombre stagiaire</label>
-                                                            <input
-                                                                class="form-control @error('nbr_stagiaires') is-invalid @enderror"
-                                                                type="number" name="nbr_stagiaires" id=""
-                                                                style="width: 100%;">
-                                                                @error('nbr_stagiaires')
-                                                            <span  class="text-danger font-weight-bold small  ">{{ $errors->first('nbr_stagiaires') }}</span>
-                                                            @enderror
-                                                        </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>annee formation</label>
+                                                        <input
+                                                            class="form-control @error('anne_formation') is-invalid @enderror"
+                                                            type="date" name="anne_formation" id=""
+                                                            style="width: 100%;" placeholder="0000-0000">
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
-                                    </div>
-                                </div>
-                                </form>
-                            </div>
-
-
-                        </div>
-                        <div class="row">
-                            <div class="  col-12 ">
-                                <div class="card-body">
-                                    <h5 class="card-title">Import Excel File</h5>
-                                    <form action="upload.php" method="post" enctype="multipart/form-data">
-                                        <div class="custom-file">
-                                            <input type="file" class=" d-none" id="excelFile" name="excelFile">
-                                            <label class="btn btn-primary" for="excelFile">
-                                                <i class="fas fa-file-excel mr-2"></i> Import Excel
-                                            </label>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>fillier</label>
+                                                        <input
+                                                            class="form-control @error('nom_ilière') is-invalid @enderror"
+                                                            type="text" name="nom_ilière" id=""
+                                                            style="width: 100%;">
+                                                        @error('nom_ilière')
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('nom_ilière') }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>nombre stagiaire</label>
+                                                        <input
+                                                            class="form-control @error('nbr_stagiaires') is-invalid @enderror"
+                                                            type="number" name="nbr_stagiaires" id=""
+                                                            style="width: 100%;">
+                                                        @error('nbr_stagiaires')
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('nbr_stagiaires') }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
-                                    </form>
                                 </div>
+                            </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="  col-12 ">
+                            <div class="card-body">
+                                <h5 class="card-title">Import Excel File</h5>
+                                <form action="upload.php" method="post" enctype="multipart/form-data">
+                                    <div class="custom-file">
+                                        <input type="file" class=" d-none" id="excelFile" name="excelFile">
+                                        <label class="btn btn-primary" for="excelFile">
+                                            <i class="fas fa-file-excel mr-2"></i> Import Excel
+                                        </label>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+                </div>
 
-            </div><!-- /.container-fluid -->
+        </div><!-- /.container-fluid -->
 
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
-            All rights reserved.
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
+        All rights reserved.
 
-        </footer>
+    </footer>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-        </div>
-        <!-- ./wrapper -->
-        @include('layouts.footerjs')
-    </body>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    @include('layouts.footerjs')
+</body>
 
-    </html>
+</html>

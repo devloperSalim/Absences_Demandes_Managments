@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StagiaireRequest;
+use App\Models\Group;
 use App\Models\Stagiaire;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,9 @@ class StagiaireController extends Controller
      */
     public function index()
     {
-    
+
+        $stagiaires = Stagiaire::all();
+        return view('stagiaire.list_stagiaire',compact('stagiaires'));
     }
 
     /**
@@ -20,15 +24,22 @@ class StagiaireController extends Controller
      */
     public function create()
     {
-        //
+        $groups = Group::all();
+        return view('stagiaire.ajouter_stagiaire', compact('groups'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StagiaireRequest $request)
     {
-        //
+        // dd($request);
+        $stagaire_en_formation = $request->stagaire_en_formation === 'oui' ? true : false;
+        $formFields = $request->validated();
+        $formFields['stagaire_en_formation'] = $stagaire_en_formation;
+        Stagiaire::create($formFields);
+
+        return redirect()->route('stagiaires.index');
     }
 
     /**

@@ -10,7 +10,7 @@ class Stagiaire extends Model
 {
     use HasFactory , SoftDeletes;
 
-
+protected $fillable = ['registration_number','nom','prenom','email_etu','stagaire_en_formation','nationalite','group_id','date_pv'];
     public function group(){
         return $this->belongsTo(Group::class);
     }

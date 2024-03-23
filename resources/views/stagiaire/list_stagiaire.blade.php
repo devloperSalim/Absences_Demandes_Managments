@@ -25,12 +25,12 @@
               </li>
               <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ route('home') }}" class="nav-link">Home</a>
-              </li> 
+              </li>
             </ul>
-        
+
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto"> 
-         
+            <ul class="navbar-nav ml-auto">
+
               <!-- Notifications Dropdown Menu -->
               <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
@@ -63,7 +63,7 @@
                   <i class="fas fa-expand-arrows-alt"></i>
                 </a>
               </li>
-               
+
             </ul>
           </nav>
         <!-- /.navbar -->
@@ -104,7 +104,7 @@
                          <!-- /.col -->
                         <div class="col-sm-12">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ route('list_stagiaire') }}">List stagiaire</a>
+                                <li class="breadcrumb-item"><a href="{{ route('stagiaires.index') }}">List stagiaire</a>
                                 </li>
                                 <li class="breadcrumb-item active">Dashboard </li>
                             </ol>
@@ -130,105 +130,28 @@
                                         <thead>
                                             <tr>
                                                 <th>Code stagiaire  </th>
-                                                <th>Nom et prenom  </th>
-                                                <th> Tele </th>
-                                                <th>Email etud </th>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th> Email etud </th>
+                                                <th> Nationalite</th>
+                                                <th>stagaire_en_formation</th>
                                                 <th>show</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Camino 1.5</td>
-                                                <td>OSX.3+</td>
-                                                <td>1.8</td>
-                                                <td>
-                                                    <a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                        <i class="fa-regular fa-eye"></i> info
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Netscape 7.2</td>
-                                                <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                                <td>1.7</td>
-                                                <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                    <i class="fa-regular fa-eye"></i> info
-                                                </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Netscape Browser 8</td>
-                                                <td>Win 98SE+</td>
-                                                <td>1.7</td>
-                                                <td><a class="btn   bg-purple">
+                                            @foreach ($stagiaires as $stagiaire)
+                                                <tr>
+                                                    <td>{{ $stagiaire->registration_number }}</td>
+                                                    <td>{{ $stagiaire->nom }}</td>
+                                                    <td>{{ $stagiaire->prenom}}</td>
+                                                    <td>{{ $stagiaire->email_etu }}</td>
+                                                    <td>{{ $stagiaire->nationalite}}</td>
+                                                    <td>{{ $stagiaire->stagaire_en_formation ? 'oui' : 'non' }}</td>
+                                                    <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
                                                         <i class="fa-regular fa-eye"></i> info
                                                     </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Netscape Navigator 9</td>
-                                                <td>Win 98+ / OSX.2+</td>
-                                                <td>1.8</td>
-                                                <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                    <i class="fa-regular fa-eye"></i> info
-                                                </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Mozilla 1.0</td>
-                                                <td>Win 95+ / OSX.1+</td>
-                                                <td>1</td>
-                                                <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                    <i class="fa-regular fa-eye"></i> info
-                                                </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Mozilla 1.1</td>
-                                                <td>Win 95+ / OSX.1+</td>
-                                                <td>1.1</td>
-                                                <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                    <i class="fa-regular fa-eye"></i> info
-                                                </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Mozilla 1.2</td>
-                                                <td>Win 95+ / OSX.1+</td>
-                                                <td>1.2</td>
-                                                <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                    <i class="fa-regular fa-eye"></i> info
-                                                </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Mozilla 1.3</td>
-                                                <td>Win 95+ / OSX.1+</td>
-                                                <td>1.3</td>
-                                                <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                    <i class="fa-regular fa-eye"></i> info
-                                                </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Mozilla 1.4</td>
-                                                <td>Win 95+ / OSX.1+</td>
-                                                <td>1.4</td>
-                                                <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                    <i class="fa-regular fa-eye"></i> info
-                                                </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Gecko</td>
-                                                <td>Mozilla 1.5</td>
-                                                <td>Win 95+ / OSX.1+</td>
-                                                <td>1.5</td>
-                                                <td><a href="{{ route('stagiaire_absence') }}" class="btn   bg-purple">
-                                                    <i class="fa-regular fa-eye"></i> info
-                                                </a></td>
-                                            </tr>
+                                                </tr>
+                                            @endforeach
 
                                     </table>
                                 </div>
@@ -254,15 +177,15 @@
     </div>
     <!-- ./wrapper -->
 
-    @extends('layouts.footerjs')  
-    
+    @extends('layouts.footerjs')
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script>
         $(function() {
             $("#table_stagiaire").DataTable({
                 "responsive": true,
                 "lengthChange": true,
-                "autoWidth": false,  
+                "autoWidth": false,
             });
 
         });

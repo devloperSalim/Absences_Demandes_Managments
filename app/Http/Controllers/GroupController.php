@@ -43,7 +43,8 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        $stagiaires = $group->stagiaires;
+        return view('group.show-detail-group', compact('group', 'stagiaires'));
     }
 
     /**

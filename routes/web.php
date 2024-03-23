@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\StagiaireController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,16 +24,13 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-
+//groups routes
 Route::resource('groups',GroupController::class);
+//stagiaires routes
+Route::resource('stagiaires',StagiaireController::class);
 
 
-Route::get('/stagiaire',function(){
-    return view('stagiaire.list_stagiaire');
-})->name('list_stagiaire');
-Route::get('/stagiaire/create',function(){
-    return view('stagiaire.ajouter_stagiaire');
-})->name('add_stagiaire');
+
 Route::get('/stagiaire/absence',function(){
     return view('absence.stagiaire_absence');
 })->name('stagiaire_absence');

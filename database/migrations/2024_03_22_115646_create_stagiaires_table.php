@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email_etu',90);
             $table->boolean('stagaire_en_formation');
             $table->string('nationalite');
-            $table->string('date_pv');
+            $table->date('date_pv')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

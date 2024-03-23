@@ -143,8 +143,8 @@
                             <td>{{ $group->nom_ilière }}</td>
                             <td>{{ $group->nbr_stagiaires }}</td>
                             <td>
-                                <a href="{{ route('list_stagiaire') }}" class="btn btn-app">
-                                <span class="badge bg-purple">891</span>
+                                <a href="{{ route('groups.show', $group->id) }}" class="btn btn-app">
+                                <span class="badge bg-purple">{{ $group->stagiaires->count() }}</span>
                                 <i class="fas fa-users"></i> stagieaire
                               </a>
                             </td>
