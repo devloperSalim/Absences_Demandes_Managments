@@ -47,7 +47,8 @@ class StagiaireController extends Controller
      */
     public function show(Stagiaire $stagiaire)
     {
-        //
+
+        return view('stagiaire.list_absence_stagiaire',compact('stagiaire'));
     }
 
     /**

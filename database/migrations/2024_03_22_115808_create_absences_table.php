@@ -11,8 +11,8 @@ class CreateAbsencesTable extends Migration
         Schema::create('absences', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('stagiaire_id');
-            $table->date('date_absence');
-            $table->date('date_fin_abs');
+            $table->dateTime('fromDate');
+            $table->dateTime('toDate');
             $table->string('type_abs');
             $table->integer('nbr_seance');
             $table->integer('nbr_hour');

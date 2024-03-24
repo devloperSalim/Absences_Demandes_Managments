@@ -10,6 +10,9 @@ class Absence extends Model
 {
     use HasFactory , SoftDeletes;
 
+    protected $fillable = ['stagiaire_id','fromDate','toDate','type_abs','nbr_seance','nbr_hour'];
+
+
     public function stagiaire(){
         return $this->belongsTo(Stagiaire::class);
     }

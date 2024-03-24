@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsenceController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\StagiaireController;
 use Illuminate\Support\Facades\Route;
@@ -28,15 +29,9 @@ Route::get('/login', function () {
 Route::resource('groups',GroupController::class);
 //stagiaires routes
 Route::resource('stagiaires',StagiaireController::class);
+//absences routes
+Route::resource('absences',AbsenceController::class);
 
-
-
-Route::get('/stagiaire/absence',function(){
-    return view('absence.stagiaire_absence');
-})->name('stagiaire_absence');
-Route::get('/stagiaire/update',function(){
-    return view('absence.update_absence');
-})->name('update_absence');
 
 
 Route::get('/modules',function (){

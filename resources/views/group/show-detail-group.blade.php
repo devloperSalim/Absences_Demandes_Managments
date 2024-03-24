@@ -142,7 +142,8 @@
                                 <th>Prenom</th>
                                 <th>Stagiaire_en_formation</th>
                                 <th>Nationalite</th>
-                                <th>show</th>
+                                <th>Ajouter un Absence</th>
+                                <th>Show All Absence</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -153,10 +154,14 @@
                                     <td>{{ $stagiaire->stagaire_en_formation ? 'oui' : 'non' }}</td>
                                     <td>{{ $stagiaire->nationalite }}</td>
                                     <td>
-                                        <a href="" class="btn btn-app">
-                                        <span class="badge bg-purple"></span>
-                                        <i class="fas fa-users"></i> stagieaire
+                                        <a href="{{ route('absences.create',['stagiaire_id' => $stagiaire->id]) }}" class="btn btn-app">
+                                        <span class="badge bg-purple">{{ $stagiaire->absences->sum('nbr_hour') }}</span>
+                                        <i class="fas fa-calendar-minus"></i>  ajouter absence
                                       </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('stagiaires.show',$stagiaire->id) }}" class="btn btn-app">
+                                        <i class="fas fa-calendar-minus"></i>
                                     </td>
                                 </tr>
                                 @endforeach

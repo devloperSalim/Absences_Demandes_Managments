@@ -44,6 +44,9 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         $stagiaires = $group->stagiaires;
+
+        // $nbr_stagiaires = $group->stagiaires->count() + 1;
+        // dd($nbr_stagiaires);
         return view('group.show-detail-group', compact('group', 'stagiaires'));
     }
 

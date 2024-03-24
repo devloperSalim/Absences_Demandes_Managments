@@ -46,9 +46,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('groups.index') }}" class="nav-link">
+            <a href="{{ route('absences.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>ajoute absence</p>
+              <p>list absence</p>
             </a>
           </li>
         </ul>

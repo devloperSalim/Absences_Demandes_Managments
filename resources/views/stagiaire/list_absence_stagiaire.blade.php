@@ -133,25 +133,27 @@
                                                 <th>Nom</th>
                                                 <th>Prenom</th>
                                                 <th> Email etud </th>
-                                                <th> Nationalite</th>
-                                                <th>stagaire_en_formation</th>
-                                                <th>show</th>
+                                                <th>Date Debut absence</th>
+                                                <th>Date Fin</th>
+                                                <th>Nombre seance</th>
+                                                <th>nbr houres</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($stagiaires as $stagiaire)
-                                                <tr>
-                                                    <td>{{ $stagiaire->registration_number }}</td>
-                                                    <td>{{ $stagiaire->nom }}</td>
-                                                    <td>{{ $stagiaire->prenom}}</td>
-                                                    <td>{{ $stagiaire->email_etu }}</td>
-                                                    <td>{{ $stagiaire->nationalite}}</td>
-                                                    <td>{{ $stagiaire->stagaire_en_formation ? 'oui' : 'non' }}</td>
-                                                    <td><a href="{{ route('absences.create') }}" class="btn   bg-purple">
-                                                        <i class="fa-regular fa-eye"></i> info
-                                                    </a></td>
-                                                </tr>
+                                            @foreach ($stagiaire->absences as $absence)
+                                            <tr>
+                                                <td>{{ $stagiaire->registration_number }}</td>
+                                                <td>{{ $stagiaire->nom }}</td>
+                                                <td>{{ $stagiaire->prenom }}</td>
+                                                <td>{{ $stagiaire->email_etu }}</td>
+                                                    <td>{{ $absence->fromDate }}</td>
+                                                    <td>{{ $absence->toDate }}</td>
+                                                    <td>{{ $absence->nbr_seance }}</td>
+                                                    <td>{{ $absence->nbr_hour }}</td>
+                                            </tr>
                                             @endforeach
+                                        </tbody>
+
 
                                     </table>
                                 </div>

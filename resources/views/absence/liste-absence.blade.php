@@ -141,80 +141,52 @@
                         </div>
                     </div>
 
-
-                    <div class="info-box col-12">
-                        <div class="card-body">
-                            <div class="row">
-                                <form action="{{ route('absences.store') }}" method="post" class="col-md-12">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="fromDate">From Date:</label>
-                                        <input type="datetime-local" class="form-control" id="fromDate" name="fromDate">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="toDate">To Date:</label>
-                                        <input type="datetime-local" class="form-control" id="toDate" name="toDate">
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Type Absence</label>
-                                            <select class="form-control select2" style="width: 100%;" name="type_abs">
-                                                <option></option>
-                                                <option>Justifie</option>
-                                                <option>Injustifie</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>nombre séance </label>
-                                                <input class="form-control" type="number" name="nbr_seance" style="width: 100%;">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>nombre horaire </label>
-                                                <input class="form-control" type="number" name="nbr_hour" style="width: 100%;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        {{-- <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Groupe </label>
-                                                <select class="form-control" style="width: 100%;" name="groupe">
-                                                    <option>GES102</option>
-                                                    <option>GES102</option>
-                                                    <option>GES201</option>
-                                                    <option>DEV101</option>
-                                                    <option>DEV102</option>
-                                                    <option>DEV202</option>
-                                                </select>
-                                            </div>
-                                        </div> --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>code stagiaire</label>
-                                                <input class="form-control" type="text" name="stagiaire_id" value="{{ $stagiaireId }}"  style="width: 100%;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-
-
                 </div>
 
 
-             
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">list absences Nom & prenom</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="table_stagiaire" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Code group</th>
+                                            <th>Nom Prenom</th>
+                                            <th>Date Debut</th>
+                                            <th>Date Fin</th>
+                                            <th>Type Absence </th>
+                                            <th>nombre séance</th>
+                                            <th>nombre horaire</th>
+                                            <th>show</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($stagiaires as $stagiaire)
+                                        @foreach ($stagiaire->absences as $absence)
+                                            <tr>
+                                                <td>{{ $stagiaire->group->code_group }}</td>
+                                                <td>{{ $stagiaire->nom }} {{ $stagiaire->prenom }}</td>
+                                                <td>{{ $absence->fromDate }}</td>
+                                                <td>{{ $absence->toDate }}</td>
+                                                <td>{{ $absence->type_abs }}</td>
+                                                <td>{{ $absence->nbr_seance }}</td>
+                                                <td>{{ $absence->nbr_hour }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @endforeach
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                </div>
         </div>
 
     </div><!-- /.container-fluid -->
