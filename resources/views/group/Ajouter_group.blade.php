@@ -210,12 +210,14 @@
                         <div class="  col-12 ">
                             <div class="card-body">
                                 <h5 class="card-title">Import Excel File</h5>
-                                <form action="upload.php" method="post" enctype="multipart/form-data">
-                                    <div class="custom-file">
-                                        <input type="file" class=" d-none" id="excelFile" name="excelFile">
+                                <form action="{{ route('import.excel') }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                        <div class="custom-file">
+                                        <input type="file" class=" d-none" id="excelFile" name="excel_file">
                                         <label class="btn btn-primary" for="excelFile">
                                             <i class="fas fa-file-excel mr-2"></i> Import Excel
                                         </label>
+                                        <button type="submit" class="btn btn-primary">Upload Excel</button>
                                     </div>
                                 </form>
                             </div>

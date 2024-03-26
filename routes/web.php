@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\ExcelImportController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\StagiaireController;
 use Illuminate\Support\Facades\Route;
@@ -71,3 +72,8 @@ Route::get('/demande',function (){
 Route::get('/mydemande',function (){
     return view('demande.mydemende');
 })->name('mydemende');
+
+
+
+// routes/web.php
+Route::post('/import-excel', [ExcelImportController::class, 'import'])->name('import.excel');
