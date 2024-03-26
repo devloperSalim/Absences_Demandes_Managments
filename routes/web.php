@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\ExcelImportController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\StagiaireController;
 use Illuminate\Support\Facades\Route;
@@ -63,3 +64,16 @@ Route::get('/modules/alert_avancement',function (){
 Route::get('/demandes',function (){
     return view('demande.inbox_demande');
 })->name('list_demande');
+
+
+Route::get('/demande',function (){
+    return view('demande.demande');
+})->name('demande');
+Route::get('/mydemande',function (){
+    return view('demande.mydemende');
+})->name('mydemende');
+
+
+
+// routes/web.php
+Route::post('/import-excel', [ExcelImportController::class, 'import'])->name('import.excel');

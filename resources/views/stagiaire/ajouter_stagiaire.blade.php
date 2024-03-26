@@ -167,7 +167,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Code Stagiaire</label>
-                                                        <input type="text" name="registration_number"
+                                                        <input type="text"  name="registration_number"
                                                             class="form-control">
                                                         @error('registration_number')
                                                             <span

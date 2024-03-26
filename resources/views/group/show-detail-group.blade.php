@@ -167,15 +167,7 @@
                                 @endforeach
                             </tbody>
 
-                              <tfoot>
-                              <tr>
-                                <th>Code Groupe</th>
-                                <th>Nom Groupe</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
-                              </tr>
-                              </tfoot>
+                              
                             </table>
                           </div>
                           <!-- /.card-body -->

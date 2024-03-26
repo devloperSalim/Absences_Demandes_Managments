@@ -150,10 +150,18 @@
                                     <div class="form-group">
                                         <label for="fromDate">From Date:</label>
                                         <input type="datetime-local" class="form-control" id="fromDate" name="fromDate">
+                                        @error('fromDate')
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('fromDate') }}</span>
+                                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="toDate">To Date:</label>
                                         <input type="datetime-local" class="form-control" id="toDate" name="toDate">
+                                        @error('toDate')
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('toDate') }}</span>
+                                                        @enderror
                                     </div>
 
                                     <div class="col-md-6">
@@ -164,6 +172,10 @@
                                                 <option>Justifie</option>
                                                 <option>Injustifie</option>
                                             </select>
+                                            @error('type_abs')
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('type_abs') }}</span>
+                                                        @enderror
                                         </div>
                                     </div>
                                     <div class="row">
@@ -171,12 +183,20 @@
                                             <div class="form-group">
                                                 <label>nombre séance </label>
                                                 <input class="form-control" type="number" name="nbr_seance" style="width: 100%;">
+                                                @error('nbr_seance')
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('nbr_seance') }}</span>
+                                                        @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>nombre horaire </label>
                                                 <input class="form-control" type="number" name="nbr_hour" style="width: 100%;">
+                                                @error('nbr_hour')
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('nbr_hour') }}</span>
+                                                        @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -197,7 +217,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>code stagiaire</label>
-                                                <input class="form-control" type="text" name="stagiaire_id" value="{{ $stagiaireId }}"  style="width: 100%;">
+                                                <input readonly class="form-control" type="text" name="stagiaire_id" value="{{ $stagiaireId }}"  style="width: 100%;">
+                                                
                                             </div>
                                         </div>
                                     </div>

@@ -3,7 +3,7 @@
 
       <li class="nav-item">
         <a href="#" class="nav-link">
-          <i class="fa-solid fa-people-group"></i>
+          <i class=" nav-icon fa-solid fa-people-group"></i>
           <p>
             Groups
             <i class="fas fa-angle-left right"></i>
@@ -113,9 +113,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('demande') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>refuser</p>
+              <p>demande</p>
             </a>
           </li>
         </ul>
