@@ -63,3 +63,11 @@ Route::get('/modules/alert_avancement',function (){
 Route::get('/demandes',function (){
     return view('demande.inbox_demande');
 })->name('list_demande');
+
+
+Route::get('/demande',function (){
+    return view('demande.demande');
+})->name('demande');
+Route::get('/mydemande',function (){
+    return view('demande.mydemende');
+})->name('mydemende');
