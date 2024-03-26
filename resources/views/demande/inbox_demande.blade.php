@@ -139,15 +139,20 @@
                   <div class="card-body p-0">
                     <div class="mailbox-controls">
                       <!-- Check all button -->
-                       
                       <button type="button" class="btn btn-default btn-sm btn-delete">
-                        <i class="far fa-trash-alt"></i> Delete
-                    </button>
+                          <i class="far fa-trash-alt"></i> Delete
+                      </button>
                       <!-- /.btn-group -->
                       <button type="button" class="btn btn-default btn-sm" id="refreshButton">
-                        <i class="fas fa-sync-alt"></i>
-                      </button> 
-                    </div>
+                          <i class="fas fa-sync-alt"></i>
+                      </button>
+                      <button type="button" class="btn btn-success btn-sm" id="acceptButton">
+                          <i class="fas fa-check"></i> Accept
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" id="refuseButton">
+                          <i class="fas fa-times"></i> Refuse
+                      </button>
+                  </div>
                     <div class="table-responsive mailbox-messages">
                       <table class="table table-hover table-striped" id="example">
                         <thead>
@@ -406,35 +411,7 @@
 <!-- ./wrapper -->
 
 @extends('layouts.footerjs') 
-{{-- <script>
-//    $(function() {
-//   var table = $('#example').DataTable({
-//     "responsive": true,
-//     "lengthChange": true,
-//     "autoWidth": false,
-//     "searching": false // Hide default search input
-//   });
-
-//   $('#searchinput').on('keyup', function() {
-//     table.search(this.value).draw();
-//   });
-// });
-    
-$(function() {
-  var table = $('#example').DataTable({
-    "responsive": true,
-    "lengthChange": false,
-    "autoWidth": false,
-    "searching": true // Hide default search input
-  });
-
-  $('#searchinput').on('keyup', function() {
-    var searchValue = this.value; 
-    table.search(searchValue).draw();
-  });
-});
-
-</script> --}}
+ 
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -469,13 +446,13 @@ $(function() {
       });
     });
  </script>
- <script>
+ <script> 
     $(document).ready(function() {
         // Handle checkbox toggle
-        $('.checkbox-toggle').click(function() {
-            var checkboxes = $('input[type="checkbox"]');
-            checkboxes.prop('checked', !checkboxes.prop('checked'));
-        });
+            $('.checkbox-toggle').click(function() {
+        var checkboxes = $('input[type="checkbox"]:visible');
+        checkboxes.prop('checked', !checkboxes.prop('checked'));
+    });
     
         // Handle delete button click
         $('.btn-delete').click(function() {
@@ -510,5 +487,33 @@ $(function() {
             location.reload();
         });
     </script>
+    <script>
+      $(document).ready(function () {
+          // Function to handle the Accept button click
+
+          $("#acceptButton").click(function () {
+            var selectedCheckboxes = $('input[type="checkbox"]:checked');
+            var selectedIds = [];
+            selectedCheckboxes.each(function() {
+                selectedIds.push($(this).val().replace('check', ''));
+            });
+            console.log(selectedIds);
+              // Perform action for accepting selected items
+              alert("Accepting selected items...");
+          });
+
+          // Function to handle the Refuse button click
+          $("#refuseButton").click(function () {
+            var selectedCheckboxes = $('input[type="checkbox"]:checked');
+            var selectedIds = [];
+            selectedCheckboxes.each(function() {
+                selectedIds.push($(this).val().replace('check', ''));
+            });
+            console.log(selectedIds);
+              // Perform action for refusing selected items
+              alert("Refusing selected items...");
+          });
+      });
+  </script>
 </body>
 </html>
