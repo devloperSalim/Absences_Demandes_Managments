@@ -40,10 +40,12 @@ class AbsenceController extends Controller
     public function store(AbsenceRequest $request)
     {
 
+
         $formFields = $request->validated();
         // dd($formFields);
         Absence::create($formFields);
-        return view('absence.liste-absence');
+        // return view('absence.liste-absence');
+        return redirect()->route('absences.index');
     }
 
     /**
