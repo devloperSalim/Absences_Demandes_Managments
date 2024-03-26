@@ -10,14 +10,18 @@ class Stagiaire extends Model
 {
     use HasFactory , SoftDeletes;
 
-protected $fillable = ['registration_number','nom','prenom','email_etu','stagaire_en_formation','nationalite','group_id','date_pv'];
+protected $fillable = ['password','nom','prenom','email_etu','stagaire_en_formation','nationalite','group_id','date_pv'];
+
     public function group(){
         return $this->belongsTo(Group::class);
     }
+
     public function absences(){
         return $this->hasMany(Absence::class);
     }
-    public function demandes(){
+
+      public function demandes()
+    {
         return $this->hasMany(Demande::class);
     }
 }

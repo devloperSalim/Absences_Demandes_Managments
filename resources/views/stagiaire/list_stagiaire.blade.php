@@ -55,7 +55,7 @@
                     <span class="float-right text-muted text-sm">2 days</span>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a href="{{ route('list_demande') }}" class="dropdown-item dropdown-footer">See All Notifications</a>
+                  <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All Notifications</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -129,7 +129,7 @@
                                     <table id="table_stagiaire" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Code stagiaire  </th>
+                                                {{-- <th>Code stagiaire  </th> --}}
                                                 <th>Nom</th>
                                                 <th>Prenom</th>
                                                 <th> Email etud </th>
@@ -141,7 +141,7 @@
                                         <tbody>
                                             @foreach ($stagiaires as $stagiaire)
                                                 <tr>
-                                                    <td>{{ $stagiaire->registration_number }}</td>
+                                                    {{-- <td>{{ $stagiaire->registration_number }}</td> --}}
                                                     <td>{{ $stagiaire->nom }}</td>
                                                     <td>{{ $stagiaire->prenom}}</td>
                                                     <td>{{ $stagiaire->email_etu }}</td>

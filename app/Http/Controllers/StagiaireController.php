@@ -6,6 +6,7 @@ use App\Http\Requests\StagiaireRequest;
 use App\Models\Group;
 use App\Models\Stagiaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class StagiaireController extends Controller
 {
@@ -23,7 +24,7 @@ class StagiaireController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    { 
+    {
         $groups = Group::all();
         return view('stagiaire.ajouter_stagiaire', compact('groups'));
     }
@@ -37,6 +38,8 @@ class StagiaireController extends Controller
         $stagaire_en_formation = $request->stagaire_en_formation === 'oui' ? true : false;
         $formFields = $request->validated();
         $formFields['stagaire_en_formation'] = $stagaire_en_formation;
+        $formFields['password']=Hash::make($request->password);
+        // dd($formFields);
         Stagiaire::create($formFields);
 
         return redirect()->route('stagiaires.index');

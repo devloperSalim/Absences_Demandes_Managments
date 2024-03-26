@@ -161,9 +161,18 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Code Stagiaire</label>
+<<<<<<< HEAD
+                                                        <input type="password"  name="password"
+                                                            class="form-control">
+                                                        {{-- @error('registration_number')
+                                                            <span
+                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('registration_number') }}</span>
+                                                        @enderror --}}
+=======
                                                         <input type="text"  name="registration_number"
                                                             class="form-control @error('registration_number') is-invalid @enderror"> 
                                                         <div class="invalid-feedback">{{ $errors->first('registration_number') }}</div>
+>>>>>>> 911bb12282e43d49a409fd006a8b4f2aeb485737
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -174,6 +183,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">

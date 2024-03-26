@@ -8,21 +8,21 @@
     <title>Booking Form HTML Template</title>
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-     @include('layouts.header_links') 
+     @include('layouts.header_links')
     <!-- Custom stlylesheet -->
-    <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}" /> 
+    <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}" />
     <style>
         @media (max-width: 991px) {
   .navbar-scroll {
     background-color: #ffffff2b;
     backdrop-filter: blur(10px);
   }
-     
+
   .navbar-scroll .navbar-brand,
   .navbar-scroll .nav-link,
   .navbar-scroll .fa-bars {
     color: #4f4f4f !important;
-  }         
+  }
 }
 
 .navbar-brand {
@@ -111,17 +111,20 @@
     <div>
         <div>
             <div class="container">
-                <div class="row justify-content-center"> 
-                    <div class="col-md-11  "> 
+                <div class="row justify-content-center">
+                    <div class="col-md-11  ">
                                 <div class="card   card-outline">
                                     <div class="card-header">
-                                        <a href="{{ route('demande') }}" class="btn btn-primary">ajoute demande</a> 
+                                        <a href="{{ route('demande') }}" class="btn btn-primary">ajoute demande</a>
                                     </div>
-                                    <div class="card-body p-0"> 
+                                    <div class="card-header">
+                                        <a href="{{ route('logout.logout') }}" class="btn btn-primary">deconx</a>
+                                    </div>
+                                    <div class="card-body p-0">
                                         <div class="table-responsive mailbox-messages">
                                           <table class="table table-hover table-striped" id="example">
                                             <thead>
-                                                <tr> 
+                                                <tr>
                                                   <th>id</th>
                                                   <th>Type </th>
                                                   <th>description </th>
@@ -129,26 +132,25 @@
                                                   <th>time</th>
                                                 </tr>
                                               </thead>
-                                            <tbody>
-                                            <tr> 
-                                              <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                              <td class="mailbox-subject"><b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...
-                                              </td>
-                                              <td class="mailbox-attachment"><span class="badge rounded-pill bg-primary">en cour</span></td>
-                                              <td class="mailbox-date">5 mins ago</td>
-                                            </tr>
-                                            <tr>
-                                               
-                                              <td class="mailbox-star"><a href="#"><i class="fas fa-star-o text-warning"></i></a></td>
-                                              <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                              <td class="mailbox-subject"><b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...
-                                              </td>
-                                              <td class="mailbox-attachment"><span class="badge rounded-pill bg-success">Success</span></td>
-                                              <td class="mailbox-date">28 mins ago</td>
-                                            </tr>
-                                             
+                                              <tbody>
+                                                @foreach ($stagiaires as $stagiaire)
+                                                    @foreach ($stagiaire->demandes()->where('stagiaire_id', $stagiaire->id)->get() as $demande)
+                                                        @if (auth()->user()->id === $demande->stagiaire_id)
+                                                            <tr>
+                                                                <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a>{{ $stagiaire->id }}</td>
+                                                                <td class="mailbox-name"><a href="read-mail.html">{{ $stagiaire->nom }}</a></td>
+                                                                <td class="mailbox-subject">
+                                                                    <b>{{ $demande->description }}</b> - Trying to find a solution to this problem...
+                                                                </td>
+                                                                <td class="mailbox-attachment"><span class="badge rounded-pill bg-primary">en cour</span></td>
+                                                                <td class="mailbox-date">{{ $demande->created_at }}</td>
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
                                             </tbody>
+
+
                                           </table>
                                           <!-- /.table -->
                                         </div>
@@ -156,10 +158,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                 </div>
-            </div> 
+            </div>
 
     <script>
         // JavaScript to toggle the menu on mobile screens

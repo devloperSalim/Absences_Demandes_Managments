@@ -129,7 +129,7 @@
                                     <table id="table_stagiaire" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Code stagiaire  </th>
+                                                {{-- <th>Code stagiaire  </th> --}}
                                                 <th>Nom</th>
                                                 <th>Prenom</th>
                                                 <th> Email etud </th>
@@ -142,7 +142,7 @@
                                         <tbody>
                                             @foreach ($stagiaire->absences as $absence)
                                             <tr>
-                                                <td>{{ $stagiaire->registration_number }}</td>
+                                                {{-- <td>{{ $stagiaire->registration_number }}</td> --}}
                                                 <td>{{ $stagiaire->nom }}</td>
                                                 <td>{{ $stagiaire->prenom }}</td>
                                                 <td>{{ $stagiaire->email_etu }}</td>
