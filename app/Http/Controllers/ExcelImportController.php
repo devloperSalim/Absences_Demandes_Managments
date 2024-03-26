@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class ExcelImportController extends Controller
 {
-    public function import(Request $request)
+    public function importGroup(Request $request)
     {
         // Validate the uploaded file
         $request->validate([
@@ -24,20 +25,183 @@ class ExcelImportController extends Controller
         $worksheet = $spreadsheet->getActiveSheet();
 
         // Get the highest column and row numbers
-        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10
-        $highestColumn = $worksheet->getHighestDataColumn(); // e.g., 'F'
-
+        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10 
+ 
         // Iterate through rows and columns to read data
         $data = [];
-        for ($row = 1; $row <= $highestRow; $row++) {
-            for ($col = 'A'; $col <= $highestColumn; $col++) {
-                // Use iconv to handle incomplete multibyte characters
-                $cellValue = iconv('UTF-8', 'UTF-8//IGNORE', $worksheet->getCell($col . $row)->getValue());
+        
+ 
+        // Iterate through rows and columns to read data
+        for ($row = 2; $row <= $highestRow; $row++) {
+            $dateINt = $worksheet->getCell('A' . $row)->getValue();
+            $dateValue = Date::excelToDateTimeObject($dateINt);
+            $formattedDate = $dateValue->format('m/d/Y'); 
+            $rowData = [
+                'date' => $formattedDate,
+                'region' => $worksheet->getCell('B' . $row)->getValue(),
+                'salesman' => $worksheet->getCell('C' . $row)->getValue(),
+                'product' => $worksheet->getCell('D' . $row)->getValue(),
+                'quantity' => $worksheet->getCell('E' . $row)->getValue(),
+                'price' => $worksheet->getCell('F' . $row)->getValue(),
+            ];
 
-                // Process cell value as needed
-                $data[$row][$col] = $cellValue;
-            }
+            // Add row data to the array
+            $data[] = $rowData;
+            
         }
+
+        // Insert the data into the database
+        // SalesData::insert($data);
+
+        // Optionally, you can return the data or process it further
+        return response()->json($data);
+    }
+    public function importStagiaire(Request $request)
+    {
+        // Validate the uploaded file
+        $request->validate([
+            'excel_file' => 'required|mimes:xlsx,xls',
+        ]);
+
+        // Get the uploaded file
+        $file = $request->file('excel_file');
+
+        // Load the Excel file
+        $spreadsheet = IOFactory::load($file); 
+
+        // Get the first worksheet
+        $worksheet = $spreadsheet->getActiveSheet();
+
+        // Get the highest column and row numbers
+        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10 
+ 
+        // Iterate through rows and columns to read data
+        $data = [];
+        
+ 
+        // Iterate through rows and columns to read data
+        for ($row = 2; $row <= $highestRow; $row++) {
+            $dateINt = $worksheet->getCell('A' . $row)->getValue();
+            $dateValue = Date::excelToDateTimeObject($dateINt);
+            $formattedDate = $dateValue->format('m/d/Y'); 
+            $rowData = [
+                'date' => $formattedDate,
+                'region' => $worksheet->getCell('B' . $row)->getValue(),
+                'salesman' => $worksheet->getCell('C' . $row)->getValue(),
+                'product' => $worksheet->getCell('D' . $row)->getValue(),
+                'quantity' => $worksheet->getCell('E' . $row)->getValue(),
+                'price' => $worksheet->getCell('F' . $row)->getValue(),
+            ];
+
+            // Add row data to the array
+            $data[] = $rowData;
+            
+        }
+
+        // Insert the data into the database
+        // SalesData::insert($data);
+
+        // Optionally, you can return the data or process it further
+        return response()->json($data);
+    }
+
+
+    public function importModule(Request $request)
+    {
+        // Validate the uploaded file
+        $request->validate([
+            'excel_file' => 'required|mimes:xlsx,xls',
+        ]);
+
+        // Get the uploaded file
+        $file = $request->file('excel_file');
+
+        // Load the Excel file
+        $spreadsheet = IOFactory::load($file); 
+
+        // Get the first worksheet
+        $worksheet = $spreadsheet->getActiveSheet();
+
+        // Get the highest column and row numbers
+        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10 
+ 
+        // Iterate through rows and columns to read data
+        $data = [];
+        
+ 
+        // Iterate through rows and columns to read data
+        for ($row = 2; $row <= $highestRow; $row++) {
+            $dateINt = $worksheet->getCell('A' . $row)->getValue();
+            $dateValue = Date::excelToDateTimeObject($dateINt);
+            $formattedDate = $dateValue->format('m/d/Y'); 
+            $rowData = [
+                'date' => $formattedDate,
+                'region' => $worksheet->getCell('B' . $row)->getValue(),
+                'salesman' => $worksheet->getCell('C' . $row)->getValue(),
+                'product' => $worksheet->getCell('D' . $row)->getValue(),
+                'quantity' => $worksheet->getCell('E' . $row)->getValue(),
+                'price' => $worksheet->getCell('F' . $row)->getValue(),
+            ];
+
+            // Add row data to the array
+            $data[] = $rowData;
+            
+        }
+
+        // Insert the data into the database
+        // SalesData::insert($data);
+
+        // Optionally, you can return the data or process it further
+        return response()->json($data);
+    }
+
+
+
+
+    public function avancement(Request $request)
+    {
+        // Validate the uploaded file
+        $request->validate([
+            'excel_file' => 'required|mimes:xlsx,xls',
+        ]);
+
+        // Get the uploaded file
+        $file = $request->file('excel_file');
+
+        // Load the Excel file
+        $spreadsheet = IOFactory::load($file); 
+
+        // Get the first worksheet
+        $worksheet = $spreadsheet->getActiveSheet();
+
+        // Get the highest column and row numbers
+        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10 
+ 
+        // Iterate through rows and columns to read data
+        $data = [];
+        
+ 
+        // Iterate through rows and columns to read data
+        for ($row = 2; $row <= $highestRow; $row++) {
+            $dateINt = $worksheet->getCell('A' . $row)->getValue();
+            $dateValue = Date::excelToDateTimeObject($dateINt);
+            $formattedDate = $dateValue->format('m/d/Y'); 
+            $rowData = [
+                'date' => $formattedDate,
+                'region' => $worksheet->getCell('B' . $row)->getValue(),
+                'salesman' => $worksheet->getCell('C' . $row)->getValue(),
+                'product' => $worksheet->getCell('D' . $row)->getValue(),
+                'quantity' => $worksheet->getCell('E' . $row)->getValue(),
+                'price' => $worksheet->getCell('F' . $row)->getValue(),
+            ];
+
+            // Add row data to the array
+            $data[] = $rowData;
+            
+        }
+
+        // Insert the data into the database
+        // SalesData::insert($data);
 
         // Optionally, you can return the data or process it further
         return response()->json($data);
