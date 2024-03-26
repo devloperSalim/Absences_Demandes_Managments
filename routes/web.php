@@ -82,4 +82,7 @@ Route::get('/modules/alert_avancement',function (){
 
 
 // routes/web.php
-Route::post('/import-excel', [ExcelImportController::class, 'import'])->name('import.excel');
+Route::post('/import-excel/group', [ExcelImportController::class, 'importGroup'])->name('excel.group');
+Route::post('/import-excel/stagiaire', [ExcelImportController::class, 'importStagiaire'])->name('excel.stagiaire');
+Route::post('/import-excel/module', [ExcelImportController::class, 'importModule'])->name('excel.module');
+Route::post('/import-excel/avancement', [ExcelImportController::class, 'avancement'])->name('excel.avance_module');

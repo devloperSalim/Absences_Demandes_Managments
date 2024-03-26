@@ -145,44 +145,41 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Nom </label>
-                                                        <input class="form-control" type="text" name="nom"
-                                                            id="" style="width: 100%;">
-                                                        @error('nom')
-                                                            <span
-                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('nom') }}</span>
-                                                        @enderror
+                                                        <input class="form-control @error('nom') is-invalid @enderror" type="text" name="nom"
+                                                            id="" style="width: 100%;"> 
+                                                        <div class="invalid-feedback">{{ $errors->first('nom') }}</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Prenom </label>
-                                                        <input class="form-control" type="text" name="prenom"
-                                                            id="" style="width: 100%;">
-                                                        @error('prenom')
-                                                            <span
-                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('prenom') }}</span>
-                                                        @enderror
+                                                        <input class="form-control @error('prenom') is-invalid @enderror" type="text" name="prenom"
+                                                            id="" style="width: 100%;"> 
+                                                        <div class="invalid-feedback">{{ $errors->first('prenom') }}</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Code Stagiaire</label>
+<<<<<<< HEAD
                                                         <input type="password"  name="password"
                                                             class="form-control">
                                                         {{-- @error('registration_number')
                                                             <span
                                                                 class="text-danger font-weight-bold small  ">{{ $errors->first('registration_number') }}</span>
                                                         @enderror --}}
+=======
+                                                        <input type="text"  name="registration_number"
+                                                            class="form-control @error('registration_number') is-invalid @enderror"> 
+                                                        <div class="invalid-feedback">{{ $errors->first('registration_number') }}</div>
+>>>>>>> 911bb12282e43d49a409fd006a8b4f2aeb485737
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Email_etu</label>
-                                                        <input type="email" name="email_etu" class="form-control">
-                                                        @error('email_etu')
-                                                            <span
-                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('email_etu') }}</span>
-                                                        @enderror
+                                                        <input type="email" name="email_etu" class="form-control @error('email_etu') is-invalid @enderror"> 
+                                                        <div class="invalid-feedback">{{ $errors->first('email_etu') }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,26 +188,20 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Stagiaire en formation</label>
-                                                        <select name="stagaire_en_formation" class="form-control" style="width: 100%;">
+                                                        <select name="stagaire_en_formation" class="form-control @error('stagaire_en_formation') is-invalid @enderror" style="width: 100%;">
                                                             <option value="" disabled selected>select </option>
                                                             <option value="oui">oui</option>
                                                             <option value="non">non</option>
-                                                        </select>
-                                                        @error('stagaire_en_formation')
-                                                            <span
-                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('stagaire_en_formation') }}</span>
-                                                        @enderror
+                                                        </select> 
+                                                        <div class="invalid-feedback">{{ $errors->first('stagaire_en_formation') }}</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Nationalite </label>
-                                                        <input class="form-control" type="text" name="nationalite"
-                                                            id="" style="width: 100%;">
-                                                        @error('nationalite')
-                                                            <span
-                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('nationalite') }}</span>
-                                                        @enderror
+                                                        <input class="form-control @error('nationalite') is-invalid @enderror" type="text" name="nationalite"
+                                                            id="" style="width: 100%;"> 
+                                                        <div class="invalid-feedback">{{ $errors->first('nationalite') }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,15 +209,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Groupe </label>
-                                                        <select class="form-control" name="group_id" style="width: 100%;">
+                                                        <select class="form-control @error('group_id') is-invalid @enderror" name="group_id" style="width: 100%;">
                                                             <option value="" disabled selected>Select group</option>
                                                             @foreach ($groups as $group)
                                                                 <option value="{{ $group->id }}">{{ $group->code_group }}</option>
                                                             @endforeach
-                                                        </select>
-                                                        @error('group_id')
-                                                            <span class="text-danger font-weight-bold small">{{ $errors->first('group_id') }}</span>
-                                                        @enderror
+                                                        </select> 
+                                                        <div class="invalid-feedback">{{ $errors->first('group_id') }}</div>
 
                                                     </div>
                                                 </div>
@@ -248,19 +237,19 @@
 
 
                     </div>
-                    <div class="row">
-                        <div class="  col-12 ">
-                            <div class="card-body">
-                                <h5 class="card-title">Import Excel File</h5>
-                                <form action="upload.php" method="post" enctype="multipart/form-data">
-                                    <div class="custom-file">
-                                        <input type="file" class=" d-none" id="excelFile" name="excelFile">
-                                        <label class="btn btn-primary" for="excelFile">
-                                            <i class="fas fa-file-excel mr-2"></i> Import Excel
-                                        </label>
-                                    </div>
+                    <div class="row"> 
+                        <div class="col-12">
+                            <div class="container">
+                                <form action="{{ route('excel.stagiaire') }}" method="post" enctype="multipart/form-data"  >
+                                    @csrf
+                                     <div class="mb-3">
+                                    <label class="form-label" for="excel_file">Select Excel file:</label>
+                                    <input type="file" class="form-control @error('excel_file') is-invalid @enderror" id="excel_file" name="excel_file" accept=".xls,.xlsx"  >
+                                    <div class="invalid-feedback">Please select an Excel file.</div>
+                                  </div> 
+                                  <button type="submit" class="btn btn-primary">Upload Excel</button>
                                 </form>
-                            </div>
+                              </div>
                         </div>
                     </div>
                 </div>
