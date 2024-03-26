@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\AbsenceController;
-use App\Http\Controllers\ExcelImportController;
-use App\Http\Controllers\GroupController;
-use App\Http\Controllers\StagiaireController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\DemandeController;
+use App\Http\Controllers\StagiaireController;
+use App\Http\Controllers\ExcelImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,16 +24,20 @@ Route::get('/not_found',function (){
 Route::get('/', function () {
     return view('home');
 })->name('home');
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
 
+//login
+Route::get('/login',[LoginController::class, 'show'])->name('login.show');
+Route::post('/login',[LoginController::class, 'login'])->name('login');
+//logout
+Route::get('/logout',[LoginController::class, 'logout'])->name('logout.logout');
 //groups routes
 Route::resource('groups',GroupController::class);
 //stagiaires routes
 Route::resource('stagiaires',StagiaireController::class);
 //absences routes
 Route::resource('absences',AbsenceController::class);
+//demande route
+Route::resource('demandes',DemandeController::class);
 
 
 
@@ -61,17 +67,17 @@ Route::get('/modules/alert_avancement',function (){
 
 
 
-Route::get('/demandes',function (){
-    return view('demande.inbox_demande');
-})->name('list_demande');
+// Route::get('/demandes',function (){
+//     return view('demande.inbox_demande');
+// })->name('list_demande');
 
 
-Route::get('/demande',function (){
-    return view('demande.demande');
-})->name('demande');
-Route::get('/mydemande',function (){
-    return view('demande.mydemende');
-})->name('mydemende');
+// Route::get('/demande',function (){
+//     return view('demande.demande');
+// })->name('demande');
+// Route::get('/mydemande',function (){
+//     return view('demande.mydemende');
+// })->name('mydemende');
 
 
 

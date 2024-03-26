@@ -22,7 +22,7 @@ class StagiaireRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'registration_number' => 'required|integer|unique:stagiaires,registration_number',
+            'password' => 'required|string|max:8',
             'nom'=>'required|string|max:50',
             'prenom'=>'required|string|max:50',
             'email_etu'=>'required|email',
@@ -37,9 +37,9 @@ class StagiaireRequest extends FormRequest
     public function messages()
     {
         return [
-            'registration_number.required' => 'Le numéro d\'enregistrement est requis.',
-            'registration_number.integer' => 'Le numéro d\'enregistrement doit être un entier.',
-            'registration_number.unique' => 'Le numéro d\'enregistrement est déjà utilisé.',
+            'password.required' => 'Le numéro d\'enregistrement est requis.',
+            // 'password.integer' => 'Le numéro d\'enregistrement doit être un entier.',
+            'password.unique' => 'Le numéro d\'enregistrement est déjà utilisé.',
             'nom.required' => 'Le nom est requis.',
             'nom.string' => 'Le nom doit être une chaîne de caractères.',
             'nom.max' => 'Le nom ne peut pas dépasser :50 caractères.',

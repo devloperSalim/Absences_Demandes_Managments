@@ -167,12 +167,12 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Code Stagiaire</label>
-                                                        <input type="text"  name="registration_number"
+                                                        <input type="password"  name="password"
                                                             class="form-control">
-                                                        @error('registration_number')
+                                                        {{-- @error('registration_number')
                                                             <span
                                                                 class="text-danger font-weight-bold small  ">{{ $errors->first('registration_number') }}</span>
-                                                        @enderror
+                                                        @enderror --}}
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -186,6 +186,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">

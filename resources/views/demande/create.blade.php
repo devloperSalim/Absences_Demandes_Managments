@@ -8,21 +8,21 @@
     <title>Booking Form HTML Template</title>
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-     @include('layouts.header_links') 
+     @include('layouts.header_links')
     <!-- Custom stlylesheet -->
-    <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}" /> 
+    <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}" />
     <style>
         @media (max-width: 991px) {
   .navbar-scroll {
     background-color: #ffffff2b;
     backdrop-filter: blur(10px);
   }
-     
+
   .navbar-scroll .navbar-brand,
   .navbar-scroll .nav-link,
   .navbar-scroll .fa-bars {
     color: #4f4f4f !important;
-  }         
+  }
 }
 
 .navbar-brand {
@@ -98,7 +98,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('mydemende') }}">my demandes</a>
+                            <a class="nav-link active" aria-current="page" href="">my demandes</a>
                         </li>
                     </ul>
                 </div>
@@ -120,12 +120,13 @@
                     </div>
                     <div class="col-md-8 col-md-offset-1">
                         <div class="booking-form">
-                            <form id="bookingForm">
+                            <form id="bookingForm" action="{{ route('demandes.store') }}" method="POST">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <span class="form-label">choisir un demande</span>
-                                            <select class="form-control select2" id="travelClass">
+                                            <select class="form-control select2" id="travelClass" name="type">
                                                 <option value="" selected disabled>Choisir un demande</option>
                                                 <option>Economy class</option>
                                                 <option>Business class</option>
@@ -141,14 +142,14 @@
                                         <div class="form-group">
                                             <span class="form-label">Additional Comments</span>
                                             <textarea class="form-control" id="comments" rows="4"
-                                                placeholder="Enter any additional comments or notes"></textarea>
+                                                placeholder="Enter any additional comments or notes" name="description"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="hidden" value="1" name="id_stagiare">
+                                            <input type="hidden"  name="stagiaire_id" value="{{ $idStagiaire }}" >
                                         </div>
                                     </div>
                                 </div>

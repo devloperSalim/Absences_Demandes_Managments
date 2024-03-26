@@ -19,7 +19,7 @@
               class="h-1/2 w-full mx-auto absolute inset-x-0 top-0"
             ></div>
             <div class="max-w-xl mx-auto px-8 relative space-y-6">
-               
+
               <div
                 class="rounded-lg shadow bg-white overflow-hidden divide-y divide-gray-200"
               >
@@ -27,7 +27,10 @@
                   method="post"
                   action=""
                   class="px-8 pb-10 space-y-4"
+                  action="{{ route('login') }}"
+                  method="POST"
                 >
+                @csrf
                   <h1
                     class="text-gray-600 bg-gradient-to-b from-gray-50 via-blue-50 to-gray-100 text-center py-4 mb-6 font-semibold border rounded-sm shadow-sm"
                   >
@@ -46,7 +49,7 @@
                       id="email"
                       autofocus="autofocus"
                       required=""
-                      name="email"
+                      name="email_etu"
                       autocomplete="email"
                       class="border border-gray-300 w-full shadow-sm mt-1 h-12 p-2"
                       value=""
@@ -61,7 +64,7 @@
                     </label>
                     <input
                       type="password"
-                      id="password"
+                      id=""
                       name="password"
                       required=""
                       placeholder=""

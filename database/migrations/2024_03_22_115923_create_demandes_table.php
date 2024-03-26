@@ -11,11 +11,9 @@ class CreateDemandesTable extends Migration
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('stagiaire_id');
-            $table->string('status');
+            $table->string('status')->default('encour');
             $table->string('type');
             $table->text('description');
-            $table->date('date_demande');
-            $table->date('date_formation');
             $table->timestamps();
             $table->softDeletes();
 

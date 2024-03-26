@@ -10,7 +10,11 @@ class Demande extends Model
 {
     use HasFactory , SoftDeletes;
 
-    public function stagaire(){
+
+    protected $fillable = ['stagiaire_id','type','status','description'];
+
+    public function stagiaire()
+    {
         return $this->belongsTo(Stagiaire::class);
     }
 }
