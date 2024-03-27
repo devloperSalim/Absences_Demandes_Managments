@@ -22,6 +22,8 @@ class LoginController extends Controller
             // $idStagiaire = Auth::user()->id;
             $request->session()->regenerate();
             return to_route('demandes.create')->with('success','connected successefely');
+        }else{
+            return redirect()->back();
         }
 
     }

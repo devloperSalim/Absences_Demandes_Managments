@@ -35,33 +35,23 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
+                        <span class="badge badge-warning navbar-badge">{{ $demandes->count()  }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <span class="dropdown-item dropdown-header">{{ $demandes->count() }} Demandes</span>
                         <div class="dropdown-divider"></div>
+                        @foreach ($demandes as $demande)
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">3 mins</span>
+                            <i class="fas fa-file mr-2"></i> {{ $demande->stagiaire->nom }} {{ $demande->stagiaire->prenom }}
+                            <span class="float-right text-muted text-sm">{{ $demande->created_at->diffForHumans() }}</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All
-                            Notifications</a>
+                        @endforeach
+                        <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All Demandes</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -69,7 +59,6 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-
             </ul>
         </nav>
         <!-- /.navbar -->

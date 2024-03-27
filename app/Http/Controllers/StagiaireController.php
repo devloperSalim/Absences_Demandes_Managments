@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StagiaireRequest;
+use App\Models\Demande;
 use App\Models\Group;
 use App\Models\Stagiaire;
 use Illuminate\Http\Request;
@@ -17,7 +18,10 @@ class StagiaireController extends Controller
     {
 
         $stagiaires = Stagiaire::all();
-        return view('stagiaire.list_stagiaire',compact('stagiaires'));
+        $demandes = Demande::orderBy('created_at','desc')
+        ->limit(5)
+        ->get();
+        return view('stagiaire.list_stagiaire',compact('stagiaires','demandes'));
     }
 
     /**
@@ -26,7 +30,10 @@ class StagiaireController extends Controller
     public function create()
     {
         $groups = Group::all();
-        return view('stagiaire.ajouter_stagiaire', compact('groups'));
+        $demandes = Demande::orderBy('created_at','desc')
+        ->limit(5)
+        ->get();
+        return view('stagiaire.ajouter_stagiaire', compact('groups','demandes'));
     }
 
     /**
@@ -51,7 +58,10 @@ class StagiaireController extends Controller
     public function show(Stagiaire $stagiaire)
     {
 
-        return view('stagiaire.list_absence_stagiaire',compact('stagiaire'));
+        $demandes = Demande::orderBy('created_at','desc')
+        ->limit(5)
+        ->get();
+        return view('stagiaire.list_absence_stagiaire',compact('stagiaire','demandes'));
     }
 
     /**

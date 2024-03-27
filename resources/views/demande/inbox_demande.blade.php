@@ -30,40 +30,30 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-bell"></i>
+                <span class="badge badge-warning navbar-badge">{{ $demandes->count()  }}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <span class="dropdown-item dropdown-header">{{ $demandes->count() }} Demandes</span>
+                <div class="dropdown-divider"></div>
+                @foreach ($demandes as $demande)
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-file mr-2"></i> {{ $demande->stagiaire->nom }} {{ $demande->stagiaire->prenom }}
+                    <span class="float-right text-muted text-sm">{{ $demande->created_at->diffForHumans() }}</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                @endforeach
+                <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All Demandes</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+        </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -225,8 +215,8 @@
 </div>
 <!-- ./wrapper -->
 
-@extends('layouts.footerjs') 
- 
+@extends('layouts.footerjs')
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -261,14 +251,14 @@
       });
     });
  </script>
- <script> 
+ <script>
     $(document).ready(function() {
         // Handle checkbox toggle
             $('.checkbox-toggle').click(function() {
         var checkboxes = $('input[type="checkbox"]:visible');
         checkboxes.prop('checked', !checkboxes.prop('checked'));
     });
-    
+
         // Handle delete button click
         $('.btn-delete').click(function() {
             var selectedCheckboxes = $('input[type="checkbox"]:checked');
@@ -277,34 +267,34 @@
                 selectedIds.push(parseInt($(this).val().replace('check', ''), 10));
             });
          console.log(selectedIds);
-        
+
             // Send AJAX request to delete the selected items
             $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        });   
+        });
           $.ajax({
               url: '{{ route('demand.delete') }}',
-              type: 'POST',  
+              type: 'POST',
               data:{
-            selectedIds: selectedIds 
+            selectedIds: selectedIds
                   }
-              ,  
+              ,
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }, 
+            },
               success: function(response) {
-                  // Handle success response 
+                  // Handle success response
                   alert(response.message);
                   location.reload();
               },
               error: function(xhr, status, error) {
                   // Handle error response
-                  console.error(error); 
+                  console.error(error);
               }
-              }); 
-         
+              });
+
         });
     });
     </script>
@@ -324,7 +314,7 @@
             var selectedIds = [];
             selectedCheckboxes.each(function() {
                 selectedIds.push(parseInt($(this).val().replace('check', ''), 10));
-            }); 
+            });
               // Perform action for accepting selected items
                // Send an AJAX request to the Laravel route
                 // Add the CSRF token to the request headers
@@ -332,27 +322,27 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        });   
+        });
           $.ajax({
               url: '{{ route('demand.accepte') }}',
-              type: 'POST',  
+              type: 'POST',
               data:{
-            selectedIds: selectedIds 
+            selectedIds: selectedIds
                   }
-              ,  
+              ,
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }, 
+            },
               success: function(response) {
-                  // Handle success response 
+                  // Handle success response
                   alert(response.message);
                   location.reload();
               },
               error: function(xhr, status, error) {
                   // Handle error response
-                  console.error(error); 
+                  console.error(error);
               }
-              }); 
+              });
           });
 
           // Function to handle the Refuse button click

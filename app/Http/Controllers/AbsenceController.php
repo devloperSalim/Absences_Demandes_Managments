@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AbsenceRequest;
 use App\Models\Absence;
+use App\Models\Demande;
 use App\Models\Stagiaire;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,11 @@ class AbsenceController extends Controller
 {
     $absences = Absence::orderBy('created_at', 'DESC')->paginate(10);
     $stagiaires = Stagiaire::all();
+    $demandes = Demande::orderBy('created_at','desc')
+    ->limit(5)
+    ->get();
 
-    return view('absence.liste-absence', compact('absences', 'stagiaires'));
+    return view('absence.liste-absence', compact('absences', 'stagiaires','demandes'));
 }
 
 
@@ -27,12 +31,21 @@ class AbsenceController extends Controller
      */
     public function create(Request $request)
 {
+<<<<<<< HEAD
+    $stagiaireId = $request->query('stagiaire_id');
+    $demandes = Demande::orderBy('created_at','desc')
+    ->limit(5)
+    ->get();
+    // Pass $stagiaireId to the view using compact or any other method
+    return view('absence.stagiaire_absence', compact('stagiaireId','demandes'));
+=======
     $stagiaire = Stagiaire::find($request->stagiaire_id);
     $absences = Absence::where('stagiaire_id', $request->stagiaire_id)->get();
     $count = Absence::where('stagiaire_id', $request->stagiaire_id)->count();
     // dd($absences);
     // Pass $stagiaireId to the view using compact or any other method
     return view('absence.stagiaire_absence', compact('stagiaire','absences','count'));
+>>>>>>> de59afaa7e786ade69e31914b0fce71e6c902f9b
 }
 
 
