@@ -31,21 +31,12 @@ class AbsenceController extends Controller
      */
     public function create(Request $request)
 {
-<<<<<<< HEAD
-    $stagiaireId = $request->query('stagiaire_id');
-    $demandes = Demande::orderBy('created_at','desc')
-    ->limit(5)
-    ->get();
-    // Pass $stagiaireId to the view using compact or any other method
-    return view('absence.stagiaire_absence', compact('stagiaireId','demandes'));
-=======
     $stagiaire = Stagiaire::find($request->stagiaire_id);
     $absences = Absence::where('stagiaire_id', $request->stagiaire_id)->get();
     $count = Absence::where('stagiaire_id', $request->stagiaire_id)->count();
     // dd($absences);
     // Pass $stagiaireId to the view using compact or any other method
     return view('absence.stagiaire_absence', compact('stagiaire','absences','count'));
->>>>>>> de59afaa7e786ade69e31914b0fce71e6c902f9b
 }
 
 
