@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request; 
-use PhpOffice\PhpSpreadsheet\Shared\Date;
+use Carbon\Traits\Date;
+use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class ExcelImportController extends Controller
@@ -19,23 +19,23 @@ class ExcelImportController extends Controller
         $file = $request->file('excel_file');
 
         // Load the Excel file
-        $spreadsheet = IOFactory::load($file); 
+        $spreadsheet = IOFactory::load($file);
 
         // Get the first worksheet
         $worksheet = $spreadsheet->getActiveSheet();
 
         // Get the highest column and row numbers
-        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10 
- 
+        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10
+
         // Iterate through rows and columns to read data
         $data = [];
-        
- 
+
+
         // Iterate through rows and columns to read data
         for ($row = 2; $row <= $highestRow; $row++) {
             $dateINt = $worksheet->getCell('A' . $row)->getValue();
             $dateValue = Date::excelToDateTimeObject($dateINt);
-            $formattedDate = $dateValue->format('m/d/Y'); 
+            $formattedDate = $dateValue->format('m/d/Y');
             $rowData = [
                 'date' => $formattedDate,
                 'region' => $worksheet->getCell('B' . $row)->getValue(),
@@ -47,7 +47,7 @@ class ExcelImportController extends Controller
 
             // Add row data to the array
             $data[] = $rowData;
-            
+
         }
 
         // Insert the data into the database
@@ -67,23 +67,23 @@ class ExcelImportController extends Controller
         $file = $request->file('excel_file');
 
         // Load the Excel file
-        $spreadsheet = IOFactory::load($file); 
+        $spreadsheet = IOFactory::load($file);
 
         // Get the first worksheet
         $worksheet = $spreadsheet->getActiveSheet();
 
         // Get the highest column and row numbers
-        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10 
- 
+        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10
+
         // Iterate through rows and columns to read data
         $data = [];
-        
- 
+
+
         // Iterate through rows and columns to read data
         for ($row = 2; $row <= $highestRow; $row++) {
             $dateINt = $worksheet->getCell('A' . $row)->getValue();
             $dateValue = Date::excelToDateTimeObject($dateINt);
-            $formattedDate = $dateValue->format('m/d/Y'); 
+            $formattedDate = $dateValue->format('m/d/Y');
             $rowData = [
                 'date' => $formattedDate,
                 'region' => $worksheet->getCell('B' . $row)->getValue(),
@@ -95,7 +95,7 @@ class ExcelImportController extends Controller
 
             // Add row data to the array
             $data[] = $rowData;
-            
+
         }
 
         // Insert the data into the database
@@ -117,23 +117,23 @@ class ExcelImportController extends Controller
         $file = $request->file('excel_file');
 
         // Load the Excel file
-        $spreadsheet = IOFactory::load($file); 
+        $spreadsheet = IOFactory::load($file);
 
         // Get the first worksheet
         $worksheet = $spreadsheet->getActiveSheet();
 
         // Get the highest column and row numbers
-        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10 
- 
+        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10
+
         // Iterate through rows and columns to read data
         $data = [];
-        
- 
+
+
         // Iterate through rows and columns to read data
         for ($row = 2; $row <= $highestRow; $row++) {
             $dateINt = $worksheet->getCell('A' . $row)->getValue();
             $dateValue = Date::excelToDateTimeObject($dateINt);
-            $formattedDate = $dateValue->format('m/d/Y'); 
+            $formattedDate = $dateValue->format('m/d/Y');
             $rowData = [
                 'date' => $formattedDate,
                 'region' => $worksheet->getCell('B' . $row)->getValue(),
@@ -145,7 +145,7 @@ class ExcelImportController extends Controller
 
             // Add row data to the array
             $data[] = $rowData;
-            
+
         }
 
         // Insert the data into the database
@@ -169,23 +169,23 @@ class ExcelImportController extends Controller
         $file = $request->file('excel_file');
 
         // Load the Excel file
-        $spreadsheet = IOFactory::load($file); 
+        $spreadsheet = IOFactory::load($file);
 
         // Get the first worksheet
         $worksheet = $spreadsheet->getActiveSheet();
 
         // Get the highest column and row numbers
-        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10 
- 
+        $highestRow = $worksheet->getHighestDataRow(); // e.g., 10
+
         // Iterate through rows and columns to read data
         $data = [];
-        
- 
+
+
         // Iterate through rows and columns to read data
         for ($row = 2; $row <= $highestRow; $row++) {
             $dateINt = $worksheet->getCell('A' . $row)->getValue();
             $dateValue = Date::excelToDateTimeObject($dateINt);
-            $formattedDate = $dateValue->format('m/d/Y'); 
+            $formattedDate = $dateValue->format('m/d/Y');
             $rowData = [
                 'date' => $formattedDate,
                 'region' => $worksheet->getCell('B' . $row)->getValue(),
@@ -197,7 +197,7 @@ class ExcelImportController extends Controller
 
             // Add row data to the array
             $data[] = $rowData;
-            
+
         }
 
         // Insert the data into the database

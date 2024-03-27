@@ -59,7 +59,7 @@
                             <span class="float-right text-muted text-sm">2 days</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('list_demande') }}" class="dropdown-item dropdown-footer">See All
+                        <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All
                             Notifications</a>
                     </div>
                 </li>
@@ -153,7 +153,7 @@
                                                             class="form-control @error('code_group') is-invalid @enderror"
                                                             type="text" name="code_group" id=""
                                                             style="width: 100%;">
-                                                         
+
                                                         <div class="invalid-feedback">{{ $errors->first('code_group') }}</div>
                                                     </div>
                                                 </div>
@@ -176,7 +176,7 @@
                                                             class="form-control @error('nom_ilière') is-invalid @enderror"
                                                             type="text" name="nom_ilière" id=""
                                                             style="width: 100%;">
-                                                         
+
                                                         <div class="invalid-feedback">{{ $errors->first('nom_ilière') }}</div>
                                                     </div>
                                                 </div>
@@ -186,7 +186,7 @@
                                                         <input
                                                             class="form-control @error('nbr_stagiaires') is-invalid @enderror"
                                                             type="number" name="nbr_stagiaires" id=""
-                                                            style="width: 100%;"> 
+                                                            style="width: 100%;">
                                                         <div class="invalid-feedback">{{ $errors->first('nbr_stagiaires') }}</div>
                                                     </div>
                                                 </div>
@@ -200,7 +200,7 @@
 
 
                     </div>
-                    <div class="row"> 
+                    <div class="row">
                         <div class="col-12">
                             <div class="container">
                                 <form action="{{ route('excel.group') }}" method="post" enctype="multipart/form-data"  >
@@ -209,7 +209,7 @@
                                     <label class="form-label" for="excel_file">Select Excel file:</label>
                                     <input type="file" class="form-control @error('excel_file') is-invalid @enderror" id="excel_file" name="excel_file" accept=".xls,.xlsx"  >
                                     <div class="invalid-feedback">Please select an Excel file.</div>
-                                  </div> 
+                                  </div>
                                   <button type="submit" class="btn btn-primary">Upload Excel</button>
                                 </form>
                               </div>
