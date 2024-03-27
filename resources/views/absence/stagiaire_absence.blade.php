@@ -118,13 +118,20 @@
                         <div class="info-box col-12">
                             <span class="info-box-icon bg-info"><i class="far fa-user"></i></span>
                             <div class="info-box-content">
-                                <span class="info-box-text">Nom & prenom</span>
-                                <span class="info-box-number">41 absence</span>
+                                <span class="info-box-text">{{ $stagiaire->nom }} {{ $stagiaire->prenom }}</span>
+                                <span class="info-box-number">{{ $count }} absence</span>
                                 <div class="progress">
                                     <div class="progress-bar bg-info" style="width: 70%"></div>
                                 </div>
                                 <span class="description">
-                                    last absence 12/04/2024
+                                    @if($absences->isNotEmpty()) 
+                                    @php
+                                            $lastAbsence = $absences->last();
+                                    @endphp 
+                                            last absence  
+                                        {{ $lastAbsence->toDate }}
+                                    @endif
+                                  
                                 </span>
                             </div>
                         </div>
@@ -212,7 +219,7 @@
                                             <div class="form-group">
                                                 <label>code stagiaire</label>
                                                 <input readonly class="form-control" type="text"
-                                                    name="stagiaire_id" value="{{ $stagiaireId }}"
+                                                    name="stagiaire_id" value="{{ $stagiaire->id }}"
                                                     style="width: 100%;">
 
                                             </div>

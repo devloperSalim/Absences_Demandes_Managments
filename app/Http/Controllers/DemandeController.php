@@ -17,7 +17,10 @@ class DemandeController extends Controller
     public function index()
     {
         $stagiaires = Stagiaire::all();
-        $demandes = Demande::orderBy('created_at','ASC')->get();
+        $demandes = Demande::where('status', 'encour')
+                ->orderBy('created_at', 'desc')
+                ->get(); 
+        // $demandes = Demande::orderBy('created_at','ASC')->get();
         return view('demande.inbox_demande',compact('demandes','stagiaires'));
     }
 
@@ -55,6 +58,15 @@ class DemandeController extends Controller
     return view('demande.mydemende', compact('demandes'));
 }
 
+
+public function traiter(Request $request)
+{  
+    $stagiaires = Stagiaire::all();
+    $demandes = Demande::where('status', 'traiter')
+                ->orderBy('created_at', 'desc')
+                ->get(); 
+    return view('demande.demande_traiter', compact('demandes','stagiaires'));
+}
     /**
      * Show the form for editing the specified resource.
      */

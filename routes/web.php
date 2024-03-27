@@ -39,11 +39,16 @@ Route::resource('stagiaires',StagiaireController::class);
 //absences routes
 Route::resource('absences',AbsenceController::class);
 //demande route
+<<<<<<< HEAD
 Route::resource('demandes',DemandeController::class);
+=======
+Route::get('/demandes/traiter', [DemandeController::class, 'traiter'])->name('demandes.traiter');
+
+Route::resource('demandes',DemandeController::class);  
+>>>>>>> de59afaa7e786ade69e31914b0fce71e6c902f9b
 Route::post('/demandes/accepte', [accepteConroller::class,'accepte'])->name('demand.accepte');
 Route::post('/demandes/delete', [accepteConroller::class,'delete'])->name('demand.delete');
-
-
+ 
 
 Route::get('/modules',function (){
     return view('module.list_module');
