@@ -27,10 +27,12 @@ class AbsenceController extends Controller
      */
     public function create(Request $request)
 {
-    $stagiaireId = $request->query('stagiaire_id');
-
+    $stagiaire = Stagiaire::find($request->stagiaire_id);
+    $absences = Absence::where('stagiaire_id', $request->stagiaire_id)->get();
+    $count = Absence::where('stagiaire_id', $request->stagiaire_id)->count();
+    // dd($absences);
     // Pass $stagiaireId to the view using compact or any other method
-    return view('absence.stagiaire_absence', compact('stagiaireId'));
+    return view('absence.stagiaire_absence', compact('stagiaire','absences','count'));
 }
 
 

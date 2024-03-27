@@ -122,34 +122,10 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <!-- Small boxes (Stat box) -->
-                    <div class="row">
-                        <div class="info-box col-12">
-                            <span class="info-box-icon bg-info"><i class="far fa-user"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Nom & prenom</span>
-                                <span class="info-box-number">41 absence</span>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" style="width: 70%"></div>
-                                </div>
-                                <span class="description">
-                                    last absence 12/04/2024
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
+            <section class="content"> 
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">list absences Nom & prenom</h3>
-                            </div>
+                        <div class="card"> 
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="table_stagiaire" class="table table-bordered table-striped">
@@ -161,8 +137,7 @@
                                             <th>Date Fin</th>
                                             <th>Type Absence </th>
                                             <th>nombre séance</th>
-                                            <th>nombre horaire</th>
-                                            <th>show</th>
+                                            <th>nombre horaire</th> 
                                         </tr>
                                     </thead>
                                     <tbody>

@@ -146,13 +146,7 @@
                       <!-- /.btn-group -->
                       <button type="button" class="btn btn-default btn-sm" id="refreshButton">
                           <i class="fas fa-sync-alt"></i>
-                      </button>
-                      <button type="button" class="btn btn-success btn-sm" id="acceptButton">
-                          <i class="fas fa-check"></i> Accept
-                      </button>
-                      <button type="button" class="btn btn-danger btn-sm" id="refuseButton">
-                          <i class="fas fa-times"></i> Refuse
-                      </button>
+                      </button> 
                   </div>
                     <div class="table-responsive mailbox-messages">
                       <table class="table table-hover table-striped" id="example">
@@ -314,59 +308,6 @@
             // Reload the page
             location.reload();
         });
-    </script>
-    <script>
-      $(document).ready(function () {
-          // Function to handle the Accept button click
-
-          $("#acceptButton").click(function () {
-            var selectedCheckboxes = $('input[type="checkbox"]:checked');
-            var selectedIds = [];
-            selectedCheckboxes.each(function() {
-                selectedIds.push(parseInt($(this).val().replace('check', ''), 10));
-            }); 
-              // Perform action for accepting selected items
-               // Send an AJAX request to the Laravel route
-                // Add the CSRF token to the request headers
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });   
-          $.ajax({
-              url: '{{ route('demand.accepte') }}',
-              type: 'POST',  
-              data:{
-            selectedIds: selectedIds 
-                  }
-              ,  
-              headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }, 
-              success: function(response) {
-                  // Handle success response 
-                  alert(response.message);
-                  location.reload();
-              },
-              error: function(xhr, status, error) {
-                  // Handle error response
-                  console.error(error); 
-              }
-              }); 
-          });
-
-          // Function to handle the Refuse button click
-          $("#refuseButton").click(function () {
-            var selectedCheckboxes = $('input[type="checkbox"]:checked');
-            var selectedIds = [];
-            selectedCheckboxes.each(function() {
-                selectedIds.push($(this).val().replace('check', ''));
-            });
-            console.log(selectedIds);
-              // Perform action for refusing selected items
-              alert("Refusing selected items...");
-          });
-      });
-  </script>
+    </script> 
 </body>
 </html>

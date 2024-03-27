@@ -38,11 +38,12 @@ Route::resource('stagiaires',StagiaireController::class);
 //absences routes
 Route::resource('absences',AbsenceController::class);
 //demande route
+Route::get('/demandes/traiter', [DemandeController::class, 'traiter'])->name('demandes.traiter');
+
 Route::resource('demandes',DemandeController::class);  
 Route::post('/demandes/accepte', [accepteConroller::class,'accepte'])->name('demand.accepte');
 Route::post('/demandes/delete', [accepteConroller::class,'delete'])->name('demand.delete');
-
-
+ 
 
 Route::get('/modules',function (){
     return view('module.list_module');
