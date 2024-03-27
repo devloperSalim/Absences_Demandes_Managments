@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\accepteConroller;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\StagiaireController;
 use App\Http\Controllers\ExcelImportController;
@@ -37,7 +38,9 @@ Route::resource('stagiaires',StagiaireController::class);
 //absences routes
 Route::resource('absences',AbsenceController::class);
 //demande route
-Route::resource('demandes',DemandeController::class);
+Route::resource('demandes',DemandeController::class);  
+Route::post('/demandes/accepte', [accepteConroller::class,'accepte'])->name('demand.accepte');
+Route::post('/demandes/delete', [accepteConroller::class,'delete'])->name('demand.delete');
 
 
 

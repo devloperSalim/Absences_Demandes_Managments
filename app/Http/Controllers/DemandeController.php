@@ -7,6 +7,7 @@ use App\Models\Demande;
 use App\Models\Stagiaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\DataTables ;
 
 class DemandeController extends Controller
 {
@@ -25,7 +26,7 @@ class DemandeController extends Controller
      */
     public function create(Request $request )
     {
-        $idStagiaire = Auth::user()->id;
+        $idStagiaire = Auth::user()->id; 
         return view('demande.create' , compact('idStagiaire'));
     }
 
@@ -35,35 +36,39 @@ class DemandeController extends Controller
     public function store(DemandeRequest $request)
     {
         // dd($request);
-        $formFields = $request->validated();
-        // dd($formFields['stagiaire_id']);
-        Demande::create($formFields);
-        return redirect()->route('demandes.show',$formFields['stagiaire_id']);
+        $formFields = $request->validated(); 
+        
+        Demande::create($formFields);  
+        return redirect()->route('demandes.show',$formFields["stagiaire_id"]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Demande $demande)
-    {
-        $stagiaires =Stagiaire::all();
-        return view('demande.mydemende',compact('demande','stagiaires'));
-    }
+    public function show(Request $request)
+{ 
+    $stagiaireId = Auth::id();
+ 
+    $demandes = Demande::where('stagiaire_id', $stagiaireId)
+                        ->orderBy('created_at', 'desc')
+                        ->get();  
+    return view('demande.mydemende', compact('demandes'));
+}
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Demande $demande)
+    public function edit(Request $request)
     {
-        //
+         //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Demande $demande)
+    public function update(Request $request )
     {
-        //
+       //
     }
 
     /**

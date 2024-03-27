@@ -58,7 +58,7 @@
                             <span class="float-right text-muted text-sm">2 days</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="{{ route('list_demande') }}" class="dropdown-item dropdown-footer">See All
+                        <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All
                             Notifications</a>
                     </div>
                 </li>
@@ -161,18 +161,9 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Code Stagiaire</label>
-<<<<<<< HEAD
-                                                        <input type="password"  name="password"
-                                                            class="form-control">
-                                                        {{-- @error('registration_number')
-                                                            <span
-                                                                class="text-danger font-weight-bold small  ">{{ $errors->first('registration_number') }}</span>
-                                                        @enderror --}}
-=======
-                                                        <input type="text"  name="registration_number"
-                                                            class="form-control @error('registration_number') is-invalid @enderror"> 
-                                                        <div class="invalid-feedback">{{ $errors->first('registration_number') }}</div>
->>>>>>> 911bb12282e43d49a409fd006a8b4f2aeb485737
+                                                        <input type="text"  name="password"
+                                                            class="form-control @error('password') is-invalid @enderror"> 
+                                                        <div class="invalid-feedback">{{ $errors->first('password') }}</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

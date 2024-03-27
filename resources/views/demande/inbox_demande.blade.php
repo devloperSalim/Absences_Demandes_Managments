@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
@@ -178,11 +179,11 @@
                       <tr>
                         <td>
                           <div class="icheck-primary">
-                            <input type="checkbox" value="{{ $demande->id }}" id="check1">
-                            <label for="check1"></label>
+                            <input type="checkbox" value="{{ $demande->id }}" id="check{{ $demande->id }}">
+                            <label for="check{{ $demande->id }}"></label>
                           </div>
                         </td>
-                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a>{{ $demande->id }}</td>
+                        <td class="mailbox-star"><a href="#"></a>{{ $demande->id }}</td>
                         <td class="mailbox-name"><a href="read-mail.html"><b>{{ $demande->stagiaire->prenom }} {{ $demande->stagiaire->nom }}</b></td>
                         <td class="mailbox-name"><a href="read-mail.html">{{ $stagiaire->group->code_group }}</a></td>
                         <td class="mailbox-name"><a href="read-mail.html">{{ $demande->type }}</a></td>
@@ -273,24 +274,37 @@
             var selectedCheckboxes = $('input[type="checkbox"]:checked');
             var selectedIds = [];
             selectedCheckboxes.each(function() {
-                selectedIds.push($(this).val().replace('check', ''));
+                selectedIds.push(parseInt($(this).val().replace('check', ''), 10));
             });
          console.log(selectedIds);
+        
             // Send AJAX request to delete the selected items
-            $.ajax({
-                url: '/delete-items',
-                type: 'POST',
-                data: {
-                    ids: selectedIds
-                },
-                success: function(response) {
-                    // Reload the page or update the table as needed
-                    location.reload();
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                }
-            });
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });   
+          $.ajax({
+              url: '{{ route('demand.delete') }}',
+              type: 'POST',  
+              data:{
+            selectedIds: selectedIds 
+                  }
+              ,  
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }, 
+              success: function(response) {
+                  // Handle success response 
+                  alert(response.message);
+                  location.reload();
+              },
+              error: function(xhr, status, error) {
+                  // Handle error response
+                  console.error(error); 
+              }
+              }); 
+         
         });
     });
     </script>
@@ -309,11 +323,36 @@
             var selectedCheckboxes = $('input[type="checkbox"]:checked');
             var selectedIds = [];
             selectedCheckboxes.each(function() {
-                selectedIds.push($(this).val().replace('check', ''));
-            });
-            console.log(selectedIds);
+                selectedIds.push(parseInt($(this).val().replace('check', ''), 10));
+            }); 
               // Perform action for accepting selected items
-              alert("Accepting selected items...");
+               // Send an AJAX request to the Laravel route
+                // Add the CSRF token to the request headers
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });   
+          $.ajax({
+              url: '{{ route('demand.accepte') }}',
+              type: 'POST',  
+              data:{
+            selectedIds: selectedIds 
+                  }
+              ,  
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }, 
+              success: function(response) {
+                  // Handle success response 
+                  alert(response.message);
+                  location.reload();
+              },
+              error: function(xhr, status, error) {
+                  // Handle error response
+                  console.error(error); 
+              }
+              }); 
           });
 
           // Function to handle the Refuse button click

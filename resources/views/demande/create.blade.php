@@ -96,12 +96,17 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="">my demandes</a>
-                        </li>
-                    </ul>
-                </div>
+                  <ul class="navbar-nav me-auto">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{{ route('demandes.show',['demande' => auth()->user()->id]) }}">My Demandes</a>
+                      </li>
+                  </ul>
+                  <ul class="navbar-nav ml-auto"> <!-- Align logout link to the right -->
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('logout.logout') }}">Logout</a>
+                      </li>
+                  </ul>
+              </div>
             </div>
         </nav>
         <!-- Navbar -->

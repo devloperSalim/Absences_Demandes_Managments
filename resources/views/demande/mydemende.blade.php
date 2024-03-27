@@ -97,12 +97,17 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('mydemende') }}">my demandes</a>
-                        </li>
-                    </ul>
-                </div>
+                  <ul class="navbar-nav me-auto">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{{ route('demandes.show',['demande' => auth()->user()->id]) }}">My Demandes</a>
+                      </li>
+                  </ul>
+                  <ul class="navbar-nav ml-auto"> <!-- Align logout link to the right -->
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('logout.logout') }}">Logout</a>
+                      </li>
+                  </ul>
+              </div>
             </div>
         </nav>
         <!-- Navbar -->
@@ -115,11 +120,8 @@
                     <div class="col-md-11  ">
                                 <div class="card   card-outline">
                                     <div class="card-header">
-                                        <a href="{{ route('demande') }}" class="btn btn-primary">ajoute demande</a>
-                                    </div>
-                                    <div class="card-header">
-                                        <a href="{{ route('logout.logout') }}" class="btn btn-primary">deconx</a>
-                                    </div>
+                                        <a href="{{ route('demandes.create') }}" class="btn btn-primary">ajoute demande</a>
+                                    </div> 
                                     <div class="card-body p-0">
                                         <div class="table-responsive mailbox-messages">
                                           <table class="table table-hover table-striped" id="example">
@@ -132,22 +134,18 @@
                                                   <th>time</th>
                                                 </tr>
                                               </thead>
-                                              <tbody>
-                                                @foreach ($stagiaires as $stagiaire)
-                                                    @foreach ($stagiaire->demandes()->where('stagiaire_id', $stagiaire->id)->get() as $demande)
-                                                        @if (auth()->user()->id === $demande->stagiaire_id)
+                                              <tbody> 
+                                                    @foreach ($demandes as $index => $demande) 
                                                             <tr>
-                                                                <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a>{{ $stagiaire->id }}</td>
-                                                                <td class="mailbox-name"><a href="read-mail.html">{{ $stagiaire->nom }}</a></td>
+                                                                <td class="mailbox-star"> {{ $index + 1 }}</td>
+                                                                <td class="mailbox-name"> {{ $demande->type }} </td>
                                                                 <td class="mailbox-subject">
-                                                                    <b>{{ $demande->description }}</b> - Trying to find a solution to this problem...
+                                                                    <b>{{ $demande->description }}</b>  
                                                                 </td>
-                                                                <td class="mailbox-attachment"><span class="badge rounded-pill bg-primary">en cour</span></td>
-                                                                <td class="mailbox-date">{{ $demande->created_at }}</td>
-                                                            </tr>
-                                                        @endif
-                                                    @endforeach
-                                                @endforeach
+                                                                <td class="mailbox-attachment"><span class="badge rounded-pill bg-primary">{{ $demande->status }} </span></td>
+                                                                <td class="mailbox-date">{{ \Carbon\Carbon::parse($demande->created_at)->diffForHumans() }}</td>
+                                                            </tr> 
+                                                    @endforeach 
                                             </tbody>
 
 
