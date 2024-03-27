@@ -26,45 +26,35 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" class="nav-link">Home</a>
-      </li> 
+      </li>
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto"> 
- 
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-       
+    <ul class="navbar-nav ml-auto">
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-bell"></i>
+                <span class="badge badge-warning navbar-badge">{{ $demandes->count()  }}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <span class="dropdown-item dropdown-header">{{ $demandes->count() }} Demandes</span>
+                <div class="dropdown-divider"></div>
+                @foreach ($demandes as $demande)
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-file mr-2"></i> {{ $demande->stagiaire->nom }} {{ $demande->stagiaire->prenom }}
+                    <span class="float-right text-muted text-sm">{{ $demande->created_at->diffForHumans() }}</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                @endforeach
+                <a href="{{ route('demandes.index') }}" class="dropdown-item dropdown-footer">See All Demandes</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+        </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -87,7 +77,7 @@
         <div class="info">
           <a href="#" class="d-block">Maryem</a>
         </div>
-      </div> 
+      </div>
       <!-- Sidebar Menu -->
       @include('layouts.SidebarMenu')
       <!-- /.sidebar-menu -->
@@ -100,9 +90,9 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2"> 
+        <div class="row mb-2">
           <div class="col-sm-12">
-            <ol class="breadcrumb float-sm-right"> 
+            <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item   "><a href="{{ route('stagiaire_absence') }}">absence</a></li>
               <li class="breadcrumb-item"><a href="{{ route('list_stagiaire') }}">stagiaire</a></li>
               <li class="breadcrumb-item">Dashboard </li>
@@ -117,15 +107,15 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row"> 
-        <div class="info-box col-12"> 
+        <div class="row">
+        <div class="info-box col-12">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
                          <!-- Date and time range -->
                 <div class="form-group">
                     <label>Date absence:</label>
-  
+
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="far fa-clock"></i></span>
@@ -139,13 +129,13 @@
                     <!-- /.form-group -->
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Type Absence</label>    
-                            <select class="form-control select2" style="width: 100%;"> 
+                            <label>Type Absence</label>
+                            <select class="form-control select2" style="width: 100%;">
                                 <option></option>
                                 <option>Justifie</option>
-                                <option>Injustifie</option> 
+                                <option>Injustifie</option>
                               </select>
-                        </div>  
+                        </div>
                       </div>
                     <!-- /.form-group -->
                   </div>
@@ -153,52 +143,52 @@
                   <!-- /.col -->
                   <div class="col-md-6">
                     <div class="form-group">
-                          <label>nombre séance  </label> 
+                          <label>nombre séance  </label>
                           <input class="form-control" type="number" name="" id="" style="width: 100%;">
-                    </div>  
+                    </div>
                   </div>
-                  <!-- /.col --> 
+                  <!-- /.col -->
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>nombre horaire </label> 
+                      <label>nombre horaire </label>
                       <input class="form-control" type="number" name="" id="" style="width: 100%;">
-                    </div>  
-                  </div> 
-                  
+                    </div>
+                  </div>
+
                   <!-- /.col -->
                   </div>
                   <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                          <label>Groupe </label>  
+                          <label>Groupe </label>
                           <select class="form-control" style="width: 100%;">
                             <option >GES102</option>
-                            <option>GES102</option> 
+                            <option>GES102</option>
                             <option>GES201</option>
                             <option>DEV101</option>
                             <option>DEV102</option>
                             <option>DEV202</option>
                           </select>
-                        </div>  
+                        </div>
                       </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                          <label>code stagiaire</label> 
+                          <label>code stagiaire</label>
                           <input class="form-control" type="text" name="" id="" style="width: 100%;">
-                        </div>  
+                        </div>
                       </div>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-                
+
                 <!-- /.row -->
               </div>
             <!-- /.card-body -->
-              
+
         <!-- /.card-body -->
-      </div> 
+      </div>
         </div>
-        
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -207,7 +197,7 @@
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
     All rights reserved.
-     
+
   </footer>
 
   <!-- Control Sidebar -->
@@ -218,12 +208,12 @@
 </div>
 <!-- ./wrapper -->
 
-@extends('layouts.footerjs') 
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> 
+@extends('layouts.footerjs')
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- InputMask -->
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script> 
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
 <script>
-     $(function () { 
+     $(function () {
     //Initialize Select2 Elements
     $('.select2').select2();
 

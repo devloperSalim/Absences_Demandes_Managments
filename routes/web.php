@@ -8,6 +8,7 @@ use App\Http\Controllers\accepteConroller;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\StagiaireController;
 use App\Http\Controllers\ExcelImportController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,10 @@ use App\Http\Controllers\ExcelImportController;
 Route::get('/not_found',function (){
     return view('not_found');
 });
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
+Route::get('/home',[HomeController::class,'index'])->name('home');
 //login
 Route::get('/login',[LoginController::class, 'show'])->name('login.show');
 Route::post('/login',[LoginController::class, 'login'])->name('login');
@@ -38,7 +39,7 @@ Route::resource('stagiaires',StagiaireController::class);
 //absences routes
 Route::resource('absences',AbsenceController::class);
 //demande route
-Route::resource('demandes',DemandeController::class);  
+Route::resource('demandes',DemandeController::class);
 Route::post('/demandes/accepte', [accepteConroller::class,'accepte'])->name('demand.accepte');
 Route::post('/demandes/delete', [accepteConroller::class,'delete'])->name('demand.delete');
 

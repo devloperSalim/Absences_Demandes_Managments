@@ -26,7 +26,7 @@ class DemandeController extends Controller
      */
     public function create(Request $request )
     {
-        $idStagiaire = Auth::user()->id; 
+        $idStagiaire = Auth::user()->id;
         return view('demande.create' , compact('idStagiaire'));
     }
 
@@ -36,9 +36,9 @@ class DemandeController extends Controller
     public function store(DemandeRequest $request)
     {
         // dd($request);
-        $formFields = $request->validated(); 
-        
-        Demande::create($formFields);  
+        $formFields = $request->validated();
+
+        Demande::create($formFields);
         return redirect()->route('demandes.show',$formFields["stagiaire_id"]);
     }
 
@@ -46,12 +46,12 @@ class DemandeController extends Controller
      * Display the specified resource.
      */
     public function show(Request $request)
-{ 
+{
     $stagiaireId = Auth::id();
- 
+
     $demandes = Demande::where('stagiaire_id', $stagiaireId)
-                        ->orderBy('created_at', 'desc')
-                        ->get();  
+                        ->orderBy('created_at', 'asc')
+                        ->get();
     return view('demande.mydemende', compact('demandes'));
 }
 

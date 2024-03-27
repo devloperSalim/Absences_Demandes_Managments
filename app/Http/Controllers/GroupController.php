@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\GroupRequest;
+use App\Models\Demande;
 use App\Models\Group;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,11 @@ class GroupController extends Controller
     public function index()
     {
         $groups = Group::paginate(8);
+        $demandes = Demande::orderBy('created_at','desc')
+        ->limit(5)
+        ->get();
 
-        return view('group.list_groupe',compact('groups'));
+        return view('group.list_groupe',compact('groups','demandes'));
     }
 
     /**
@@ -23,7 +27,10 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('group.Ajouter_group');
+        $demandes = Demande::orderBy('created_at','desc')
+        ->limit(5)
+        ->get();
+        return view('group.Ajouter_group' ,compact('demandes'));
     }
 
     /**
@@ -44,10 +51,12 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         $stagiaires = $group->stagiaires;
-
         // $nbr_stagiaires = $group->stagiaires->count() + 1;
         // dd($nbr_stagiaires);
-        return view('group.show-detail-group', compact('group', 'stagiaires'));
+        $demandes = Demande::orderBy('created_at','desc')
+        ->limit(5)
+        ->get();
+        return view('group.show-detail-group', compact('group', 'stagiaires','demandes'));
     }
 
     /**
