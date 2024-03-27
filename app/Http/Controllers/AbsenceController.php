@@ -57,6 +57,10 @@ class AbsenceController extends Controller
     {
         // return view('')
     }
+    public function alert(Request $request)
+    {
+         return view('absence.alert');
+    }
 
     /**
      * Show the form for editing the specified resource.

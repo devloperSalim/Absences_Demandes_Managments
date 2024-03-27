@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Absence Stagiaire</title>
 @include('layouts.header_links')
+
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -23,12 +26,12 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" class="nav-link">Home</a>
-      </li>
+      </li> 
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-
+    <ul class="navbar-nav ml-auto"> 
+ 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -61,7 +64,7 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-
+       
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -69,27 +72,30 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="{{ route('home') }}" class="brand-link">
       <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Admin</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar d-flex flex-column">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">Maryem</a>
+            </div>
         </div>
-        <div class="info">
-          <a href="#" class="d-block">Maryem</a>
-        </div>
-      </div>
-      <!-- Sidebar Menu -->
-      @include('layouts.SidebarMenu')
-      <!-- /.sidebar-menu -->
+        <!-- Sidebar Menu -->
+        @include('layouts.SidebarMenu')
+        <!-- /.sidebar-menu -->
+       
     </div>
+    
     <!-- /.sidebar -->
+     
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
@@ -97,14 +103,11 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard </li>
+        <div class="row mb-2"> 
+          <div class="col-sm-12">
+            <ol class="breadcrumb float-sm-right">  
+              <li class="breadcrumb-item"><a href="{{ route('absences.alert') }}">Alert</a></li>
+              <li class="breadcrumb-item">Dashboard </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -116,54 +119,8 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>50</h3>
-
-                <p>all groupe</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="{{ route('groups.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>absence stagier</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-        </div>
+        
+        
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -172,7 +129,7 @@
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
     All rights reserved.
-
+     
   </footer>
 
   <!-- Control Sidebar -->
@@ -183,6 +140,24 @@
 </div>
 <!-- ./wrapper -->
 
-@extends('layouts.footerjs')
+@extends('layouts.footerjs') 
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> 
+    <!-- InputMask -->
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script> 
+<script>
+     $(function () { 
+    //Initialize Select2 Elements
+    $('.select2').select2();
+
+
+        $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+            });
+</script>
 </body>
 </html>

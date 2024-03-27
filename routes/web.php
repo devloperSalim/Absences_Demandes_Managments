@@ -36,6 +36,7 @@ Route::resource('groups',GroupController::class);
 //stagiaires routes
 Route::resource('stagiaires',StagiaireController::class);
 //absences routes
+Route::get('/absences/alert', [AbsenceController::class, 'alert'])->name('absences.alert');
 Route::resource('absences',AbsenceController::class);
 //demande route
 Route::get('/demandes/traiter', [DemandeController::class, 'traiter'])->name('demandes.traiter');
