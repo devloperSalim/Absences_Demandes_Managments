@@ -27,7 +27,8 @@ Route::get('/not_found',function (){
 // Route::get('/', function () {
 //     return view('home');
 // })->name('home');
-Route::get('/home',[HomeController::class,'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('admin');
+
 //login user
 Route::get('/login',[LoginController::class, 'show'])->name('login.show');
 Route::post('/login',[LoginController::class, 'login'])->name('login');
