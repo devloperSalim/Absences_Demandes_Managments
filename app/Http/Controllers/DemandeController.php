@@ -19,7 +19,7 @@ class DemandeController extends Controller
         $stagiaires = Stagiaire::all();
         $demandes = Demande::where('status', 'encour')
                 ->orderBy('created_at', 'desc')
-                ->get(); 
+                ->get();
         // $demandes = Demande::orderBy('created_at','ASC')->get();
         return view('demande.inbox_demande',compact('demandes','stagiaires'));
     }
@@ -51,6 +51,7 @@ class DemandeController extends Controller
     public function show(Request $request)
 {
     $stagiaireId = Auth::id();
+    
 
     $demandes = Demande::where('stagiaire_id', $stagiaireId)
                         ->orderBy('created_at', 'asc')
@@ -60,11 +61,11 @@ class DemandeController extends Controller
 
 
 public function traiter(Request $request)
-{  
+{
     $stagiaires = Stagiaire::all();
     $demandes = Demande::where('status', 'traiter')
                 ->orderBy('created_at', 'desc')
-                ->get(); 
+                ->get();
     return view('demande.demande_traiter', compact('demandes','stagiaires'));
 }
     /**

@@ -38,7 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'stagiaires',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -60,17 +65,16 @@ return [
     */
 
     'providers' => [
-        // 'users' => [
-        //     'driver' => 'eloquent',
-        //     'model' => App\Models\User::class,
-        // ],
+        'stagiaires' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Stagiaire::class,
+        ],
 
-        'users' => [
-            'driver' => 'database',
-            'table' => 'stagiaires',
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

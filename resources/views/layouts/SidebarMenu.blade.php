@@ -128,15 +128,15 @@
       </li>
 
     </ul>
-  </nav> 
+  </nav>
    <!-- Footer -->
    <footer class=" footer mt-auto">
     <div class="container">
         <div class="row">
             <div class="col-md-12  ">
                 <p class="text-light">&copy; {{ date('Y') }}  S.A .All rights reserved.<br/></p>
-                <a href="https://github.com/LahciniAbdelhaq"> <i class="fab fa-github text-light mx-2"></i>abdelhaq</a>
-                <a href="https://github.com/devloperSalim"><i class="fab fa-github text-light mx-2"></i>salim</a> </p>
+                <a href="https://github.com/LahciniAbdelhaq"> <i class="fab fa-github text-light mx-2"></i>abdelhaq lahcini</a><br>
+                <a href="https://github.com/devloperSalim"><i class="fab fa-github text-light mx-2"></i>salim boulkhir</a> </p>
             </div>
         </div>
     </div>

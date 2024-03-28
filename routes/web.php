@@ -5,6 +5,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AbsenceController;
 use App\Http\Controllers\accepteConroller;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\StagiaireController;
 use App\Http\Controllers\ExcelImportController;
@@ -27,23 +28,35 @@ Route::get('/not_found',function (){
 //     return view('home');
 // })->name('home');
 Route::get('/home',[HomeController::class,'index'])->name('home');
-//login
+//login user
 Route::get('/login',[LoginController::class, 'show'])->name('login.show');
 Route::post('/login',[LoginController::class, 'login'])->name('login');
 //logout
 Route::get('/logout',[LoginController::class, 'logout'])->name('logout.logout');
+
+//login admin
+Route::get('/admin/login',[LoginController::class, 'showAdminLoginForm'])->name('admin.login-show');
+Route::post('/admin/login',[LoginController::class,'loginAdmin'])->name('admin.login');
+//Admin resource
+Route::resource('admins',AdminController::class);
+
 //groups routes
 Route::resource('groups',GroupController::class);
+
 //stagiaires routes
 Route::resource('stagiaires',StagiaireController::class);
+
 //absences routes
 Route::get('/absences/alert', [AbsenceController::class, 'alert'])->name('absences.alert');
+
+//route absences
 Route::resource('absences',AbsenceController::class);
+
 //demande route
 Route::get('/demandes/traiter', [DemandeController::class, 'traiter'])->name('demandes.traiter');
 
 Route::resource('demandes',DemandeController::class);
->>>>>>> de59afaa7e786ade69e31914b0fce71e6c902f9b
+
 Route::post('/demandes/accepte', [accepteConroller::class,'accepte'])->name('demand.accepte');
 Route::post('/demandes/delete', [accepteConroller::class,'delete'])->name('demand.delete');
 

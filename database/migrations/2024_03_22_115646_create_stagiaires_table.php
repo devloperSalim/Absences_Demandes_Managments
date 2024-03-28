@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('stagaire_en_formation');
             $table->string('nationalite');
             $table->date('date_pv')->nullable();
+            $table->boolean('isStagiaire')->default(true);
             $table->softDeletes();
             $table->timestamps();
 
