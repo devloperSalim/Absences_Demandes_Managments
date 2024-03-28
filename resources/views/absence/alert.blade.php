@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Absence Stagiaire</title>
-@include('layouts.header_links')  
+@include('layouts.header_links')
+
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -76,20 +79,23 @@
 
     <!-- Sidebar -->
     <div class="sidebar d-flex flex-column">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">Maryem</a>
+            </div>
         </div>
-        <div class="info">
-          <a href="#" class="d-block">Maryem</a>
-        </div>
-      </div> 
-      <!-- Sidebar Menu -->
-      @include('layouts.SidebarMenu')
-      <!-- /.sidebar-menu -->
+        <!-- Sidebar Menu -->
+        @include('layouts.SidebarMenu')
+        <!-- /.sidebar-menu -->
+       
     </div>
+    
     <!-- /.sidebar -->
+     
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
@@ -99,8 +105,8 @@
       <div class="container-fluid">
         <div class="row mb-2"> 
           <div class="col-sm-12">
-            <ol class="breadcrumb float-sm-right"> 
-              <li class="breadcrumb-item   "><a href="{{ route('info_module') }}">avancement</a></li> 
+            <ol class="breadcrumb float-sm-right">  
+              <li class="breadcrumb-item"><a href="{{ route('absences.alert') }}">Alert</a></li>
               <li class="breadcrumb-item">Dashboard </li>
             </ol>
           </div><!-- /.col -->
@@ -113,49 +119,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <div class="row"> 
-        <div class="info-box col-12"> 
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                         <!-- Date and time range -->
-                <div class="form-group">
-                    <label>Date debut module</label>
-  
-                    <div class="input-group">  
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-                  <!-- /.form group -->
-                    </div> 
-                  </div>
-                  <div class="row">
-                  <!-- /.col -->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                          <label>nombre séance  par semaine</label> 
-                          <input class="form-control" type="number" value="3" name="" id="" style="width: 100%;">
-                    </div>  
-                  </div> 
-                  
-                  <!-- /.col -->
-                  </div> 
-                  <button type="submit" class="btn btn-primary">save</button>
-                </div>
-                
-                <!-- /.row -->
-              </div>
-            <!-- /.card-body -->
-              
-        <!-- /.card-body -->
-      </div> 
-        </div>
+        
         
       </div><!-- /.container-fluid -->
     </section>
@@ -175,49 +139,25 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
- 
-@include('layouts.footerjs') 
+
+@extends('layouts.footerjs') 
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> 
+    <!-- InputMask -->
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script> 
 <script>
-     $(function () {   
-        $('#reservationdate').datetimepicker({
-        format: 'L'
-    }); 
-        });
-</script>
-<script>
-  function willCompleteOnTime(startDate, endDate, weeklyStudyHours, totalHoursRequired) {
-    // Split the dates into day, month, and year components
-    const [startDay, startMonth, startYear] = startDate.split('/');
-    const [endDay, endMonth, endYear] = endDate.split('/');
-    
-    // Create Date objects for the start and end dates
-    const startDateObj = new Date(startYear, startMonth - 1, startDay); // Months are 0-indexed in JavaScript
-    const endDateObj = new Date(endYear, endMonth - 1, endDay);
-    
-    // Calculate the difference in milliseconds between the two dates
-    const timeDifference = Math.abs(endDateObj.getTime() - startDateObj.getTime());
-    
-    // Convert the difference to weeks
-    const weeksDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24 * 7));
-    
-    // Calculate the total hours available for studying
-    const totalStudyHours = weeksDifference * weeklyStudyHours;
-    
-    // Determine if the total study hours are sufficient to complete the program on time
-    const willCompleteOnTime = totalStudyHours >= totalHoursRequired;
-    
-    return   willCompleteOnTime;
-}
+     $(function () { 
+    //Initialize Select2 Elements
+    $('.select2').select2();
 
-// Example usage:
-const startDate = '20/03/2024';
-const endDate = '20/04/2024';
-const weeklyStudyHours = 10;
-const totalHoursRequired = 40;
 
-const completionStatus = willCompleteOnTime(startDate, endDate, weeklyStudyHours, totalHoursRequired);
-console.log(`Will complete on time: ${completionStatus}`);
-
+        $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+            });
 </script>
 </body>
 </html>
