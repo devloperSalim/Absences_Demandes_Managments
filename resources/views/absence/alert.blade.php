@@ -114,6 +114,60 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Alert Information -->
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            Absence Alert
+          </div>
+          <div class="card-body">
+            <div class="table ">
+              <table id="dataTable" class="table table-bordered  table-striped">
+                <thead>
+                  <tr>
+                    <th>Nom et Prénom</th>
+                    <th>Group</th>
+                    <th>Type Alert</th>
+                    <th>Nombre d'absence Justifiées</th>
+                    <th>Nombre d'absence Injustifiées</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>John Doe</td>
+                    <td>Group A</td>
+                    <td>Avertissement Surveillance generale</td>
+                    <td>5</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Jane Smith</td>
+                    <td>Group B</td>
+                    <td>Avertissement Retard</td>
+                    <td>3</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Michael Johnson</td>
+                    <td>Group C</td>
+                    <td>Avertissement Manquement</td>
+                    <td>7</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
 
     <!-- Main content -->
     <section class="content">
@@ -145,19 +199,9 @@
     <!-- InputMask -->
 <script src="{{ asset('plugins/moment/moment.min.js') }}"></script> 
 <script>
-     $(function () { 
-    //Initialize Select2 Elements
-    $('.select2').select2();
-
-
-        $('#reservationtime').daterangepicker({
-      timePicker: true,
-      timePickerIncrement: 30,
-      locale: {
-        format: 'MM/DD/YYYY hh:mm A'
-      }
-    })
-            });
+  $(document).ready(function() {
+    $('#dataTable').DataTable( );
+  });
 </script>
 </body>
 </html>
