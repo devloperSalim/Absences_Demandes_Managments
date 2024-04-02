@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class Stagiaire extends Model implements AuthenticatableContract
+class Stagiaire extends Authenticatable
 {
-    use HasFactory, Authenticatable;
+    use HasFactory, Notifiable, HasApiTokens;
 
-    protected $fillable = ['password','nom','prenom','email_etu','stagaire_en_formation','nationalite','group_id','date_pv'];
+    protected $guard = 'stagiaire';
+    protected $fillable = ['password','nom','prenom','email_etu','stagaire_en_formation','nationalite','group_id','date_pv','status'];
 
     public function group(){
         return $this->belongsTo(Group::class);
@@ -26,5 +29,5 @@ class Stagiaire extends Model implements AuthenticatableContract
         return $this->hasMany(Demande::class);
     }
 
-  
+
 }

@@ -36,13 +36,13 @@ class AbsenceController extends Controller
     ->limit(5)
     ->get();
     // Pass $stagiaireId to the view using compact or any other method
-    return view('absence.stagiaire_absence', compact('stagiaireId','demandes'));
+    // return view('absence.stagiaire_absence', compact('stagiaireId','demandes'));
     $stagiaire = Stagiaire::find($request->stagiaire_id);
     $absences = Absence::where('stagiaire_id', $request->stagiaire_id)->get();
     $count = Absence::where('stagiaire_id', $request->stagiaire_id)->count();
     // dd($absences);
     // Pass $stagiaireId to the view using compact or any other method
-    return view('absence.stagiaire_absence', compact('stagiaire','absences','count'));
+    return view('absence.stagiaire_absence', compact('stagiaire','absences','demandes','count'));
 }
 
 

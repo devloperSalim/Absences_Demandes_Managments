@@ -27,10 +27,13 @@ class DemandeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request )
+    public function create(Request $request)
     {
-        $idStagiaire = Auth::user()->id;
-        return view('demande.create' , compact('idStagiaire'));
+        // $idStagiaire = $request->query('idStagiaire');
+
+        // Pass the $idStagiaire variable to the view
+        return view('demande.create');
+
     }
 
     /**
@@ -40,24 +43,30 @@ class DemandeController extends Controller
     {
         // dd($request);
         $formFields = $request->validated();
+        // dd($formFields)
 
         Demande::create($formFields);
-        return redirect()->route('demandes.show',$formFields["stagiaire_id"]);
+        return redirect()->route('demandes.show',Auth::guard('stagiaire')->user()->id);
     }
 
     /**
      * Display the specified resource.
      */
     public function show(Request $request)
-{
-    $stagiaireId = Auth::id();
-    
+    {
+        // Get the ID of the authenticated stagiaire
+        $stagiaireId = Auth::guard('stagiaire')->user()->id;
 
-    $demandes = Demande::where('stagiaire_id', $stagiaireId)
-                        ->orderBy('created_at', 'asc')
-                        ->get();
-    return view('demande.mydemende', compact('demandes'));
-}
+        // Fetch demandes belonging to the authenticated stagiaire
+        $demandes = Demande::where('stagiaire_id', $stagiaireId)
+                            ->orderBy('created_at', 'asc')
+                            ->get();
+
+        // Return the view with the demandes and the stagiaire ID
+        return view('demande.mydemende', compact('demandes', 'stagiaireId'));
+    }
+
+
 
 
 public function traiter(Request $request)

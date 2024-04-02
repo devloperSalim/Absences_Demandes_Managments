@@ -23,6 +23,7 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" class="nav-link">Home</a>
+
       </li>
     </ul>
 
@@ -39,7 +40,7 @@
                 <div class="dropdown-divider"></div>
                 @foreach ($demandes as $demande)
                 <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> {{ $demande->stagiaire->nom }} {{ $demande->stagiaire->prenom }} 
+                    <i class="fas fa-file mr-2"></i> {{ $demande->stagiaire->nom }} {{ $demande->stagiaire->prenom }}
                     <span class="float-right text-muted text-sm">{{ $demande->created_at->diffForHumans() }}</span>
                 </a>
                 <div class="dropdown-divider"></div>

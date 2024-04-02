@@ -98,12 +98,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{{ route('demandes.show',['demande' => auth()->user()->id]) }}">My Demandes</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('demandes.show', [Auth::guard('stagiaire')->user()->id]) }}">My Demandes</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active text-danger" aria-current="page" href="{{ route('logout.stagiaire') }}">Logout</a>
+
                       </li>
                   </ul>
                   <ul class="navbar-nav ml-auto"> <!-- Align logout link to the right -->
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('logout.logout') }}">Logout</a>
+
                       </li>
                   </ul>
               </div>
@@ -154,7 +158,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="hidden"  name="stagiaire_id" value="{{ $idStagiaire }}" >
+                                            <input type="hidden" name="stagiaire_id" value="{{ Auth::guard('stagiaire')->user()->id }}">
                                         </div>
                                     </div>
                                 </div>

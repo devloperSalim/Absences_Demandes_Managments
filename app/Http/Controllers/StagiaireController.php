@@ -7,6 +7,7 @@ use App\Models\Demande;
 use App\Models\Group;
 use App\Models\Stagiaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class StagiaireController extends Controller
@@ -14,6 +15,38 @@ class StagiaireController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function login_form(){
+
+        return view('stagiaire.login_form');
+     }
+
+     public function login(Request $request)
+    {
+        $credentials = $request->only('email_etu', 'password');
+
+        // Attempt to authenticate the user
+        // dd(Auth::guard('stagiaire')->attempt($credentials));
+        if (Auth::guard('stagiaire')->attempt($credentials)) {
+            // Authentication successful, redirect to the demand creation form
+            return redirect()->route('demandes.create');
+        } else {
+            // Authentication failed, redirect back with error
+            return redirect()->back()->withErrors(['login' => 'Invalid credentials']);
+        }
+    }
+
+    public function logout_stagiaire(Request $request){
+
+        Auth::guard('stagiaire')->logout();
+        // Invalidate the session
+        $request->session()->invalidate();
+        // Regenerate the CSRF token
+        $request->session()->regenerateToken();
+        // Redirect the user to a desired route
+        return redirect()->route('login.stagiaire');
+    }
+
     public function index()
     {
 

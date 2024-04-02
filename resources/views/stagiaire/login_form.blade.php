@@ -25,9 +25,8 @@
               >
                 <form
                   method="post"
-                  action=""
                   class="px-8 pb-10 space-y-4"
-                  action="{{ route('admin.login') }}"
+                  action="{{ route('login.stagiaire') }}"
                   method="POST"
                 >
                 @csrf
@@ -49,7 +48,7 @@
                       id="email"
                       autofocus="autofocus"
                       required=""
-                      name="email"
+                      name="email_etu"
                       autocomplete="email"
                       class="border border-gray-300 w-full shadow-sm mt-1 h-12 p-2"
                       value=""
@@ -91,7 +90,7 @@
                   <div class="grid grid-cols-2 gap-4">
                     <a
                       target="_self"
-                      href="{{ route('admins.create') }}"
+                      href=""
                       class="inline-flex items-center justify-center text-sm font-medium border transition-all ease-in-out duration-100 focus:outline-none focus:shadow-outline border-gray-300 bg-white text-gray-900 shadow-sm hover:bg-gray-50 focus:border-gray-400 focus:bg-white px-3 py-2 text-sm flex w-full"
                     >
                       Register

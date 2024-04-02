@@ -120,18 +120,16 @@
                             <div class="info-box-content">
                                 <span class="info-box-text">{{ $stagiaire->nom }} {{ $stagiaire->prenom }}</span>
                                 <span class="info-box-number">{{ $count }} absence</span>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" style="width: 70%"></div>
-                                </div>
+                                
                                 <span class="description">
-                                    @if($absences->isNotEmpty()) 
+                                    @if($absences->isNotEmpty())
                                     @php
                                             $lastAbsence = $absences->last();
-                                    @endphp 
-                                            last absence  
+                                    @endphp
+                                            last absence
                                         {{ $lastAbsence->toDate }}
                                     @endif
-                                  
+
                                 </span>
                             </div>
                         </div>
