@@ -14,6 +14,6 @@ class StagiaireAuth
             return $next($request);
         }
 
-        return redirect(route('login.stagiaire'));
+        return redirect()->back();
     }
 }
