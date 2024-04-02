@@ -50,10 +50,9 @@ Route::middleware(['stagiaire'])->group(function () {
     Route::get('/demande/create', function () {
         return view('demande.create');
     })->name('demandes.create');
-    Route::resource('demandes', DemandeController::class);
-
     Route::get('/demandes/create',[DemandeController::class, 'create'])->name('demandes.create');
-    Route::post('/demandes/{demande}',[DemandeController::class, 'show'])->name('demandes.show');
+    Route::post('/demandes', [DemandeController::class, 'store'])->name('demandes.store');
+    Route::get('/demandes/{demande}',[DemandeController::class, 'show'])->name('demandes.show');
 
 
     // Other routes for stagiaire users...
