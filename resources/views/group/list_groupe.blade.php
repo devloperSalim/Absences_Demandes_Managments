@@ -135,22 +135,13 @@
                             <td>{{ $group->nbr_stagiaires }}</td>
                             <td>
                                 <a href="{{ route('groups.show', $group->id) }}" class="btn btn-app">
-                                <span class="badge bg-purple">{{ $group->stagiaires->count() }}</span>
+                                {{-- <span class="badge bg-purple">{{ $group->stagiaires->count() }}</span> --}}
                                 <i class="fas fa-users"></i> stagieaire
                               </a>
                             </td>
                         </tr>
                         @endforeach
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                      <th>Code Groupe</th>
-                      <th>Nom Groupe</th>
-                      <th>Platform(s)</th>
-                      <th>Engine version</th>
-                      <th>CSS grade</th>
-                    </tr>
-                    </tfoot>
+                    </tbody> 
                   </table>
                 </div>
                 <!-- /.card-body -->
@@ -174,27 +165,23 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<!-- ./wrapper --> 
 @include('layouts.footerjs')
 
 
-   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    var dataTable = new DataTable("#example1", {
-        responsive: true,
-        lengthChange: true,
-        autoWidth: false
+<script> 
+$(document).ready(function() {
+  $('#example1').DataTable({
+    "lengthMenu": [10, 25, 50, 75, 200],
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
     });
-});
-      //  $(function() {
-      //      $("#example1").DataTable({
-      //          "responsive": true,
-      //          "lengthChange": true,
-      //          "autoWidth": false,
-      //      });
-
-      //  });
+    });
    </script>
 </body>
 </html>

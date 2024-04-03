@@ -19,7 +19,7 @@ class Group extends Model
      */
     public function stagiaires()
     {
-        return $this->hasMany(Stagiaire::class);
+        return $this->hasMany(Stagiaire::class,'code_group','code_group');
     }
 
     /**

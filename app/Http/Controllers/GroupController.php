@@ -14,11 +14,11 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::paginate(8);
+        $groups = Group::all();
         $demandes = Demande::orderBy('created_at','desc')
         ->limit(5)
         ->get();
-
+ 
         return view('group.list_groupe',compact('groups','demandes'));
     }
 

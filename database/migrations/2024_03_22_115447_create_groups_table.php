@@ -15,9 +15,9 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string('code_group');
-            $table->date('anne_formation');
-            $table->integer('nbr_stagiaires');
+            $table->string('code_group')->unique();
+            $table->string('anne_formation')->default(now()->format('m/d/Y') . ' - ' . now()->addYear()->format('m/d/Y'));
+            $table->integer('nbr_stagiaires')->default(0);
             $table->string('nom_ilière');
             $table->softDeletes();
             $table->timestamps();

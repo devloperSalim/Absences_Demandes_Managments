@@ -183,6 +183,20 @@
     </div>
     <!-- ./wrapper -->
     @include('layouts.footerjs')
+    <script> 
+        $(document).ready(function() {
+          $('#example1').DataTable({
+            "lengthMenu": [10, 25, 50, 75, 200],
+              "paging": true,
+              "lengthChange": true,
+              "searching": true,
+              "ordering": true,
+              "info": true,
+              "autoWidth": false,
+              "responsive": true,
+            });
+            });
+           </script>
 </body>
 
 </html>
