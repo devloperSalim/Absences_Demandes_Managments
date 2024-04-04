@@ -138,7 +138,7 @@
                                                     <td>{{ $stagiaire->email_etu }}</td>
                                                     <td>{{ $stagiaire->nationalite}}</td>
                                                     <td>{{ $stagiaire->stagaire_en_formation ? 'oui' : 'non' }}</td>
-                                                    <td><a href="{{ route('absences.create') }}" class="btn   bg-purple">
+                                                    <td><a href="{{ route('stagiaires.details',["id"=>$stagiaire->id]) }}" class="btn   bg-purple">
                                                         <i class="fa-regular fa-eye"></i> info
                                                     </a></td>
                                                 </tr>

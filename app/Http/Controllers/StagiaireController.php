@@ -88,6 +88,15 @@ class StagiaireController extends Controller
     /**
      * Display the specified resource.
      */
+    public function showDetails(Stagiaire $stagiaire)
+    { 
+
+        $demandes = Demande::orderBy('created_at','desc')
+        ->limit(5)
+        ->get();
+        return view('stagiaire.details_stagiaires',compact('stagiaire','demandes'));
+    } 
+    
     public function show(Stagiaire $stagiaire)
     {
 
@@ -96,6 +105,7 @@ class StagiaireController extends Controller
         ->get();
         return view('stagiaire.list_absence_stagiaire',compact('stagiaire','demandes'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.

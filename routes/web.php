@@ -34,6 +34,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['admin'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('groups', GroupController::class);
+    Route::get('/stagiaires/details', [StagiaireController::class ,'showDetails'])->name('stagiaires.details');;
     Route::resource('stagiaires', StagiaireController::class);
 
     Route::get('/demandes',[DemandeController::class, 'index'])->name('demandes.index');
