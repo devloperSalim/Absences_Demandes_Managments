@@ -14,7 +14,7 @@ class Stagiaire extends Authenticatable
     use HasFactory, Notifiable, HasApiTokens;
 
     protected $guard = 'stagiaire';
-    protected $fillable = ['password','nom','prenom','email_etu','stagaire_en_formation','nationalite','group_id','date_pv','status'];
+    protected $fillable = ['password','nom','prenom','email_etu','stagaire_en_formation','nationalite','code_group','date_pv','status'];
 
     public function group(){
         return $this->belongsTo(Group::class);

@@ -29,7 +29,7 @@ class StagiaireRequest extends FormRequest
             'stagaire_en_formation'=>'required|in:oui,non',
             'nationalite'=>'required|string|max:20',
             'date_pv' => 'nullable|date',
-            'group_id'=>'required'
+            'code_group'=>'required'
 
         ];
     }
