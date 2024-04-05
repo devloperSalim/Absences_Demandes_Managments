@@ -44,7 +44,7 @@ class StagiaireController extends Controller
         // Regenerate the CSRF token
         $request->session()->regenerateToken();
         // Redirect the user to a desired route
-        return redirect()->route('login.stagiaire');
+        return redirect('/');
     }
 
     public function index()
