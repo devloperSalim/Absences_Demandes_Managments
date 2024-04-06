@@ -59,8 +59,7 @@ Route::middleware(['stagiaire'])->group(function () {
     Route::get('/demandes/create',[DemandeController::class, 'create'])->name('demandes.create');
     Route::post('/demandes', [DemandeController::class, 'store'])->name('demandes.store');
     Route::get('/demandes/{demande}',[DemandeController::class, 'show'])->name('demandes.show');
-
-
+ 
     // Other routes for stagiaire users...
 });
 
