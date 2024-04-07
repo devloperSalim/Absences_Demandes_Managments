@@ -44,7 +44,7 @@ class StagiaireController extends Controller
         // Regenerate the CSRF token
         $request->session()->regenerateToken();
         // Redirect the user to a desired route
-        return redirect()->route('login.stagiaire');
+        return redirect('/');
     }
 
     public function index()
@@ -79,7 +79,7 @@ class StagiaireController extends Controller
         $formFields = $request->validated();
         $formFields['stagaire_en_formation'] = $stagaire_en_formation;
         $formFields['password']=Hash::make($request->password);
-        // dd($formFields);
+        dd($formFields);
         Stagiaire::create($formFields);
 
         return redirect()->route('stagiaires.index');
@@ -89,14 +89,14 @@ class StagiaireController extends Controller
      * Display the specified resource.
      */
     public function showDetails(Stagiaire $stagiaire)
-    { 
+    {
 
         $demandes = Demande::orderBy('created_at','desc')
         ->limit(5)
         ->get();
         return view('stagiaire.details_stagiaires',compact('stagiaire','demandes'));
-    } 
-    
+    }
+
     public function show(Stagiaire $stagiaire)
     {
 
@@ -105,7 +105,7 @@ class StagiaireController extends Controller
         ->get();
         return view('stagiaire.list_absence_stagiaire',compact('stagiaire','demandes'));
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.

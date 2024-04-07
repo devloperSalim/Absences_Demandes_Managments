@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <div>
-            <a href="{{ route('home') }}">home</a>
-        </div>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <a href="{{ route('home') }}">{{ __('Home') }}</a>
+        </h2>
     </x-slot>
 
     <div class="py-12">
@@ -13,6 +13,5 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </x-app-layout>

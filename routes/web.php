@@ -22,10 +22,13 @@ use App\Models\Stagiaire;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    Route::get('/this/for/admin/only', function () {
+        return view('admin_login');
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
