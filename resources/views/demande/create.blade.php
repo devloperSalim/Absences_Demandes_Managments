@@ -88,6 +88,10 @@
   #intro {
     height: 600px !important;
   }
+  .nav-item:hover{
+  background: rgba(226, 226, 226, 0.285);
+  
+}
 }
 
 .display-1 {
@@ -100,7 +104,10 @@
     font-size: 10rem;
   }
 }
- 
+
+.nav-item:hover a {
+  color: #4f4f4f;
+}
     </style>
 </head>
 
@@ -141,7 +148,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-12 col-md-12  ">
                         <div class="booking-cta">
-                            <h1>Thank You for Visiting!</h1>
+                            <h1>Thank You for Visiting !</h1>
                             <p class="text-light">We hope you enjoyed your experience on our website. Your feedback is
                                 valuable to us. Please take a moment to share your thoughts with us.</p>
                         </div>

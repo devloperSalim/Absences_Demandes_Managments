@@ -6,8 +6,7 @@ use App\Http\Requests\DemandeRequest;
 use App\Models\Demande;
 use App\Models\Stagiaire;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Yajra\DataTables\DataTables ;
+use Illuminate\Support\Facades\Auth; 
 
 class DemandeController extends Controller
 {
@@ -72,10 +71,13 @@ class DemandeController extends Controller
 public function traiter(Request $request)
 {
     $stagiaires = Stagiaire::all();
-    $demandes = Demande::where('status', 'traiter')
+    $demandesTraiter = Demande::where('status', 'traiter')
                 ->orderBy('created_at', 'desc')
                 ->get();
-    return view('demande.demande_traiter', compact('demandes','stagiaires'));
+    $demandes = Demande::where('status', 'encour')
+    ->orderBy('created_at', 'desc')
+    ->get();
+    return view('demande.demande_traiter', compact('demandes','stagiaires','demandesTraiter'));
 }
     /**
      * Show the form for editing the specified resource.

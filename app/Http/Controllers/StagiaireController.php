@@ -51,9 +51,9 @@ class StagiaireController extends Controller
     {
 
         $stagiaires = Stagiaire::all();
-        $demandes = Demande::orderBy('created_at','desc')
-        ->limit(5)
-        ->get();
+        $demandes = Demande::where('status', 'encour')
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('stagiaire.list_stagiaire',compact('stagiaires','demandes'));
     }
 
@@ -63,9 +63,9 @@ class StagiaireController extends Controller
     public function create()
     {
         $groups = Group::all();
-        $demandes = Demande::orderBy('created_at','desc')
-        ->limit(5)
-        ->get();
+        $demandes = Demande::where('status', 'encour')
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('stagiaire.ajouter_stagiaire', compact('groups','demandes'));
     }
 
@@ -90,9 +90,9 @@ class StagiaireController extends Controller
      */
     public function showDetails(Stagiaire $stagiaire)
     { 
-        $demandes = Demande::orderBy('created_at','desc')
-        ->limit(5)
-        ->get(); 
+        $demandes = Demande::where('status', 'encour')
+            ->orderBy('created_at', 'desc')
+            ->get(); 
           
           
         return view('stagiaire.details_stagiaires',compact('stagiaire','demandes'));
@@ -101,9 +101,9 @@ class StagiaireController extends Controller
     public function show(Stagiaire $stagiaire)
     {
 
-        $demandes = Demande::orderBy('created_at','desc')
-        ->limit(5)
-        ->get();
+        $demandes = Demande::where('status', 'encour')
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('stagiaire.list_absence_stagiaire',compact('stagiaire','demandes'));
     }
 

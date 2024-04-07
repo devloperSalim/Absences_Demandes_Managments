@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Demande;
-use Illuminate\Http\Request;
+use App\Models\Group;
+use App\Models\Stagiaire; 
 
 class HomeController extends Controller
 {
     public function index(){
 
-        $demandes = Demande::orderBy('created_at','desc')
-                            ->limit(5)
-                            ->get();
-        return view('home' , compact('demandes'));
+        $demandes = Demande::where('status', 'encour')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $countGroup =Group::count();
+        $countStagiaire =Stagiaire::count();
+        return view('home' , compact('demandes','countStagiaire','countGroup'));
     }
 }

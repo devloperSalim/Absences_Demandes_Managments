@@ -91,7 +91,7 @@
           <li class="nav-item">
             <a href="{{ route('demandes.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Inbox</p>
+              <p>demande</p>
             </a>
           </li>
           <li class="nav-item">
@@ -100,12 +100,7 @@
               <p>accepter</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ route('demandes.index') }}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>demande</p>
-            </a>
-          </li>
+          
         </ul>
       </li>
 

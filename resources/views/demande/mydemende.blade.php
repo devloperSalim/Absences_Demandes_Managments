@@ -83,35 +83,43 @@
     font-size: 10rem;
   }
 }
+.nav-item:hover{
+  background: rgba(226, 226, 226, 0.285);
+  color: #4f4f4f;
+}
     </style>
 </head>
 
 <body id="booking">
-    <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-scroll sticky-top">
-            <div class="container-fluid ml-3">
-                <a class="navbar-brand" href="#!">ISTA</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('demandes.show', [ Auth::guard('stagiaire')->user()->id]) }}">My Demandes</a>
-                      </li>
-                  </ul>
-                  <ul class="navbar-nav ml-auto"> <!-- Align logout link to the right -->
-                      <li class="nav-item">
-                          {{-- <a class="nav-link" href="{{ route('logout.logout') }}">Logout</a> --}}
-                      </li>
-                  </ul>
-              </div>
-            </div>
-        </nav>
-        <!-- Navbar -->
-    </header>
+  <header class="">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg   position-sticky sticky-top top-0 z-100 navbar-scroll  ">
+        <div class="container-fluid ml-3" >
+            <a class="navbar-brand" href="">ISTA</a>
+            <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas  fa-bars" ></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ route('demandes.show', [Auth::guard('stagiaire')->user()->id]) }}">My Demandes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('logout.stagiaire') }}">Logout</a>
+
+                  </li>
+              </ul>
+              <ul class="navbar-nav ml-auto"> <!-- Align logout link to the right -->
+                  <li class="nav-item">
+                    
+                  </li>
+              </ul>
+          </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+</header>
 
     <div>
         <div>

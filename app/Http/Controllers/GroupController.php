@@ -15,8 +15,8 @@ class GroupController extends Controller
     public function index()
     {
         $groups = Group::all();
-        $demandes = Demande::orderBy('created_at','desc')
-        ->limit(5)
+        $demandes = Demande::where('status', 'encour')
+        ->orderBy('created_at', 'desc')
         ->get();
  
         return view('group.list_groupe',compact('groups','demandes'));
@@ -27,9 +27,9 @@ class GroupController extends Controller
      */
     public function create()
     {
-        $demandes = Demande::orderBy('created_at','desc')
-        ->limit(5)
-        ->get();
+        $demandes = Demande::where('status', 'encour')
+    ->orderBy('created_at', 'desc')
+    ->get();
         return view('group.Ajouter_group' ,compact('demandes'));
     }
 
@@ -53,8 +53,8 @@ class GroupController extends Controller
         $stagiaires = $group->stagiaires;
         // $nbr_stagiaires = $group->stagiaires->count() + 1;
         // dd($nbr_stagiaires);
-        $demandes = Demande::orderBy('created_at','desc')
-        ->limit(5)
+        $demandes = Demande::where('status', 'encour')
+        ->orderBy('created_at', 'desc')
         ->get();
         return view('group.show-detail-group', compact('group', 'stagiaires','demandes'));
     }

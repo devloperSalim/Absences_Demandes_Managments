@@ -20,9 +20,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh; /* Full viewport height */
-            
-            transition: background-color 0.5s ease; /* Smooth transition for background color */
+            height: 100vh; /* Full viewport height */ 
         }
         .header { 
             width: 100%; 
