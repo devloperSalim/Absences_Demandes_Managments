@@ -14,7 +14,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('/storage/images/2024-03-23.jpg');
+            background-image: url('https://lh3.googleusercontent.com/p/AF1QipNGIIr0412rAUGYHIG2bEzqM5jcF7-NQrzsKWeA=s1360-w1360-h1020');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;

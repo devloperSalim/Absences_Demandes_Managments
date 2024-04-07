@@ -72,23 +72,7 @@
                 <span class="brand-text font-weight-light">Admin</span>
             </a>
 
-            <!-- Sidebar -->
-            <div class="sidebar d-flex flex-column">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                            alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Maryem</a>
-                    </div>
-                </div>
-                <!-- Sidebar Menu -->
-                @include('layouts.SidebarMenu')
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
+             @include('layouts.sidebar')
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -121,25 +105,26 @@
                                     <table>
                                         <tr>
                                             <th><b>nom et prenom</b></th>
-                                        <td>:   "name prenom"</td>
+                                        <td>:   {{ $stagiaire->nom }} {{ $stagiaire->prenom }}</td>
                                         </tr>
                                         <tr>
-                                            <th><b>nom filliere </b></th>
-                                        <td>:   "nom filleir"</td>
+                                            <th><b>email </b></th>
+                                        <td>:   {{ $stagiaire->email_etu }}</td>
                                         </tr>
                                         <tr>
-                                            <th><b>email_etu </b></th>
-                                        <td>:   "email_etu"</td>
+                                            <th><b>date_pv </b></th>
+                                        <td>:  {{ $stagiaire->date_pv }}</td>
                                         </tr>
                                         <tr>
                                             <th>password</th>
-                                        <td>: "password"</td>
+                                        <td>: {{ $stagiaire->password }}</td>
                                         </tr>  
 
                                         <tr>
-                                            <th>code_group</th>
-                                        <td>: "code_group"</td>
+                                            <th>group</th>
+                                        <td>: {{ $stagiaire->code_group }}</td>
                                         </tr> 
+                                          
                                     </table>
                                 </div>
                             </div> 
@@ -152,7 +137,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Nom:</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="nom" value="{{ $stagiaire->nom }}">
                                         @error('nom')
                                             <span
                                                 class="text-danger font-weight-bold small  ">{{ $errors->first('nom') }}</span>
@@ -160,40 +145,32 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="prenom">Prenom:</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="prenom" value="{{ $stagiaire->prenom }}">
                                         @error('prenom')
                                             <span
                                                 class="text-danger font-weight-bold small  ">{{ $errors->first('prenom') }}</span>
                                         @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="filliere">nom fillieire:</label>
-                                        <input type="text" class="form-control">
-                                        @error('filliere')
-                                            <span
-                                                class="text-danger font-weight-bold small  ">{{ $errors->first('filliere') }}</span>
-                                        @enderror
-                                    </div>
+                                    </div> 
                                     <div class="form-group">
                                         <label for="Email">Email:</label>
-                                        <input type="email" class="form-control">
-                                        @error('Email')
+                                        <input type="email" class="form-control" name="email" value="{{ $stagiaire->email_etu }}">
+                                        @error('email')
                                             <span
-                                                class="text-danger font-weight-bold small  ">{{ $errors->first('Email') }}</span>
+                                                class="text-danger font-weight-bold small  ">{{ $errors->first('email') }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Password:</label>
-                                        <input type="password" class="form-control">
+                                        <input type="text" class="form-control" name="password" value="{{ $stagiaire->password }}">
                                         @error('password')
                                             <span
                                                 class="text-danger font-weight-bold small  ">{{ $errors->first('password') }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="Email">Email:</label>
-                                        <input type="email" class="form-control">
-                                        @error('Email')
+                                        <label for="Email">Code_group:</label>
+                                        <input type="email" class="form-control" name="code_group" value="{{ $stagiaire->code_group }}">
+                                        @error('code_group')
                                             <span
                                                 class="text-danger font-weight-bold small  ">{{ $errors->first('Email') }}</span>
                                         @enderror

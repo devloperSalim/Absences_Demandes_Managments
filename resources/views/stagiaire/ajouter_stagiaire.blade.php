@@ -74,13 +74,10 @@
             <!-- Sidebar -->
             <div class="sidebar d-flex flex-column">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                            alt="User Image">
-                    </div>
+                <div class="user-panel mt-3 ml-3 pb-3 mb-3 d-flex">
+                     
                     <div class="info">
-                        <a href="#" class="d-block">Maryem</a>
+                        <a href="#" class="d-block"> {{ Auth::user()->name }}</a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -190,13 +187,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Groupe </label>
-                                                        <select class="form-control @error('group_id') is-invalid @enderror" name="group_id" style="width: 100%;">
+                                                        <select class="form-control @error('code_group') is-invalid @enderror" name="code_group" style="width: 100%;">
                                                             <option value="" disabled selected>Select group</option>
                                                             @foreach ($groups as $group)
-                                                                <option value="{{ $group->id }}">{{ $group->code_group }}</option>
+                                                                <option value="{{ $group->code_group }}">{{ $group->code_group }}</option>
                                                             @endforeach
                                                         </select>
-                                                        <div class="invalid-feedback">{{ $errors->first('group_id') }}</div>
+                                                        <div class="invalid-feedback">{{ $errors->first('code_group') }}</div>
 
                                                     </div>
                                                 </div>

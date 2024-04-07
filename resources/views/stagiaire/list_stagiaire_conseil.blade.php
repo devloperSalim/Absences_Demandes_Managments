@@ -78,7 +78,21 @@
     </a>
 
     <!-- Sidebar -->
-    @include('layouts.sidebar')
+    <div class="sidebar d-flex flex-column">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">Maryem</a>
+            </div>
+        </div>
+        <!-- Sidebar Menu -->
+        @include('layouts.SidebarMenu')
+        <!-- /.sidebar-menu -->
+       
+    </div>
     
     <!-- /.sidebar -->
      
@@ -108,7 +122,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            Absence Alert
+               List stagiaire qui passe à un conseil de Discipline 
           </div>
           <div class="card-body">
             <div class="table ">
@@ -119,30 +133,33 @@
                     <th>Group</th>
                     <th>Type Alert</th>
                     <th>Nombre d'absence Justifiées</th>
-                    <th>Nombre d'absence Injustifiées</th>
+                    <th>Nombre d'absence Injustifiées</th> 
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>John Doe</td>
                     <td>Group A</td>
-                    <td>Avertissement Surveillance generale</td>
+                    <td>passe à un conseil de Discipline</td>
                     <td>5</td>
                     <td>2</td>
+                    
                   </tr>
                   <tr>
                     <td>Jane Smith</td>
                     <td>Group B</td>
-                    <td>Avertissement Retard</td>
+                    <td>passe à un conseil de Discipline</td>
                     <td>3</td>
                     <td>1</td>
+                     
                   </tr>
                   <tr>
                     <td>Michael Johnson</td>
                     <td>Group C</td>
-                    <td>Avertissement Manquement</td>
+                    <td>passe à un conseil de Discipline</td>
                     <td>7</td>
                     <td>0</td>
+                    
                   </tr>
                 </tbody>
               </table>
@@ -165,12 +182,7 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
-    All rights reserved.
-     
-  </footer>
+  <!-- /.content-wrapper --> 
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

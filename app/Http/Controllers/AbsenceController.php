@@ -71,7 +71,9 @@ class AbsenceController extends Controller
     {
          return view('absence.alert');
     }
-
+     public function alertStagiaire(){
+        return view('stagiaire.list_stagiaire_conseil');
+     }
     /**
      * Show the form for editing the specified resource.
      */

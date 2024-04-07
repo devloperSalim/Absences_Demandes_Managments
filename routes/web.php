@@ -21,8 +21,7 @@ use App\Models\Stagiaire;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
+ 
     Route::get('/', function () {
         return view('welcome');
     });
@@ -37,11 +36,12 @@ Route::get('/dashboard', function () {
 Route::middleware(['admin'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('groups', GroupController::class);
-    Route::get('/stagiaires/details', [StagiaireController::class ,'showDetails'])->name('stagiaires.details');;
+    Route::get('/stagiaires/details/{stagiaire}', [StagiaireController::class ,'showDetails'])->name('stagiaires.details');;
     Route::resource('stagiaires', StagiaireController::class);
 
     Route::get('/demandes',[DemandeController::class, 'index'])->name('demandes.index');
-    Route::get('/absences/alert', [AbsenceController::class, 'alert'])->name('absences.alert');
+    Route::get('/absences/alert', [AbsenceController::class, 'alert'])->name('absences.alert'); 
+    Route::get('/absences/alert/stagiaires', [AbsenceController::class, 'alertStagiaire'])->name('absences.alertStagiaire');
     Route::resource('absences', AbsenceController::class);
     //demande route
     Route::get('/demandes/traiter', [DemandeController::class, 'traiter'])->name('demandes.traiter');

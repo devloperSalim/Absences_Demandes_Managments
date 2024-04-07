@@ -51,12 +51,30 @@
               <p>list absence</p>
             </a>
           </li>
+          
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-book"></i>
+          <p>
+            Alers
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
           <li class="nav-item">
             <a href="{{ route('absences.alert') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>alert absence</p>
             </a>
-          </li>
+          </li> 
+          <li class="nav-item">
+            <a href="{{ route('absences.alertStagiaire') }}" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>stagiare qui passe à un conseil de Discipline</p>
+            </a>
+          </li>  
         </ul>
       </li>
       <li class="nav-header">Demandes</li>

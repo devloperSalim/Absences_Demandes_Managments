@@ -69,20 +69,7 @@
             </a>
 
             <!-- Sidebar -->
-            <div class="sidebar d-flex flex-column">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Maryem</a>
-                    </div>
-                </div>
-                <!-- Sidebar Menu -->
-                @include('layouts.SidebarMenu')
-                <!-- /.sidebar-menu -->
-            </div>
+            @include('layouts.sidebar')
             <!-- /.sidebar -->
         </aside>
 
@@ -124,7 +111,7 @@
                                                 <th>Nom</th>
                                                 <th>Prenom</th>
                                                 <th> Email etud </th>
-                                                <th> Nationalite</th>
+                                                <th> code group</th>
                                                 <th>stagaire_en_formation</th>
                                                 <th>show</th>
                                             </tr>
@@ -136,9 +123,9 @@
                                                     <td>{{ $stagiaire->nom }}</td>
                                                     <td>{{ $stagiaire->prenom}}</td>
                                                     <td>{{ $stagiaire->email_etu }}</td>
-                                                    <td>{{ $stagiaire->nationalite}}</td>
+                                                    <td>{{ $stagiaire->code_group}}</td>
                                                     <td>{{ $stagiaire->stagaire_en_formation ? 'oui' : 'non' }}</td>
-                                                    <td><a href="{{ route('stagiaires.details',["id"=>$stagiaire->id]) }}" class="btn   bg-purple">
+                                                    <td><a href="{{ route('stagiaires.details',["stagiaire"=>$stagiaire->id]) }}" class="btn   bg-purple">
                                                         <i class="fa-regular fa-eye"></i> info
                                                     </a></td>
                                                 </tr>
