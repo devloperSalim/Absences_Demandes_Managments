@@ -1,23 +1,18 @@
-.section {
-	position: relative;
-	height: 100vh;
+.section { 
+	min-height: calc(100vh - 150px);
 }
 
 .section .section-center {
-	position: absolute;
-	top: 50%;
-	left: 0;
-	right: 0;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
+	 height: 100%;
 }
 
 #booking {
 	font-family: 'Lato', sans-serif;
-	background-image: url('../img/ISTA.jpg');
+	background-image: url('../img/ISTA.jpg'); 
 	background-size: cover;
 	background-position: center;
 	color: #191a1e;
+	min-height: 100vh;
 }
 
 .booking-form {
