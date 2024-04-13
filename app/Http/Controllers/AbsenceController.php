@@ -32,8 +32,8 @@ class AbsenceController extends Controller
     public function create(Request $request)
 {
     $stagiaireId = $request->query('stagiaire_id');
-    $demandes = Demande::orderBy('created_at','desc')
-    ->limit(5)
+    $demandes = Demande::where('status', 'encour')
+    ->orderBy('created_at', 'desc')
     ->get();
     // Pass $stagiaireId to the view using compact or any other method
     // return view('absence.stagiaire_absence', compact('stagiaireId','demandes'));
@@ -71,7 +71,9 @@ class AbsenceController extends Controller
     {
          return view('absence.alert');
     }
-
+     public function alertStagiaire(){
+        return view('stagiaire.list_stagiaire_conseil');
+     }
     /**
      * Show the form for editing the specified resource.
      */

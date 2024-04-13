@@ -67,20 +67,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar d-flex flex-column">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Maryem</a>
-        </div>
-      </div>
-      <!-- Sidebar Menu -->
-      @include('layouts.SidebarMenu')
-      <!-- /.sidebar-menu -->
-    </div>
+    @include('layouts.sidebar')
     <!-- /.sidebar -->
   </aside>
 
@@ -113,12 +100,12 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>50</h3>
+                <h3>{{ $countGroup }}</h3>
 
                 <p>all groupe</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fa-light fa-users-line"></i>
               </div>
               <a href="{{ route('groups.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -129,32 +116,18 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{ $countStagiaire }}</h3>
 
                 <p>absence stagier</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fa-light fa-user-graduate"></i> 
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+           
         </div>
       </div><!-- /.container-fluid -->
     </section>

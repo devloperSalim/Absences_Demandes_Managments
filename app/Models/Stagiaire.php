@@ -17,7 +17,7 @@ class Stagiaire extends Authenticatable
     protected $fillable = ['password','nom','prenom','email_etu','stagaire_en_formation','nationalite','code_group','date_pv','status'];
 
     public function group(){
-        return $this->belongsTo(Group::class);
+        return $this->belongsTo(Group::class ,'code_group','code_group');
     }
 
     public function absences(){

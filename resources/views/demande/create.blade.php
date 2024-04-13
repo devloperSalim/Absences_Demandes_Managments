@@ -12,6 +12,24 @@
     <!-- Custom stlylesheet -->
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}" />
     <style>
+
+.footer {  
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;  
+        }
+        .footer a:hover {
+            color: #757575; 
+        }
         @media (max-width: 991px) {
   .navbar-scroll {
     background-color: #ffffff2b;
@@ -70,6 +88,10 @@
   #intro {
     height: 600px !important;
   }
+  .nav-item:hover{
+  background: rgba(226, 226, 226, 0.285);
+  
+}
 }
 
 .display-1 {
@@ -82,15 +104,19 @@
     font-size: 10rem;
   }
 }
+
+.nav-item:hover a {
+  color: #4f4f4f;
+}
     </style>
 </head>
 
 <body id="booking">
-    <header>
+    <header class="">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-scroll  ">
+        <nav class="navbar navbar-expand-lg   position-sticky sticky-top top-0 z-100 navbar-scroll  ">
             <div class="container-fluid ml-3">
-                <a class="navbar-brand" href="#!">ISTA</a>
+                <a class="navbar-brand" href="">ISTA</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
@@ -101,7 +127,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('demandes.show', [Auth::guard('stagiaire')->user()->id]) }}">My Demandes</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link active text-danger" aria-current="page" href="{{ route('logout.stagiaire') }}">Logout</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('logout.stagiaire') }}">Logout</a>
 
                       </li>
                   </ul>
@@ -116,18 +142,18 @@
         <!-- Navbar -->
     </header>
 
-    <div  class="section">
-        <div class="section-center">
-            <div class="container">
+    <div  class="section d-flex justify-content-center align-items-center " >
+        <div class="section-center ">
+            <div class="container ">
                 <div class="row">
-                    <div class=" col-6 col-md-4  ">
+                    <div class="col-lg-4 col-12 col-md-12  ">
                         <div class="booking-cta">
-                            <h1>Thank You for Visiting!</h1>
+                            <h1>Thank You for Visiting !</h1>
                             <p class="text-light">We hope you enjoyed your experience on our website. Your feedback is
                                 valuable to us. Please take a moment to share your thoughts with us.</p>
                         </div>
                     </div>
-                    <div class="col-md-8 col-md-offset-1">
+                    <div class="col-md-8 col-md-offset-1 d-flex justify-content-center align-items-center">
                         <div class="booking-form">
                             <form id="bookingForm" action="{{ route('demandes.store') }}" method="POST">
                                 @csrf
@@ -170,9 +196,16 @@
                     </div>
                 </div>
             </div>
+            
         </div>
+        
     </div>
-
+    <div class="footer">
+      <a href="https://portfolio-salim.web.app"><i class="fas fa-external-link-alt"></i> salim</a>
+      <a href="https://github.com/devloperSalim"><i class="fab fa-github"></i> salim</a>
+      <a href="https://github.com/LahciniAbdelhaq"><i class="fab fa-github"></i>Abdelhaq</a> 
+      <p>&copy; 2024 ISTA | Cité de l'air El Jadida | by Salim and abdelahq</p>
+  </div>
     <script>
         // JavaScript to toggle the menu on mobile screens
         document.addEventListener("DOMContentLoaded", function () {

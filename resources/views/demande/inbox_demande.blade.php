@@ -67,20 +67,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar d-flex flex-column">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Maryem</a>
-        </div>
-      </div>
-      <!-- Sidebar Menu -->
-      @include('layouts.SidebarMenu')
-      <!-- /.sidebar-menu -->
-    </div>
+    @include('layouts.sidebar')
     <!-- /.sidebar -->
   </aside>
 
@@ -128,28 +115,22 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body p-0">
-                    <div class="mailbox-controls">
-                      <!-- Check all button -->
-                      <button type="button" class="btn btn-default btn-sm btn-delete">
-                          <i class="far fa-trash-alt"></i> Delete
-                      </button>
+                    <div class="mailbox-controls"> 
                       <!-- /.btn-group -->
                       <button type="button" class="btn btn-default btn-sm" id="refreshButton">
                           <i class="fas fa-sync-alt"></i>
                       </button>
                       <button type="button" class="btn btn-success btn-sm" id="acceptButton">
                           <i class="fas fa-check"></i> Accept
-                      </button>
-                      <button type="button" class="btn btn-danger btn-sm" id="refuseButton">
-                          <i class="fas fa-times"></i> Refuse
-                      </button>
+                      </button> 
                   </div>
                     <div class="table-responsive mailbox-messages">
                       <table class="table table-hover table-striped" id="example">
                         <thead>
                             <tr>
                               <th>
-                                <button type="button" class="btn btn-default btn-sm checkbox-toggle"> <i class="far fa-square"></i>
+                                <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                                   <i class="far fa-square"></i>
                               </button>
                             </th>
                               <th>id</th>

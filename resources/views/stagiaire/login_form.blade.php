@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .parent-container {
+        background-image: url('{{ asset('dist/img/ISTA.jpg') }}');
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
     <title>Login</title>
 </head>
 <body>
-    <div class="">
+    <div class=" ">
         <div
           class="min-h-screen w-full font-sans aliased flex flex-col"
         >
           <div
-            class="flex-1 flex items-center bg-blue-500 py-12 relative"
-          >
-            <div
-              class="h-1/2 w-full mx-auto absolute inset-x-0 top-0"
-            ></div>
+            class="flex-1 flex items-center parent-container w-full  py-12 relative"
+          > 
             <div class="max-w-xl mx-auto px-8 relative space-y-6">
 
               <div
@@ -87,27 +91,12 @@
                   >
                     Log in
                   </button>
-                  <div class="grid grid-cols-2 gap-4">
-                    <a
-                      target="_self"
-                      href=""
-                      class="inline-flex items-center justify-center text-sm font-medium border transition-all ease-in-out duration-100 focus:outline-none focus:shadow-outline border-gray-300 bg-white text-gray-900 shadow-sm hover:bg-gray-50 focus:border-gray-400 focus:bg-white px-3 py-2 text-sm flex w-full"
-                    >
-                      Register
-                    </a>
-                    <a
-                      target="_self"
-                      href=""
-                      class="inline-flex items-center justify-center text-sm font-medium border focus:outline-none focus:shadow-outline border-gray-300 bg-white text-gray-900 shadow-sm hover:bg-gray-50 focus:border-gray-400 focus:bg-white px-3 py-2 text-sm flex w-full"
-                    >
-                      Forgot password
-                    </a>
-                  </div>
+                   
                 </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
+  </div>
 </body>
 </html>
