@@ -190,10 +190,10 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Groupe </label>
-                                                        <select class="form-control @error('group_id') is-invalid @enderror" name="group_id" style="width: 100%;">
+                                                        <select class="form-control @error('code_group') is-invalid @enderror" name="code_group" style="width: 100%;">
                                                             <option value="" disabled selected>Select group</option>
                                                             @foreach ($groups as $group)
-                                                                <option value="{{ $group->id }}">{{ $group->code_group }}</option>
+                                                                <option value="{{ $group->code_group }}">{{ $group->code_group }}</option>
                                                             @endforeach
                                                         </select>
                                                         <div class="invalid-feedback">{{ $errors->first('group_id') }}</div>

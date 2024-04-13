@@ -79,7 +79,7 @@ class StagiaireController extends Controller
         $formFields = $request->validated();
         $formFields['stagaire_en_formation'] = $stagaire_en_formation;
         $formFields['password']=Hash::make($request->password);
-        dd($formFields);
+        // dd($formFields);
         Stagiaire::create($formFields);
 
         return redirect()->route('stagiaires.index');
