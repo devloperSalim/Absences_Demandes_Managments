@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StagiaireController;
 use App\Http\Controllers\ExcelImportController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InitializeDatabaseController;
 use App\Models\Stagiaire;
 
 /*
@@ -28,7 +29,9 @@ use App\Models\Stagiaire;
     Route::get('/this/for/admin/only', function () {
         return view('admin_login');
     });
-
+    Route::get('/not_found', function () {
+        return view('not_found');
+    });
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified','admin'])->name('dashboard');
@@ -52,7 +55,8 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/import-excel/stagiaire', [ExcelImportController::class, 'importStagiaire'])->name('excel.stagiaire');
     Route::post('/import-excel/module', [ExcelImportController::class, 'importModule'])->name('excel.module');
     Route::post('/import-excel/avancement', [ExcelImportController::class, 'avancement'])->name('excel.avance_module');
-
+    // initialize database
+    Route::get('/initialize-database', [InitializeDatabaseController::class, 'initialize'])->name('initialize.database');
 });
 
 Route::middleware(['stagiaire'])->group(function () {
@@ -62,7 +66,7 @@ Route::middleware(['stagiaire'])->group(function () {
     Route::get('/demandes/create',[DemandeController::class, 'create'])->name('demandes.create');
     Route::post('/demandes', [DemandeController::class, 'store'])->name('demandes.store');
     Route::get('/demandes/{demande}',[DemandeController::class, 'show'])->name('demandes.show');
- 
+    
     // Other routes for stagiaire users...
 });
 
