@@ -118,12 +118,12 @@
               <div class="inner">
                 <h3>{{ $countStagiaire }}</h3>
 
-                <p>absence stagier</p>
+                <p> stagier</p>
               </div>
               <div class="icon">
                 <i class="fa-light fa-user-graduate"></i> 
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('stagiaires.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -131,15 +131,22 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-6">  
+              <form id="initializeForm" action="{{ route('initialize.database') }}" method="GET">
+                @csrf
+                <button type="submit" class="btn btn-primary">Initialize Database</button>
+              </form> 
+          </div>
+        </div>
+      </div>
+
+    </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
-    All rights reserved.
-
-  </footer>
-
+  <!-- /.content-wrapper --> 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -149,5 +156,30 @@
 <!-- ./wrapper -->
 
 @extends('layouts.footerjs')
+<!-- Include SweetAlert2 library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('initializeForm').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent form submission
+          
+          // Display SweetAlert2 confirmation dialog
+          Swal.fire({
+              title: 'Are you sure?',
+              text: 'This action will initialize the database. This cannot be undone!',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, initialize database!'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  // If user confirms, submit the form
+                  this.submit();
+              }
+          });
+      });
+  });
+</script>
 </body>
 </html>

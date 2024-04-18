@@ -26,9 +26,13 @@ class StagiaireController extends Controller
         $credentials = $request->only('email_etu', 'password');
 
         // Attempt to authenticate the user
-        // dd(Auth::guard('stagiaire')->attempt($credentials));
-        if (Auth::guard('stagiaire')->attempt($credentials)) {
+        $user = Stagiaire::where('email_etu', $request->email_etu)
+        ->where('password', $request->password)
+        ->first();
+        // dd($user);
+        if ($user) {
             // Authentication successful, redirect to the demand creation form
+            Auth::guard('stagiaire')->login($user);
             return redirect()->route('demandes.create');
         } else {
             // Authentication failed, redirect back with error

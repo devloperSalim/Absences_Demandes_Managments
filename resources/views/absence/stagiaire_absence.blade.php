@@ -106,7 +106,7 @@
                             <div class="info-box-content">
                                 <span class="info-box-text">{{ $stagiaire->nom }} {{ $stagiaire->prenom }}</span>
                                 <span class="info-box-number">{{ $count }} absence</span>
-                                
+
                                 <span class="description">
                                     @if($absences->isNotEmpty())
                                     @php
@@ -151,9 +151,9 @@
                                             <label>Type Absence</label>
                                             <select class="form-control select2" style="width: 100%;"
                                                 name="type_abs">
-                                                <option></option>
-                                                <option>Justifie</option>
-                                                <option>Injustifie</option>
+                                                <option >chiosir type</option>
+                                                <option value="Justifie">Justifie</option>
+                                                <option value="Injustifie">Injustifie</option>
                                             </select>
                                             @error('type_abs')
                                                 <span
@@ -230,11 +230,7 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
-        All rights reserved.
 
-    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

@@ -26,12 +26,12 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" class="nav-link">Home</a>
-      </li> 
+      </li>
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto"> 
- 
+    <ul class="navbar-nav ml-auto">
+
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -64,7 +64,7 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-       
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -79,9 +79,9 @@
 
     <!-- Sidebar -->
     @include('layouts.sidebar')
-    
+
     <!-- /.sidebar -->
-     
+
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
@@ -89,9 +89,9 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2"> 
+        <div class="row mb-2">
           <div class="col-sm-12">
-            <ol class="breadcrumb float-sm-right">  
+            <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('absences.alert') }}">Alert</a></li>
               <li class="breadcrumb-item">Dashboard </li>
             </ol>
@@ -123,27 +123,25 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>John Doe</td>
-                    <td>Group A</td>
-                    <td>Avertissement Surveillance generale</td>
-                    <td>5</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Jane Smith</td>
-                    <td>Group B</td>
-                    <td>Avertissement Retard</td>
-                    <td>3</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Michael Johnson</td>
-                    <td>Group C</td>
-                    <td>Avertissement Manquement</td>
-                    <td>7</td>
-                    <td>0</td>
-                  </tr>
+
+                    @foreach ($absenceNumbers as $absence)
+                    <tr class="stagiaireRow">
+                        <td>{{ $absence['nom'] }} {{ $absence['prenom'] }}</td>
+                        <td>{{ $absence['group'] }}</td>
+                        <td>
+                            @if ($absence['unjustified'] > 40)
+                                Consider discipline for {{ $absence['nom'] }}
+                            @elseif ($absence['unjustified'] > 20)
+                                Alert 2 for {{ $absence['nom'] }}
+                            @elseif ($absence['unjustified'] > 15)
+                                Alert 1 for {{ $absence['nom'] }}
+                            @endif
+                        </td>
+
+                        <td>{{ $absence['justified'] }}</td>
+                        <td>{{ $absence['unjustified'] }}</td>
+                    </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -159,18 +157,14 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="#">ISTA CITY DE L'AIR</a>.</strong>
-    All rights reserved.
-     
-  </footer>
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -180,10 +174,10 @@
 </div>
 <!-- ./wrapper -->
 
-@extends('layouts.footerjs') 
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> 
+@extends('layouts.footerjs')
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- InputMask -->
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script> 
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
 <script>
   $(document).ready(function() {
     $('#dataTable').DataTable( );

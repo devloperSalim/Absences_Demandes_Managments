@@ -26,12 +26,12 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('home') }}" class="nav-link">Home</a>
-      </li> 
+      </li>
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto"> 
- 
+    <ul class="navbar-nav ml-auto">
+
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -64,7 +64,7 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-       
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -91,11 +91,11 @@
         <!-- Sidebar Menu -->
         @include('layouts.SidebarMenu')
         <!-- /.sidebar-menu -->
-       
+
     </div>
-    
+
     <!-- /.sidebar -->
-     
+
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
@@ -103,9 +103,9 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2"> 
+        <div class="row mb-2">
           <div class="col-sm-12">
-            <ol class="breadcrumb float-sm-right">  
+            <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('absences.alert') }}">Alert</a></li>
               <li class="breadcrumb-item">Dashboard </li>
             </ol>
@@ -122,7 +122,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-               List stagiaire qui passe à un conseil de Discipline 
+               List stagiaire qui passe à un conseil de Discipline
           </div>
           <div class="card-body">
             <div class="table ">
@@ -133,34 +133,25 @@
                     <th>Group</th>
                     <th>Type Alert</th>
                     <th>Nombre d'absence Justifiées</th>
-                    <th>Nombre d'absence Injustifiées</th> 
+                    <th>Nombre d'absence Injustifiées</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>John Doe</td>
-                    <td>Group A</td>
-                    <td>passe à un conseil de Discipline</td>
-                    <td>5</td>
-                    <td>2</td>
-                    
-                  </tr>
-                  <tr>
-                    <td>Jane Smith</td>
-                    <td>Group B</td>
-                    <td>passe à un conseil de Discipline</td>
-                    <td>3</td>
-                    <td>1</td>
-                     
-                  </tr>
-                  <tr>
-                    <td>Michael Johnson</td>
-                    <td>Group C</td>
-                    <td>passe à un conseil de Discipline</td>
-                    <td>7</td>
-                    <td>0</td>
-                    
-                  </tr>
+                  @foreach ($absenceNumbers as  $absencenum )
+                    <tr>
+                        <td>{{ $absencenum['nom'] }} {{ $absencenum['prenom'] }}</td>
+                        <td>{{ $absencenum['group'] }}</td>
+                        <td>
+                            @if  ($absencenum['unjustified'] > 40)
+
+                            passer un  conseil Discipline
+
+                            @endif
+                        </td>
+                        <td>{{ $absencenum['justified'] }}</td>
+                        <td>{{ $absencenum['unjustified'] }}</td>
+                    </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -176,13 +167,13 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        
-        
+
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper --> 
+  <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -192,10 +183,10 @@
 </div>
 <!-- ./wrapper -->
 
-@extends('layouts.footerjs') 
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> 
+@extends('layouts.footerjs')
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- InputMask -->
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script> 
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
 <script>
   $(document).ready(function() {
     $('#dataTable').DataTable( );

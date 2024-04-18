@@ -7,6 +7,7 @@ use App\Models\Stagiaire;
 use Carbon\Carbon;
 use Illuminate\Http\Request; 
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Reader\Xls;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use PhpOffice\PhpSpreadsheet\Shared\Date; 
 
@@ -16,14 +17,21 @@ class ExcelImportController extends Controller
     public function importGroup(Request $request)
     {
         // Validate the uploaded file
-        $request->validate([
-            'excel_file' => 'required|mimes:xlsx,xls',
-        ]);
-
+        // $request->validate([
+        //     'excel_file' => 'required|mimes:xlsx|mimes:xls',
+        // ]); 
+        set_time_limit(300);
         // Get the uploaded file
         $file = $request->file('excel_file');
-
+            // dd($file);
         // Load the Excel file
+        // $reader = new Xls();
+        // $reader->setReadDataOnly(true); // Read only data, not formatting
+        
+        // $reader->setReadEmptyCells(false); // Skip empty cells
+         
+        // $spreadsheet = $reader->load($file->getPathname());
+
         $spreadsheet = IOFactory::load($file);
 
         // Get the first worksheet
@@ -40,8 +48,8 @@ class ExcelImportController extends Controller
         // Iterate through rows and columns to read data
         for ($row = 2; $row <= $highestRow; $row++) { 
             $rowData = [ 
-                'code_group' => $worksheet->getCell('A' . $row)->getValue(),
-                'nom_ilière' => $worksheet->getCell('B' . $row)->getValue(), 
+                'code_group' => $worksheet->getCell('H' . $row)->getValue(),
+                'nom_ilière' => $worksheet->getCell('F' . $row)->getValue(), 
             ];
                 // Check if the code_group value is already present in the uniqueCodeGroups array
             if (in_array($rowData['code_group'], $uniqueCodeGroups)) {
@@ -61,7 +69,13 @@ class ExcelImportController extends Controller
         // dd($data);
 
         // Insert the data into the database
-        Group::insert($data);
+        // Group::insert($data);
+        foreach ($data as $row) {
+            Group::updateOrCreate(
+                ['code_group' => $row['code_group']], // Unique identifier
+                $row // Data to insert or update
+            );
+        }
 
         // Optionally, you can return the data or process it further
         return to_route('groups.index');
@@ -72,7 +86,7 @@ class ExcelImportController extends Controller
         $request->validate([
             'excel_file' => 'required|mimes:xlsx,xls',
         ]);
-
+        set_time_limit(300);
         // Get the uploaded file
         $file = $request->file('excel_file');
 
@@ -115,11 +129,13 @@ class ExcelImportController extends Controller
                 $email_etu = $worksheet->getCell('D'. $row)->getValue() ;
             }
             // Get password value
-                $password = $worksheet->getCell('H' . $row)->getValue();
-
+                
                 // Check if password is null
-                if ($password === null) {
-                    $password = "123445678"; // Set default password
+                if ( $worksheet->getCell('H' . $row)->getValue() === null) {
+                    
+                    $password = "12345678"; // Set default password
+                }else{
+                    $password = $worksheet->getCell('H' . $row)->getValue();
                 }
             $rowData = [ 
                 'nom' => $worksheet->getCell('A' . $row)->getValue(),
@@ -143,10 +159,15 @@ class ExcelImportController extends Controller
                 continue; // Skip this row and move to the next one
             } 
              
-            } 
-            
+            }  
             // Insert the data into the database 
-            Stagiaire::insert($data);
+            // Stagiaire::insert($data);
+            foreach ($data as $row) {
+                Stagiaire::updateOrCreate(
+                    ['nom' => $row['nom'],'prenom' => $row['prenom']], // Unique identifier
+                    $row // Data to insert or update
+                );
+            }
 
 
         // Get all groups

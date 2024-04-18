@@ -67,13 +67,7 @@ class AbsenceController extends Controller
     {
         // return view('')
     }
-    public function alert(Request $request)
-    {
-         return view('absence.alert');
-    }
-     public function alertStagiaire(){
-        return view('stagiaire.list_stagiaire_conseil');
-     }
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -97,4 +91,73 @@ class AbsenceController extends Controller
     {
         //
     }
+
+    public function showAbsenceNumbers()
+    {
+
+        $stagiaires = Stagiaire::with('group')->get();
+
+        $absenceNumbers = [];
+
+        foreach ($stagiaires as $stagiaire) {
+            $justifiedCount = 0;
+            $unjustifiedCount = 0;
+
+            foreach ($stagiaire->absences as $absence) {
+                if ($absence->type_abs === 'Justifie') {
+                    $justifiedCount += $absence->nbr_hour;
+                } elseif ($absence->type_abs === 'Injustifie') {
+                    $unjustifiedCount += $absence->nbr_hour;
+                }
+            }
+            $absenceNumbers[] = [
+                'nom' => $stagiaire->nom,
+                'prenom' => $stagiaire->prenom,
+                'group' => $stagiaire->group->code_group,
+                'justified' => $justifiedCount,
+                'unjustified' => $unjustifiedCount,
+            ];
+        }
+        // dd($absenceNumbers);
+
+        return view('absence.alert', compact('absenceNumbers' ));
+    }
+
+
+    // stagiaire qui passe un conseil Discipline
+    public function  conseilDiscipline(){
+
+        $stagiaires = Stagiaire::with('group')->get();
+
+        $absenceNumbers = [];
+
+        foreach ($stagiaires as $stagiaire) {
+            $justifiedCount = 0;
+            $unjustifiedCount = 0;
+
+            foreach ($stagiaire->absences as $absence) {
+                if ($absence->type_abs === 'Justifie') {
+                    $justifiedCount += $absence->nbr_hour;
+                } elseif ($absence->type_abs === 'Injustifie') {
+                    $unjustifiedCount += $absence->nbr_hour;
+                }
+            }
+            if($unjustifiedCount >= 40){
+                $absenceNumbers[] = [
+                    'nom' => $stagiaire->nom,
+                    'prenom' => $stagiaire->prenom,
+                    'group' => $stagiaire->group->code_group,
+                    'justified' => $justifiedCount,
+                    'unjustified' => $unjustifiedCount,
+                ];
+            }
+        }
+        // dd($absenceNumbers);
+
+        return view('stagiaire.list_stagiaire_conseil' ,compact('absenceNumbers'));
+    }
+
+
+
+
 }
