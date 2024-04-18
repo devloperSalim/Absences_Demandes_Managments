@@ -79,11 +79,7 @@ class StagiaireController extends Controller
         $formFields = $request->validated();
         $formFields['stagaire_en_formation'] = $stagaire_en_formation;
         $formFields['password']=Hash::make($request->password);
-<<<<<<< HEAD
         // dd($formFields);
-=======
-      
->>>>>>> 4497fce497cc96b8805511e270ecbc1464c3a379
         Stagiaire::create($formFields);
 
         return redirect()->route('stagiaires.index');
@@ -93,12 +89,12 @@ class StagiaireController extends Controller
      * Display the specified resource.
      */
     public function showDetails(Stagiaire $stagiaire)
-    { 
+    {
         $demandes = Demande::where('status', 'encour')
             ->orderBy('created_at', 'desc')
-            ->get(); 
-          
-          
+            ->get();
+
+
         return view('stagiaire.details_stagiaires',compact('stagiaire','demandes'));
     }
 
