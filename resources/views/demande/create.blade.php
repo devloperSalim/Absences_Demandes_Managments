@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}" />
     <style>
 
-.footer {  
+.footer {
             width: 100%;
             background-color: rgba(0, 0, 0, 0.8);
             color: #fff;
@@ -25,10 +25,10 @@
             text-decoration: none;
             color: #fff;
             font-weight: bold;
-            transition: color 0.3s ease;  
+            transition: color 0.3s ease;
         }
         .footer a:hover {
-            color: #757575; 
+            color: #757575;
         }
         @media (max-width: 991px) {
   .navbar-scroll {
@@ -90,7 +90,7 @@
   }
   .nav-item:hover{
   background: rgba(226, 226, 226, 0.285);
-  
+
 }
 }
 
@@ -163,8 +163,8 @@
                                             <span class="form-label">choisir un demande</span>
                                             <select class="form-control select2" id="travelClass" name="type">
                                                 <option value="" selected disabled>Choisir un demande</option>
-                                                <option>Economy class</option>
-                                                <option>Business class</option>
+                                                <option>Autorisation d'absence</option>
+                                                <option>Attestation d'inscription</option>
                                                 <option>First class</option>
                                             </select>
                                             <span class="select-arrow"></span>
@@ -196,14 +196,14 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
     </div>
     <div class="footer">
       <a href="https://portfolio-salim.web.app"><i class="fas fa-external-link-alt"></i> salim</a>
       <a href="https://github.com/devloperSalim"><i class="fab fa-github"></i> salim</a>
-      <a href="https://github.com/LahciniAbdelhaq"><i class="fab fa-github"></i>Abdelhaq</a> 
+      <a href="https://github.com/LahciniAbdelhaq"><i class="fab fa-github"></i>Abdelhaq</a>
       <p>&copy; 2024 ISTA | Cité de l'air El Jadida | by Salim and abdelahq</p>
   </div>
     <script>
