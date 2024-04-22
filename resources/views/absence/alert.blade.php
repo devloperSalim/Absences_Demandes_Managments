@@ -130,11 +130,17 @@
                         <td>{{ $absence['group'] }}</td>
                         <td>
                             @if ($absence['unjustified'] > 40)
-                                Consider discipline for {{ $absence['nom'] }}
+                                <div class="alert alert-danger alert-sm" role="alert">
+                                    Consider discipline for {{ $absence['nom'] }}
+                                  </div>
                             @elseif ($absence['unjustified'] > 20)
-                                Alert 2 for {{ $absence['nom'] }}
+                                <div class="alert alert-warning alert-sm" role="alert">
+                                    Alert 2 for {{ $absence['nom'] }}
+                                  </div>
                             @elseif ($absence['unjustified'] > 15)
-                                Alert 1 for {{ $absence['nom'] }}
+                                <div class="alert alert-primary alert-sm" role="alert">
+                                    Alert 1 for {{ $absence['nom'] }}
+                                </div>
                             @endif
                         </td>
 
