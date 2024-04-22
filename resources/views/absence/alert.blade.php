@@ -8,6 +8,17 @@
 
   <!-- daterange picker -->
   <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
+  <style>
+    .bg-warning-light {
+        background-color: #ffcc0079; /* Light yellow color */
+    }
+    .bg-danger-light{
+        background-color: #ff5656; /* Light yellow color */
+    }
+    .bg-primary-light{
+        background-color: #295bffbf; /* Light yellow color */
+    }
+</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -130,16 +141,16 @@
                         <td>{{ $absence['group'] }}</td>
                         <td>
                             @if ($absence['unjustified'] > 40)
-                                <div class="alert alert-danger alert-sm" role="alert">
-                                    Consider discipline for {{ $absence['nom'] }}
+                                <div class="alert alert-danger bg-danger-light opacity-25" role="alert">
+                                    Conseil de Discipline de {{ $absence['nom'] }}
                                   </div>
                             @elseif ($absence['unjustified'] > 20)
-                                <div class="alert alert-warning alert-sm" role="alert">
-                                    Alert 2 for {{ $absence['nom'] }}
+                                <div class="alert alert-warning alert-sm  bg-warning-light" role="alert">
+                                    2eme avertissement de {{ $absence['nom'] }}
                                   </div>
                             @elseif ($absence['unjustified'] > 15)
-                                <div class="alert alert-primary alert-sm" role="alert">
-                                    Alert 1 for {{ $absence['nom'] }}
+                                <div class="alert alert-info alert-sm bg-primary-light" role="alert">
+                                    avertissment Surveillance de {{ $absence['nom'] }}
                                 </div>
                             @endif
                         </td>
