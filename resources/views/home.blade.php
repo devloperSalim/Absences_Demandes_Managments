@@ -118,27 +118,27 @@
               <div class="inner">
                 <h3>{{ $countStagiaire }}</h3>
 
-                <p> stagier</p>
+                <p> stagiaires</p>
               </div>
               <div class="icon">
-                <i class="fa-light fa-user-graduate"></i> 
+                <i class="fa-light fa-user-graduate"></i>
               </div>
               <a href="{{ route('stagiaires.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
-           
+
         </div>
       </div><!-- /.container-fluid -->
     </section>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-3 col-6">  
+          <div class="col-lg-3 col-6">
               <form id="initializeForm" action="{{ route('initialize.database') }}" method="GET">
                 @csrf
                 <button type="submit" class="btn btn-primary">Initialize Database</button>
-              </form> 
+              </form>
           </div>
         </div>
       </div>
@@ -146,7 +146,7 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper --> 
+  <!-- /.content-wrapper -->
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -162,7 +162,7 @@
   document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('initializeForm').addEventListener('submit', function (event) {
           event.preventDefault(); // Prevent form submission
-          
+
           // Display SweetAlert2 confirmation dialog
           Swal.fire({
               title: 'Are you sure?',
